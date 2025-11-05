@@ -1,75 +1,172 @@
-# React + TypeScript + Vite
+# Business Card
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React + TypeScript application built with Vite, featuring strict code quality standards and best practices.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 19.1** - UI library
+- **TypeScript 5.9** - Type safety
+- **Vite 7.1** - Build tool and dev server
+- **TailwindCSS 4.1** - Utility-first CSS framework
+- **pnpm** - Package manager
 
-## React Compiler
+## Project Structure
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── pages/          # Application pages
+│   └── home.tsx    # Home page component
+├── main.tsx        # Application entry point
+└── index.css       # Global styles
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js
+- pnpm 10.20.0+
+
+### Installation
+
+```bash
+pnpm install
+```
+
+### Available Scripts
+
+```bash
+# Start development server
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Preview production build
+pnpm preview
+
+# Run ESLint
+pnpm lint
+
+# Run ESLint with auto-fix
+pnpm lint:fix
+
+# Format code with Prettier
+pnpm format
+
+# Check code formatting
+pnpm format:check
+
+# Full pre-commit validation (format + lint + build)
+pnpm pre-commit
+```
+
+## Code Quality
+
+### ESLint Configuration
+
+The project uses a strict ESLint setup with the following rules:
+
+- **TypeScript ESLint** - Type-aware linting rules
+- **React Hooks** - Latest recommended rules
+- **React Refresh** - Fast Refresh compatibility
+- **Prettier Integration** - No style conflicts
+- **Unicorn** - Additional best practices
+
+### Enforced Code Standards
+
+1. **Arrow Functions Only**
+   ```typescript
+   // ✅ Correct
+   const MyComponent = () => { ... }
+
+   // ❌ Wrong
+   function MyComponent() { ... }
+   ```
+
+2. **kebab-case Filenames**
+   ```
+   ✅ home.tsx
+   ✅ user-profile.tsx
+   ❌ Home.tsx
+   ❌ UserProfile.tsx
+   ```
+
+3. **Absolute Imports with @/ Prefix**
+   ```typescript
+   // ✅ Correct
+   import Home from '@/pages/home'
+
+   // ❌ Wrong
+   import Home from './pages/home'
+   import Home from '../pages/home'
+   ```
+
+4. **TypeScript Strict Mode**
+   - No unused variables/parameters
+   - No explicit `any` types (warns)
+   - Strict type checking enabled
+
+5. **Console Usage**
+   - `console.log()` - Warns
+   - `console.warn()` - Allowed
+   - `console.error()` - Allowed
+
+### Prettier Configuration
+
+- No semicolons
+- Single quotes
+- ES5 trailing commas
+- 2 space indentation
+- 100 character line width
+- Arrow function parens: avoid
+- LF line endings
+
+## Path Aliases
+
+The project uses `@/` as an alias for the `src/` directory:
+
+```typescript
+import Home from '@/pages/home'
+import styles from '@/index.css'
+```
+
+Configured in:
+- `vite.config.ts` - Build-time resolution
+- `tsconfig.app.json` - TypeScript IntelliSense
+
+## Build Configuration
+
+### Vite Features
+
+- React Fast Refresh for instant HMR
+- React Compiler (experimental) for optimizations
+- TailwindCSS v4 integration
+- Path alias resolution
+
+### TypeScript Settings
+
+- Target: ES2022
+- Module: ESNext
+- Module Resolution: Bundler mode
+- JSX: react-jsx
+- Strict mode enabled
+- No unused locals/parameters
+
+## Ignored Files
+
+The following are excluded from version control and formatting:
+
+- `node_modules/`
+- `dist/`
+- `.DS_Store`
+- `*.log`
+- IDE-specific files (`.vscode/*`, `.idea`)
+
+## Package Manager
+
+This project uses `pnpm` with a locked version specified in `package.json`:
+
+```bash
+pnpm@10.20.0
 ```
