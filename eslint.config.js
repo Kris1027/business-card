@@ -37,6 +37,8 @@ export default defineConfig([
         'error',
         { allowSameFolder: false, rootDir: 'src', prefix: '@' },
       ],
+      'no-inline-comments': ['error', { ignorePattern: 'prettier-ignore' }],
+      'no-warning-comments': ['error', { terms: ['eslint-disable', 'eslint-ignore'] }],
     },
   },
   eslintConfigPrettier,
