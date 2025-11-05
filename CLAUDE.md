@@ -129,3 +129,74 @@ pnpm pre-commit       # Full validation: format + lint:fix + build
     // theme is 'light' or 'dark'
   }
   ```
+
+### Internationalization (i18n) Implementation
+- **react-i18next** - Industry-standard i18n library with TypeScript support
+- **Default language: Polish (pl)** - Primary language for the application
+- **Secondary language: English (en)** - Alternative language option
+- **Language toggle** - `<LanguageToggle />` component in navigation bar (globe icon)
+- **State persistence** - User preference saved to localStorage (key: `language`)
+- **Browser detection** - Automatically detects browser language on first visit, falls back to Polish
+- **FOUC prevention** - Inline script in `index.html` sets language and page title before React loads
+- **File structure**:
+  - `src/i18n/config.ts` - i18next configuration with language detection logic
+  - `src/locales/pl.ts` - Polish translations (default)
+  - `src/locales/en.ts` - English translations
+  - `src/locales/index.ts` - Exports all translation resources and Language type
+  - `src/contexts/language-context.tsx` - Context and types
+  - `src/components/language-provider.tsx` - LanguageProvider component
+  - `src/hooks/use-language.ts` - Hook to access language context
+  - `src/types/i18next.d.ts` - TypeScript type definitions for type-safe translation keys
+- **Usage pattern**:
+  ```tsx
+  import { useTranslation } from 'react-i18next'
+
+  const Component = () => {
+    const { t } = useTranslation()
+    return <h1>{t('home.title')}</h1>
+  }
+  ```
+
+#### Critical i18n Rules
+1. **ALWAYS add both Polish and English translations** when adding new content
+   - ❌ Bad: Only adding English translation
+   - ✅ Good: Adding both `pl.ts` and `en.ts` translations simultaneously
+
+2. **Translation file structure** - Keep translations organized by feature/component
+   ```typescript
+   {
+     navigation: { ... },
+     footer: { ... },
+     home: { ... },
+     // Group related translations together
+   }
+   ```
+
+3. **Use translation keys consistently** - Follow the existing pattern
+   - Format: `category.specificKey` (e.g., `navigation.home`, `footer.craftedBy`)
+   - Use descriptive keys that indicate the content, not the location
+   - Keep keys in sync between `pl.ts` and `en.ts` files
+
+4. **Update both translation files when adding new features**
+   - Before considering a feature complete, verify translations exist in both languages
+   - Use Grep to search for similar translation patterns when unsure
+   - Test the feature in both Polish and English modes
+
+5. **Interpolation for dynamic content** - Use i18next interpolation syntax
+   ```typescript
+   // Translation file
+   { githubLabel: "Visit {{name}}'s GitHub profile" }
+
+   // Usage
+   t('footer.githubLabel', { name: 'Kris1027' })
+   ```
+
+6. **Never hardcode user-facing text** - All visible text must use `t()` function
+   - ❌ Bad: `<button>Click me</button>`
+   - ✅ Good: `<button>{t('button.clickMe')}</button>`
+   - Exception: Developer-facing content (console logs, error boundaries for devs)
+
+7. **Language detection priority order**:
+   1. localStorage (`language` key)
+   2. Browser language (navigator.language)
+   3. Fallback to Polish (`pl`)
