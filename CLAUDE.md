@@ -76,6 +76,12 @@ pnpm pre-commit       # Full validation: format + lint:fix + build
 - The `pre-commit` script validates everything (format + lint + build) before committing
 - TypeScript strict mode is enabled: handle all edge cases and avoid `any`
 
+### Responsive Design
+- **Mobile-first approach** - Always start with mobile styles (unprefixed utilities), then progressively enhance for larger screens
+- Use TailwindCSS breakpoints: `sm:` (640px), `md:` (768px), `lg:` (1024px), `xl:` (1280px), `2xl:` (1536px)
+- Example: `class="hidden md:flex"` (hidden on mobile, visible as flex on desktop)
+- Test responsive designs at mobile sizes first before moving to desktop
+
 ### Vite/React Specifics
 - HMR works via React Fast Refresh (configured in vite.config.ts)
 - React Compiler is enabled: components are automatically memoized when possible
