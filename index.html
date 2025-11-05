@@ -1,18 +1,41 @@
 <!doctype html>
-<html lang="en">
+<html lang="pl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Business Card</title>
+    <title>Wizytówka</title>
     <script>
-      // Prevent FOUC by applying dark class before React loads
+      // Prevent FOUC by applying dark class and language before React loads
       try {
+        // Set theme
         document.documentElement.classList.toggle(
           'dark',
           localStorage.theme === 'dark' ||
             (!('theme' in localStorage) &&
               window.matchMedia('(prefers-color-scheme: dark)').matches),
         )
+
+        // Set language attribute
+        const getBrowserLanguage = () => {
+          try {
+            const browserLang = navigator.language.split('-')[0]
+            return browserLang === 'en' || browserLang === 'pl' ? browserLang : 'pl'
+          } catch {
+            return 'pl'
+          }
+        }
+
+        const storedLanguage = localStorage.getItem('language')
+        const language = storedLanguage === 'en' || storedLanguage === 'pl'
+          ? storedLanguage
+          : getBrowserLanguage()
+
+        document.documentElement.lang = language
+
+        // Update title based on language
+        if (language === 'en') {
+          document.title = 'Business Card'
+        }
       } catch (e) {
         // If localStorage access fails, fallback to system preference only
         try {
