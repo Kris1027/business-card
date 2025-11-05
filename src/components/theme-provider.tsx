@@ -32,16 +32,12 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     localStorage.setItem('theme', theme)
   }, [theme])
 
-  const setTheme = (newTheme: Theme) => {
-    setThemeState(newTheme)
-  }
-
   const toggleTheme = () => {
     setThemeState(prev => (prev === 'light' ? 'dark' : 'light'))
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme: setThemeState, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   )

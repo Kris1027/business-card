@@ -38,7 +38,7 @@ const NavigationBar = () => {
           <a href="#home" className="flex items-center gap-2" onClick={closeMobileMenu}>
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 dark:bg-blue-500">
               <svg
-                className="h-5 w-5 text-white dark:text-white"
+                className="h-5 w-5 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -63,7 +63,7 @@ const NavigationBar = () => {
               aria-label="Toggle navigation menu"
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
-              className="relative h-10 w-10 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="relative h-10 w-10 rounded-lg p-2 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:hover:bg-gray-800"
             >
               <span className="sr-only">Toggle menu</span>
               {/* Hamburger icon with animation */}
@@ -94,7 +94,7 @@ const NavigationBar = () => {
           <a href="#home" className="flex items-center gap-2">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 dark:bg-blue-500">
               <svg
-                className="h-6 w-6 text-white dark:text-white"
+                className="h-6 w-6 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
