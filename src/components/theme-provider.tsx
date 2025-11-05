@@ -2,13 +2,19 @@ import { useEffect, useState } from 'react'
 import { ThemeContext, type Theme } from '@/contexts/theme-context'
 
 const getInitialTheme = (): Theme => {
-  const storedTheme = localStorage.getItem('theme') as Theme | null
-  if (storedTheme === 'light' || storedTheme === 'dark') {
-    return storedTheme
-  }
+  try {
+    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+      const storedTheme = localStorage.getItem('theme') as Theme | null
+      if (storedTheme === 'light' || storedTheme === 'dark') {
+        return storedTheme
+      }
 
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    return 'dark'
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark'
+      }
+    }
+  } catch {
+    // Fail gracefully if localStorage is unavailable (e.g., private browsing, SSR)
   }
 
   return 'light'
@@ -29,7 +35,13 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
       root.classList.remove('dark')
     }
 
-    localStorage.setItem('theme', theme)
+    try {
+      if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+        localStorage.setItem('theme', theme)
+      }
+    } catch {
+      // Fail gracefully if localStorage is unavailable (e.g., private browsing)
+    }
   }, [theme])
 
   const toggleTheme = () => {
