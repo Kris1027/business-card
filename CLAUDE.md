@@ -93,6 +93,7 @@ pnpm pre-commit       # Full validation: format + lint:fix + build
 ### When Modifying Code
 - Run `pnpm lint:fix` to auto-fix imports and formatting issues
 - The `pre-commit` script validates everything (format + lint + build) before committing
+- **ALWAYS run `pnpm pre-commit` after implementing any new feature** - This ensures all code quality checks pass
 - TypeScript strict mode is enabled: handle all edge cases and avoid `any`
 
 ### Responsive Design
