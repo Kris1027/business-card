@@ -3,18 +3,16 @@ import { ThemeContext, type Theme } from '@/contexts/theme-context'
 
 const getInitialTheme = (): Theme => {
   try {
-    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
-      const storedTheme = localStorage.getItem('theme') as Theme | null
-      if (storedTheme === 'light' || storedTheme === 'dark') {
-        return storedTheme
-      }
+    const storedTheme = localStorage.getItem('theme') as Theme | null
+    if (storedTheme === 'light' || storedTheme === 'dark') {
+      return storedTheme
+    }
 
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return 'dark'
-      }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark'
     }
   } catch {
-    // Fail gracefully if localStorage is unavailable (e.g., private browsing, SSR)
+    // Fail gracefully if localStorage is unavailable (e.g., private browsing)
   }
 
   return 'light'
@@ -36,9 +34,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     }
 
     try {
-      if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
-        localStorage.setItem('theme', theme)
-      }
+      localStorage.setItem('theme', theme)
     } catch {
       // Fail gracefully if localStorage is unavailable (e.g., private browsing)
     }

@@ -1,7 +1,10 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { LanguageToggle } from '@/components/language-toggle'
 import { ThemeToggle } from '@/components/theme-toggle'
 
 const NavigationBar = () => {
+  const { t } = useTranslation()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const toggleMobileMenu = () => {
@@ -19,16 +22,16 @@ const NavigationBar = () => {
   }
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: t('navigation.home'), href: '#home' },
+    { name: t('navigation.about'), href: '#about' },
+    { name: t('navigation.contact'), href: '#contact' },
   ]
 
   return (
     <nav
       className="sticky top-0 z-50 bg-white shadow-md dark:bg-gray-900 dark:shadow-gray-800/50"
       role="navigation"
-      aria-label="Main navigation"
+      aria-label={t('navigation.mainNavLabel')}
       onKeyDown={handleKeyDown}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -52,20 +55,23 @@ const NavigationBar = () => {
                 />
               </svg>
             </div>
-            <span className="text-xl font-bold text-gray-900 dark:text-gray-100">Brand</span>
+            <span className="text-xl font-bold text-gray-900 dark:text-gray-100">
+              {t('navigation.brand')}
+            </span>
           </a>
 
-          {/* Actions: Theme toggle + Hamburger button */}
+          {/* Actions: Language toggle + Theme toggle + Hamburger button */}
           <div className="flex items-center gap-2">
+            <LanguageToggle />
             <ThemeToggle />
             <button
               onClick={toggleMobileMenu}
-              aria-label="Toggle navigation menu"
+              aria-label={t('navigation.toggleMenuLabel')}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
               className="relative h-10 w-10 rounded-lg p-2 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:hover:bg-gray-800"
             >
-              <span className="sr-only">Toggle menu</span>
+              <span className="sr-only">{t('navigation.menuLabel')}</span>
               {/* Hamburger icon with animation */}
               <div className="flex h-full flex-col items-center justify-center gap-1.5">
                 <span
@@ -108,10 +114,12 @@ const NavigationBar = () => {
                 />
               </svg>
             </div>
-            <span className="text-xl font-bold text-gray-900 dark:text-gray-100">Brand</span>
+            <span className="text-xl font-bold text-gray-900 dark:text-gray-100">
+              {t('navigation.brand')}
+            </span>
           </a>
 
-          {/* Desktop nav links + Theme toggle */}
+          {/* Desktop nav links + Language toggle + Theme toggle */}
           <div className="flex items-center gap-8">
             {navLinks.map(link => (
               <a
@@ -122,7 +130,10 @@ const NavigationBar = () => {
                 {link.name}
               </a>
             ))}
-            <ThemeToggle />
+            <div className="flex items-center gap-2">
+              <LanguageToggle />
+              <ThemeToggle />
+            </div>
           </div>
         </div>
 
