@@ -97,6 +97,21 @@ pnpm pre-commit       # Full validation: format + lint:fix + build
 - **When fixing an issue, always search for similar occurrences** - Use Grep/Glob to find and fix all instances of the same problem across the codebase
 - TypeScript strict mode is enabled: handle all edge cases and avoid `any`
 
+### Code Duplication and Utility Functions
+- **DO NOT duplicate code** - Before writing logic, check if a utility function already exists
+- **Create utility functions** - If logic is used in multiple places, extract it to a utility file
+- **Utility file locations**:
+  - `src/utils/` - General-purpose utility functions
+  - `src/hooks/` - Reusable React hooks
+  - `src/lib/` - Third-party library configurations and wrappers
+- **Valid exceptions to DRY principle**:
+  - FOUC prevention scripts in `index.html` (theme detection, language detection)
+  - These inline scripts run before React loads and cannot import ES modules
+  - Must be kept in sync manually with corresponding React code
+- ❌ Bad: Copying the same validation logic across 3 components
+- ✅ Good: Creating `src/utils/validation.ts` with shared validation functions
+- **Before duplicating code, ask**: "Can this be extracted into a reusable function?"
+
 ### Responsive Design
 - **Mobile-first approach** - Always start with mobile styles (unprefixed utilities), then progressively enhance for larger screens
 - Use TailwindCSS breakpoints: `sm:` (640px), `md:` (768px), `lg:` (1024px), `xl:` (1280px), `2xl:` (1536px)
@@ -107,6 +122,16 @@ pnpm pre-commit       # Full validation: format + lint:fix + build
 - HMR works via React Fast Refresh (configured in vite.config.ts)
 - React Compiler is enabled: components are automatically memoized when possible
 - TailwindCSS uses v4 (configured via Vite plugin, not PostCSS)
+
+### React Compiler - Automatic Memoization
+- **NO manual memoization needed** - Do NOT use `useMemo`, `useCallback`, or `memo`
+- **React Compiler handles all optimizations** - The compiler automatically memoizes components, values, and functions
+- ❌ Bad: `const value = useMemo(() => expensive(data), [data])`
+- ✅ Good: `const value = expensive(data)`
+- ❌ Bad: `const handler = useCallback(() => doSomething(), [dep])`
+- ✅ Good: `const handler = () => doSomething()`
+- **Exception**: Only use manual memoization if explicitly overriding compiler behavior with `"use no memo"` directive
+- **Reference**: [React Compiler Documentation](https://react.dev/learn/react-compiler/introduction)
 
 ### Dark/Light Mode Implementation
 - **TailwindCSS 4 class-based dark mode** - Uses `@custom-variant dark` in `src/index.css`
