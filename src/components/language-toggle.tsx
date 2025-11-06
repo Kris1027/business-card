@@ -70,11 +70,15 @@ export const LanguageToggle = () => {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 z-10 mt-2 w-40 rounded-lg border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800">
+        <div
+          role="menu"
+          className="absolute right-0 z-10 mt-2 w-40 rounded-lg border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800"
+        >
           <div className="py-1">
             {languages.map(lang => (
               <button
                 key={lang.code}
+                role="menuitem"
                 onClick={() => handleLanguageChange(lang.code)}
                 className={`w-full px-4 py-2 text-left text-sm transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:hover:bg-gray-700 ${
                   language === lang.code
