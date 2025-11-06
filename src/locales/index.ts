@@ -1,6 +1,9 @@
 import { en } from '@/locales/en'
 import { pl } from '@/locales/pl'
 
+export const SUPPORTED_LANGUAGES = ['en', 'pl'] as const
+export const DEFAULT_LANGUAGE = 'pl' as const
+
 export const resources = {
   en: {
     translation: en,
@@ -10,4 +13,4 @@ export const resources = {
   },
 }
 
-export type Language = 'en' | 'pl'
+export type Language = (typeof SUPPORTED_LANGUAGES)[number]

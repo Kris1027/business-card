@@ -16,20 +16,24 @@
         )
 
         // Set language attribute
-        // INTENTIONAL DUPLICATION: This function is duplicated in src/i18n/config.ts (lines 10-17)
+        // INTENTIONAL DUPLICATION: This function is duplicated in src/i18n/config.ts (lines 11-19)
         // This inline script runs before React loads and cannot import ES modules.
         // If you modify this logic, you MUST update src/i18n/config.ts accordingly.
+        // Supported languages are defined in src/locales/index.ts (SUPPORTED_LANGUAGES constant).
         const getBrowserLanguage = () => {
+          const SUPPORTED_LANGUAGES = ['en', 'pl']
+          const DEFAULT_LANGUAGE = 'pl'
           try {
             const browserLang = navigator.language.split('-')[0]
-            return browserLang === 'en' || browserLang === 'pl' ? browserLang : 'pl'
+            return SUPPORTED_LANGUAGES.includes(browserLang) ? browserLang : DEFAULT_LANGUAGE
           } catch {
-            return 'pl'
+            return DEFAULT_LANGUAGE
           }
         }
 
+        const SUPPORTED_LANGUAGES = ['en', 'pl']
         const storedLanguage = localStorage.getItem('language')
-        const language = storedLanguage === 'en' || storedLanguage === 'pl'
+        const language = storedLanguage && SUPPORTED_LANGUAGES.includes(storedLanguage)
           ? storedLanguage
           : getBrowserLanguage()
 
