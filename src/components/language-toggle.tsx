@@ -51,7 +51,7 @@ export const LanguageToggle = () => {
         onClick={toggleDropdown}
         aria-label={t('language.languageLabel')}
         aria-expanded={isOpen}
-        aria-haspopup="true"
+        aria-haspopup="menu"
         className="rounded-lg p-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-300 dark:hover:bg-gray-800"
       >
         <svg

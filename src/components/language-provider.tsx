@@ -17,9 +17,7 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
 
     // Save to localStorage
     try {
-      if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
-        localStorage.setItem('language', language)
-      }
+      localStorage.setItem('language', language)
     } catch {
       // Fail gracefully if localStorage is unavailable
     }
