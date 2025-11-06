@@ -25,7 +25,7 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
 
   const changeLanguage = async (newLanguage: Language) => {
     await i18n.changeLanguage(newLanguage)
-    setLanguage(newLanguage)
+    setLanguage(i18n.language as Language)
   }
 
   return (
