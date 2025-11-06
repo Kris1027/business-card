@@ -3,7 +3,7 @@ import type { Language } from '@/locales'
 
 export type LanguageContextType = {
   language: Language
-  changeLanguage: (language: Language) => void
+  changeLanguage: (language: Language) => Promise<void>
 }
 
 export const LanguageContext = createContext<LanguageContextType | undefined>(undefined)

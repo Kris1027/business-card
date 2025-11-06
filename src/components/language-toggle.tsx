@@ -18,8 +18,8 @@ export const LanguageToggle = () => {
     setIsOpen(prev => !prev)
   }
 
-  const handleLanguageChange = (newLanguage: Language) => {
-    changeLanguage(newLanguage)
+  const handleLanguageChange = async (newLanguage: Language) => {
+    await changeLanguage(newLanguage)
     setIsOpen(false)
   }
 
