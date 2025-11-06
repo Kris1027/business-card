@@ -2,6 +2,11 @@ import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import { resources } from '@/locales'
 
+/**
+ * INTENTIONAL DUPLICATION: This function is duplicated in index.html (lines 19-26)
+ * for FOUC prevention. The inline script runs before React loads and cannot import
+ * ES modules. If you modify this logic, you MUST update index.html accordingly.
+ */
 const getBrowserLanguage = (): string => {
   try {
     const browserLang = navigator.language.split('-')[0]

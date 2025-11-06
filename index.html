@@ -16,6 +16,9 @@
         )
 
         // Set language attribute
+        // INTENTIONAL DUPLICATION: This function is duplicated in src/i18n/config.ts (lines 10-17)
+        // This inline script runs before React loads and cannot import ES modules.
+        // If you modify this logic, you MUST update src/i18n/config.ts accordingly.
         const getBrowserLanguage = () => {
           try {
             const browserLang = navigator.language.split('-')[0]
