@@ -3,7 +3,7 @@ import { initReactI18next } from 'react-i18next'
 import { DEFAULT_LANGUAGE, resources, SUPPORTED_LANGUAGES } from '@/locales'
 
 /**
- * INTENTIONAL DUPLICATION: This function is duplicated in index.html (lines 22-29)
+ * INTENTIONAL DUPLICATION: This function is duplicated in index.html (lines 26-33)
  * for FOUC prevention. The inline script runs before React loads and cannot import
  * ES modules. If you modify this logic (including SUPPORTED_LANGUAGES), you MUST
  * update index.html accordingly.
