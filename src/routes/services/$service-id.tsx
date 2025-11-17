@@ -80,7 +80,7 @@ const ServiceDetail = () => {
     <div className="py-8">
       <Link
         to="/"
-        className="mb-8 inline-flex items-center gap-2 text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+        className="mb-8 inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 font-semibold text-white shadow-md transition-all duration-300 hover:gap-3 hover:bg-blue-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-95 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-offset-gray-900"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -114,6 +114,25 @@ const ServiceDetail = () => {
             <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-400">
               {longDescription}
             </p>
+          </div>
+
+          <div className="mt-8 flex justify-center">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 rounded-lg bg-gray-100 px-6 py-3 font-semibold text-gray-900 shadow-md transition-all duration-300 hover:gap-3 hover:bg-gray-200 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 active:scale-95 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 dark:focus:ring-offset-gray-900"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+              {t('services.backToHome')}
+            </Link>
           </div>
         </div>
       </div>

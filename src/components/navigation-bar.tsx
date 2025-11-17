@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Link } from '@tanstack/react-router'
 import { LanguageToggle } from '@/components/language-toggle'
 import { ThemeToggle } from '@/components/theme-toggle'
 
@@ -22,9 +23,9 @@ const NavigationBar = () => {
   }
 
   const navLinks = [
-    { name: t('navigation.home'), href: '#home' },
-    { name: t('navigation.about'), href: '#about' },
-    { name: t('navigation.contact'), href: '#contact' },
+    { name: t('navigation.home'), to: '/' as const },
+    { name: t('navigation.about'), to: '/' as const },
+    { name: t('navigation.contact'), to: '/' as const },
   ]
 
   return (
@@ -38,7 +39,7 @@ const NavigationBar = () => {
         {/* Mobile header */}
         <div className="flex items-center justify-between py-4 md:hidden">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-2" onClick={closeMobileMenu}>
+          <Link to="/" className="flex items-center gap-2" onClick={closeMobileMenu}>
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 dark:bg-blue-500">
               <svg
                 className="h-5 w-5 text-white"
@@ -58,7 +59,7 @@ const NavigationBar = () => {
             <span className="text-xl font-bold text-gray-900 dark:text-gray-100">
               {t('navigation.brand')}
             </span>
-          </a>
+          </Link>
 
           {/* Actions: Language toggle + Theme toggle + Hamburger button */}
           <div className="flex items-center gap-2">
@@ -97,7 +98,7 @@ const NavigationBar = () => {
         {/* Desktop header */}
         <div className="hidden items-center justify-between py-4 md:flex">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 dark:bg-blue-500">
               <svg
                 className="h-6 w-6 text-white"
@@ -117,18 +118,18 @@ const NavigationBar = () => {
             <span className="text-xl font-bold text-gray-900 dark:text-gray-100">
               {t('navigation.brand')}
             </span>
-          </a>
+          </Link>
 
           {/* Desktop nav links + Language toggle + Theme toggle */}
           <div className="flex items-center gap-8">
             {navLinks.map(link => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
-                className="text-gray-700 transition-colors hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
+                to={link.to}
+                className="text-gray-700 transition-colors hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-300 dark:hover:text-blue-400 [&.active]:font-bold [&.active]:text-blue-600 dark:[&.active]:text-blue-400"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
             <div className="flex items-center gap-2">
               <LanguageToggle />
@@ -146,14 +147,14 @@ const NavigationBar = () => {
         >
           <div className="space-y-1 pb-4">
             {navLinks.map(link => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.to}
                 onClick={closeMobileMenu}
-                className="block rounded-lg px-4 py-3 text-gray-700 transition-colors hover:bg-gray-100 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-blue-400"
+                className="block rounded-lg px-4 py-3 text-gray-700 transition-colors hover:bg-gray-100 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-blue-400 [&.active]:font-bold [&.active]:text-blue-600 dark:[&.active]:text-blue-400"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
