@@ -60,6 +60,7 @@ export const en = {
     phone: 'Phone',
     phoneLabel: 'Call {{phone}}',
     location: 'Location',
+    locationLabel: 'View location on Google Maps (opens in new tab)',
     github: 'GitHub',
     githubLabel: 'Visit GitHub profile (opens in new tab)',
     linkedin: 'LinkedIn',
