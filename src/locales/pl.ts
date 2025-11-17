@@ -52,4 +52,21 @@ export const pl = {
   meta: {
     pageTitle: 'Wizytówka',
   },
+  contact: {
+    title: 'Skontaktuj się',
+    subtitle: 'Zapraszam do kontaktu przez dowolny z poniższych kanałów',
+    email: 'Email',
+    emailLabel: 'Wyślij email na adres {{email}}',
+    phone: 'Telefon',
+    phoneLabel: 'Zadzwoń pod numer {{phone}}',
+    location: 'Lokalizacja',
+    github: 'GitHub',
+    githubLabel: 'Odwiedź profil GitHub (otwiera się w nowej karcie)',
+    linkedin: 'LinkedIn',
+    linkedinLabel: 'Odwiedź profil LinkedIn (otwiera się w nowej karcie)',
+    discord: 'Discord',
+    discordLabel: 'Nazwa użytkownika Discord',
+    copyToClipboard: 'Kopiuj do schowka',
+    copied: 'Skopiowano!',
+  },
 }
