@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
+import { BackToHomeButton } from '@/components/back-to-home-button'
 import pcImage1 from '@/assets/pc-1.jpg'
 import pcImage2 from '@/assets/pc-2.jpg'
 import webImage1 from '@/assets/web-1.jpg'
@@ -78,27 +79,12 @@ const ServiceDetail = () => {
 
   return (
     <div className="py-8">
-      <Link
-        to="/"
-        className="mb-8 inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 font-semibold text-white shadow-md transition-all duration-300 hover:gap-3 hover:bg-blue-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-95 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-offset-gray-900"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-        </svg>
-        {t('services.backToHome')}
-      </Link>
+      <BackToHomeButton variant="primary" className="mb-8" />
 
       <div className="overflow-hidden rounded-2xl bg-white shadow-2xl dark:bg-gray-900">
         <div className="relative aspect-video w-full overflow-hidden">
           <img src={service.image} alt={title} className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent" />
           <div className="absolute bottom-8 left-8 right-8">
             <h1 className="text-4xl font-extrabold tracking-tight text-white drop-shadow-2xl md:text-5xl lg:text-6xl">
               {title}
@@ -117,22 +103,7 @@ const ServiceDetail = () => {
           </div>
 
           <div className="mt-8 flex justify-center">
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 rounded-lg bg-gray-100 px-6 py-3 font-semibold text-gray-900 shadow-md transition-all duration-300 hover:gap-3 hover:bg-gray-200 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 active:scale-95 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 dark:focus:ring-offset-gray-900"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-              </svg>
-              {t('services.backToHome')}
-            </Link>
+            <BackToHomeButton variant="secondary" />
           </div>
         </div>
       </div>

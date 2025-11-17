@@ -11,6 +11,7 @@ type ImageCarouselProps = {
 
 const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [resetKey, setResetKey] = useState(0)
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -18,22 +19,36 @@ const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
     }, interval)
 
     return () => clearInterval(timer)
-  }, [images.length, interval])
+  }, [images.length, interval, resetKey])
+
+  const resetTimer = () => {
+    setResetKey(prev => prev + 1)
+  }
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index)
+    resetTimer()
   }
 
   const goToPrevious = () => {
     setCurrentIndex(prevIndex => (prevIndex - 1 + images.length) % images.length)
+    resetTimer()
   }
 
   const goToNext = () => {
     setCurrentIndex(prevIndex => (prevIndex + 1) % images.length)
+    resetTimer()
   }
 
   return (
-    <div className="group relative w-full overflow-hidden rounded-2xl shadow-2xl">
+    <div
+      className="group relative w-full overflow-hidden rounded-2xl shadow-2xl"
+      aria-roledescription="carousel"
+      aria-label="Image Carousel"
+    >
+      <div className="sr-only" aria-live="polite" aria-atomic="true">
+        {`Slide ${currentIndex + 1} of ${images.length}: ${images[currentIndex].title}`}
+      </div>
       <div className="relative aspect-video w-full">
         {images.map((image, index) => (
           <div
