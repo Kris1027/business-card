@@ -1,12 +1,28 @@
 import { useTranslation } from 'react-i18next'
 import AppLayout from '@/components/app-layout'
 import { ServiceCard } from '@/components/service-card'
+import { ImageCarousel } from '@/components/image-carousel'
 import pcImage1 from '@/assets/pc-1.jpg'
 import pcImage2 from '@/assets/pc-2.jpg'
 import webImage1 from '@/assets/web-1.jpg'
 
 const Home = () => {
   const { t } = useTranslation()
+
+  const carouselImages = [
+    {
+      src: pcImage1,
+      alt: t('services.equipmentAdvising.title'),
+    },
+    {
+      src: pcImage2,
+      alt: t('services.computerAssembly.title'),
+    },
+    {
+      src: webImage1,
+      alt: t('services.websiteBuilding.title'),
+    },
+  ]
 
   const services = [
     {
@@ -35,9 +51,9 @@ const Home = () => {
   return (
     <AppLayout>
       <div className="py-12">
-        <h1 className="mb-12 text-center text-4xl font-bold text-gray-900 dark:text-gray-100">
-          {t('home.title')}
-        </h1>
+        <div className="mb-12">
+          <ImageCarousel images={carouselImages} />
+        </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map(service => (
             <ServiceCard
