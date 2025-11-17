@@ -26,6 +26,26 @@ export const en = {
   home: {
     title: 'Business Card',
   },
+  services: {
+    equipmentAdvising: {
+      title: 'Equipment Advising',
+      shortDescription: 'Professional guidance in selecting computer components',
+      longDescription:
+        'I help you choose optimal computer components tailored to your needs and budget. I analyze requirements, compare options, and recommend the best solutions that will ensure performance and reliability for years to come.',
+    },
+    computerAssembly: {
+      title: 'Computer Assembly',
+      shortDescription: 'Professional assembly and configuration of computers',
+      longDescription:
+        'I specialize in comprehensive desktop computer assembly. From component installation, through operating system setup, to performance optimization. I guarantee careful execution and attention to every detail.',
+    },
+    websiteBuilding: {
+      title: 'Website Building',
+      shortDescription: 'Modern and responsive websites',
+      longDescription:
+        'I design and create modern websites using the latest technologies. Responsive design, SEO optimization, and intuitive interface are the foundations of every project I deliver.',
+    },
+  },
   meta: {
     pageTitle: 'Business Card',
   },

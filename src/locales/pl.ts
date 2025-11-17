@@ -26,6 +26,26 @@ export const pl = {
   home: {
     title: 'Wizytówka',
   },
+  services: {
+    equipmentAdvising: {
+      title: 'Doradztwo w doborze sprzętu',
+      shortDescription: 'Profesjonalne doradztwo w wyborze komponentów komputerowych',
+      longDescription:
+        'Pomagam dobrać optymalne komponenty komputerowe dostosowane do Twoich potrzeb i budżetu. Analizuję wymagania, porównuję opcje i rekomenduję najlepsze rozwiązania, które zapewnią wydajność i niezawodność na lata.',
+    },
+    computerAssembly: {
+      title: 'Składanie komputerów',
+      shortDescription: 'Profesjonalny montaż i konfiguracja komputerów',
+      longDescription:
+        'Zajmuję się kompleksowym składaniem komputerów stacjonarnych. Od montażu podzespołów, przez instalację systemu operacyjnego, po optymalizację wydajności. Gwarantuję staranność wykonania i dbałość o każdy detal.',
+    },
+    websiteBuilding: {
+      title: 'Tworzenie stron internetowych',
+      shortDescription: 'Nowoczesne i responsywne strony internetowe',
+      longDescription:
+        'Projektuję i tworzę nowoczesne strony internetowe wykorzystując najnowsze technologie. Responsywny design, optymalizacja SEO i intuicyjny interfejs to fundamenty każdego mojego projektu.',
+    },
+  },
   meta: {
     pageTitle: 'Wizytówka',
   },
