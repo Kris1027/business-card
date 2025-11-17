@@ -1,0 +1,69 @@
+import { createFileRoute } from '@tanstack/react-router'
+import { useTranslation } from 'react-i18next'
+import { ServiceCard } from '@/components/service-card'
+import { ImageCarousel } from '@/components/image-carousel'
+import pcImage1 from '@/assets/pc-1.jpg'
+import pcImage2 from '@/assets/pc-2.jpg'
+import webImage1 from '@/assets/web-1.jpg'
+
+const Index = () => {
+  const { t } = useTranslation()
+
+  const carouselImages = [
+    {
+      src: pcImage1,
+      alt: t('services.equipmentAdvising.title'),
+      title: t('services.equipmentAdvising.title'),
+    },
+    {
+      src: pcImage2,
+      alt: t('services.computerAssembly.title'),
+      title: t('services.computerAssembly.title'),
+    },
+    {
+      src: webImage1,
+      alt: t('services.websiteBuilding.title'),
+      title: t('services.websiteBuilding.title'),
+    },
+  ]
+
+  const services = [
+    {
+      id: 'equipment-advising',
+      title: t('services.equipmentAdvising.title'),
+      shortDescription: t('services.equipmentAdvising.shortDescription'),
+    },
+    {
+      id: 'computer-assembly',
+      title: t('services.computerAssembly.title'),
+      shortDescription: t('services.computerAssembly.shortDescription'),
+    },
+    {
+      id: 'website-building',
+      title: t('services.websiteBuilding.title'),
+      shortDescription: t('services.websiteBuilding.shortDescription'),
+    },
+  ]
+
+  return (
+    <div className="py-12">
+      <div className="mb-12">
+        <ImageCarousel images={carouselImages} />
+      </div>
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {services.map(service => (
+          <ServiceCard
+            key={service.id}
+            serviceId={service.id}
+            title={service.title}
+            shortDescription={service.shortDescription}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export const Route = createFileRoute('/')({
+  component: Index,
+})
