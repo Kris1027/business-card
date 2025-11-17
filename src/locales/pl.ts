@@ -45,6 +45,9 @@ export const pl = {
       longDescription:
         'Projektuję i tworzę nowoczesne strony internetowe wykorzystując najnowsze technologie. Responsywny design, optymalizacja SEO i intuicyjny interfejs to fundamenty każdego mojego projektu.',
     },
+    readMore: 'Czytaj więcej',
+    backToHome: 'Powrót do strony głównej',
+    notFound: 'Usługa nie została znaleziona',
   },
   meta: {
     pageTitle: 'Wizytówka',

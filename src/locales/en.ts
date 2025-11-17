@@ -45,6 +45,9 @@ export const en = {
       longDescription:
         'I design and create modern websites using the latest technologies. Responsive design, SEO optimization, and intuitive interface are the foundations of every project I deliver.',
     },
+    readMore: 'Read more',
+    backToHome: 'Back to home',
+    notFound: 'Service not found',
   },
   meta: {
     pageTitle: 'Business Card',
