@@ -4,6 +4,7 @@ type ImageCarouselProps = {
   images: Array<{
     src: string
     alt: string
+    title: string
   }>
   interval?: number
 }
@@ -32,23 +33,33 @@ const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
   }
 
   return (
-    <div className="relative w-full overflow-hidden rounded-xl">
+    <div className="group relative w-full overflow-hidden rounded-2xl shadow-2xl">
       <div className="relative aspect-video w-full">
         {images.map((image, index) => (
           <div
             key={image.src}
-            className={`absolute inset-0 transition-opacity duration-700 ${
-              index === currentIndex ? 'opacity-100' : 'opacity-0'
+            className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+              index === currentIndex ? 'scale-100 opacity-100' : 'scale-105 opacity-0'
             }`}
           >
             <img src={image.src} alt={image.alt} className="h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
+            <div
+              className={`absolute bottom-16 left-0 right-0 text-center transition-all delay-300 duration-700 ${
+                index === currentIndex ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              }`}
+            >
+              <h2 className="px-4 text-3xl font-extrabold tracking-tight text-white drop-shadow-2xl md:text-5xl lg:text-6xl">
+                {image.title}
+              </h2>
+            </div>
           </div>
         ))}
       </div>
 
       <button
         onClick={goToPrevious}
-        className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white transition-colors hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-white/50 dark:text-gray-900 dark:hover:bg-white/70"
+        className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/20 p-4 text-white backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 active:scale-95"
         aria-label="Previous image"
       >
         <svg
@@ -57,14 +68,15 @@ const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
+          strokeWidth={2.5}
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
       </button>
 
       <button
         onClick={goToNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white transition-colors hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-white/50 dark:text-gray-900 dark:hover:bg-white/70"
+        className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/20 p-4 text-white backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 active:scale-95"
         aria-label="Next image"
       >
         <svg
@@ -73,20 +85,21 @@ const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
+          strokeWidth={2.5}
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </button>
 
-      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
+      <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-3">
         {images.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-3 w-3 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+            className={`transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-white/50 ${
               index === currentIndex
-                ? 'bg-white dark:bg-gray-900'
-                : 'bg-white/50 hover:bg-white/75 dark:bg-gray-900/50 dark:hover:bg-gray-900/75'
+                ? 'h-3 w-10 rounded-full bg-white shadow-lg'
+                : 'h-3 w-3 rounded-full bg-white/40 hover:bg-white/60'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />

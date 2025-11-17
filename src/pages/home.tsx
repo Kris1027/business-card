@@ -13,14 +13,17 @@ const Home = () => {
     {
       src: pcImage1,
       alt: t('services.equipmentAdvising.title'),
+      title: t('services.equipmentAdvising.title'),
     },
     {
       src: pcImage2,
       alt: t('services.computerAssembly.title'),
+      title: t('services.computerAssembly.title'),
     },
     {
       src: webImage1,
       alt: t('services.websiteBuilding.title'),
+      title: t('services.websiteBuilding.title'),
     },
   ]
 
