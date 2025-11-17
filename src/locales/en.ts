@@ -52,4 +52,22 @@ export const en = {
   meta: {
     pageTitle: 'Business Card',
   },
+  contact: {
+    title: 'Get in Touch',
+    subtitle: 'Feel free to reach out through any of the following channels',
+    email: 'Email',
+    emailLabel: 'Send email to {{email}}',
+    phone: 'Phone',
+    phoneLabel: 'Call {{phone}}',
+    location: 'Location',
+    locationLabel: 'View location on Google Maps (opens in new tab)',
+    github: 'GitHub',
+    githubLabel: 'Visit GitHub profile (opens in new tab)',
+    linkedin: 'LinkedIn',
+    linkedinLabel: 'Visit LinkedIn profile (opens in new tab)',
+    discord: 'Discord',
+    discordLabel: 'Discord username',
+    copyToClipboard: 'Copy to clipboard',
+    copied: 'Copied!',
+  },
 }
