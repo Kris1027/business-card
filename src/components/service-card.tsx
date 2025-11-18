@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
+import { HiChevronRight } from 'react-icons/hi2'
 
 type ServiceCardProps = {
   serviceId: string
@@ -21,16 +22,7 @@ const ServiceCard = ({ serviceId, title, shortDescription }: ServiceCardProps) =
           className="mt-6 inline-flex items-center gap-2 font-semibold text-blue-600 transition-all duration-300 hover:gap-3 dark:text-blue-400"
         >
           {t('services.readMore')}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-          </svg>
+          <HiChevronRight className="h-5 w-5" />
         </Link>
       </div>
     </article>
