@@ -24,7 +24,7 @@ const NavigationBar = () => {
 
   const navLinks = [
     { name: t('navigation.home'), to: '/' as const },
-    { name: t('navigation.about'), to: '/' as const },
+    { name: t('navigation.about'), to: '/about' as const },
     { name: t('navigation.contact'), to: '/contact' as const },
   ]
 
