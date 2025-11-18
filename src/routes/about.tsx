@@ -1,10 +1,23 @@
+import { useState } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
+import { HiChevronDown, HiChevronUp } from 'react-icons/hi2'
 import { aboutInfo, technologies } from '@/constants/about-info'
 import profileImage from '@/assets/profil-1.jpg'
 
+const INITIAL_DISPLAY_COUNT = 12
+
 const About = () => {
   const { t } = useTranslation()
+  const [showAll, setShowAll] = useState(false)
+
+  const displayedTechnologies = showAll
+    ? technologies
+    : technologies.slice(0, INITIAL_DISPLAY_COUNT)
+
+  const toggleShowAll = () => {
+    setShowAll(prev => !prev)
+  }
 
   return (
     <div className="py-12">
@@ -48,7 +61,7 @@ const About = () => {
 
         {/* Technology Grid */}
         <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-          {technologies.map(tech => {
+          {displayedTechnologies.map(tech => {
             const Icon = tech.icon
 
             return (
@@ -70,6 +83,37 @@ const About = () => {
             )
           })}
         </div>
+
+        {/* More Technologies Text */}
+        {!showAll && technologies.length > INITIAL_DISPLAY_COUNT && (
+          <div className="mt-12 text-center">
+            <p className="text-xl font-semibold text-gray-700 dark:text-gray-300">
+              {t('about.andMore')}
+            </p>
+            <p className="mt-2 text-lg text-gray-600 dark:text-gray-400">{t('about.askAbout')}</p>
+            <button
+              onClick={toggleShowAll}
+              className="mt-6 inline-flex items-center gap-2 text-lg font-semibold text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+            >
+              {t('about.viewAll')} ({technologies.length})
+              <HiChevronDown className="h-6 w-6" />
+            </button>
+          </div>
+        )}
+
+        {/* Show Less Button */}
+        {showAll && technologies.length > INITIAL_DISPLAY_COUNT && (
+          <div className="mt-8 flex justify-center">
+            <button
+              onClick={toggleShowAll}
+              className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:bg-blue-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-95 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-offset-gray-900"
+              aria-expanded={showAll}
+            >
+              {t('about.showLess')}
+              <HiChevronUp className="h-5 w-5" />
+            </button>
+          </div>
+        )}
       </section>
     </div>
   )

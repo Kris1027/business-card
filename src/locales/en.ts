@@ -59,6 +59,10 @@ export const en = {
     technologies: 'Technologies',
     technologiesDescription: 'Tools and technologies I use in my work',
     visitDocs: 'Visit {{name}} documentation (opens in new tab)',
+    andMore: 'And many more technologies...',
+    askAbout: 'Ask me about other technologies I work with!',
+    viewAll: 'View all',
+    showLess: 'Show less',
   },
   contact: {
     title: 'Get in Touch',

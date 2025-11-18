@@ -59,6 +59,10 @@ export const pl = {
     technologies: 'Technologie',
     technologiesDescription: 'Narzędzia i technologie, z których korzystam w mojej pracy',
     visitDocs: 'Odwiedź dokumentację {{name}} (otwiera się w nowej karcie)',
+    andMore: 'I wiele więcej technologii...',
+    askAbout: 'Zapytaj mnie o inne technologie, z którymi pracuję!',
+    viewAll: 'Zobacz wszystkie',
+    showLess: 'Pokaż mniej',
   },
   contact: {
     title: 'Skontaktuj się',
