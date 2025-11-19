@@ -78,7 +78,7 @@ const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
         className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/20 p-4 text-white backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 active:scale-95"
         aria-label="Previous image"
       >
-        <HiChevronLeft className="h-6 w-6" strokeWidth={2.5} />
+        <HiChevronLeft className="h-6 w-6" />
       </button>
 
       <button
@@ -86,7 +86,7 @@ const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
         className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/20 p-4 text-white backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 active:scale-95"
         aria-label="Next image"
       >
-        <HiChevronRight className="h-6 w-6" strokeWidth={2.5} />
+        <HiChevronRight className="h-6 w-6" />
       </button>
 
       <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-3">

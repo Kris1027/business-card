@@ -60,7 +60,6 @@ export type Technology = {
 
 export const aboutInfo = {
   name: 'Krzysztof Obarzanek',
-  image: '/src/assets/profil-1.jpg',
 }
 
 export const technologies: Technology[] = [

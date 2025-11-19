@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from '@tanstack/react-router'
-import { HiBolt, HiBars3 } from 'react-icons/hi2'
-import { HiX } from 'react-icons/hi'
+import { HiBolt, HiBars3, HiXMark } from 'react-icons/hi2'
 import { LanguageToggle } from '@/components/language-toggle'
 import { ThemeToggle } from '@/components/theme-toggle'
 
@@ -63,7 +62,7 @@ const NavigationBar = () => {
             >
               <span className="sr-only">{t('navigation.menuLabel')}</span>
               {isMobileMenuOpen ? (
-                <HiX className="h-6 w-6 text-gray-900 dark:text-gray-100" />
+                <HiXMark className="h-6 w-6 text-gray-900 dark:text-gray-100" />
               ) : (
                 <HiBars3 className="h-6 w-6 text-gray-900 dark:text-gray-100" />
               )}

@@ -75,6 +75,7 @@ const About = () => {
               >
                 <Icon
                   className={`text-5xl ${tech.color} transition-transform duration-300 group-hover:scale-110`}
+                  aria-hidden="true"
                 />
                 <span className="text-center text-sm font-medium text-gray-700 dark:text-gray-300">
                   {tech.name}
@@ -94,6 +95,7 @@ const About = () => {
             <button
               onClick={toggleShowAll}
               className="mt-6 inline-flex items-center gap-2 text-lg font-semibold text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+              aria-expanded={showAll}
             >
               {t('about.viewAll')} ({technologies.length})
               <HiChevronDown className="h-6 w-6" />
