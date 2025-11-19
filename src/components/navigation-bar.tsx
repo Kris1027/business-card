@@ -29,6 +29,24 @@ const NavigationBar = () => {
     { name: t('navigation.contact'), to: '/contact' as const },
   ]
 
+  const serviceLinks = [
+    {
+      name: t('navigation.equipmentAdvising'),
+      to: '/services/$service-id' as const,
+      params: { 'service-id': 'equipment-advising' },
+    },
+    {
+      name: t('navigation.computerAssembly'),
+      to: '/services/$service-id' as const,
+      params: { 'service-id': 'computer-assembly' },
+    },
+    {
+      name: t('navigation.websiteBuilding'),
+      to: '/services/$service-id' as const,
+      params: { 'service-id': 'website-building' },
+    },
+  ]
+
   return (
     <nav
       className="sticky top-0 z-50 bg-white shadow-md dark:bg-gray-900 dark:shadow-gray-800/50"
@@ -93,6 +111,16 @@ const NavigationBar = () => {
                 {link.name}
               </Link>
             ))}
+            {serviceLinks.map(link => (
+              <Link
+                key={link.name}
+                to={link.to}
+                params={link.params}
+                className="text-gray-700 transition-colors hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-300 dark:hover:text-blue-400 [&.active]:font-bold [&.active]:text-blue-600 dark:[&.active]:text-blue-400"
+              >
+                {link.name}
+              </Link>
+            ))}
             <div className="flex items-center gap-2">
               <LanguageToggle />
               <ThemeToggle />
@@ -112,6 +140,17 @@ const NavigationBar = () => {
               <Link
                 key={link.name}
                 to={link.to}
+                onClick={closeMobileMenu}
+                className="block rounded-lg px-4 py-3 text-gray-700 transition-colors hover:bg-gray-100 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-blue-400 [&.active]:font-bold [&.active]:text-blue-600 dark:[&.active]:text-blue-400"
+              >
+                {link.name}
+              </Link>
+            ))}
+            {serviceLinks.map(link => (
+              <Link
+                key={link.name}
+                to={link.to}
+                params={link.params}
                 onClick={closeMobileMenu}
                 className="block rounded-lg px-4 py-3 text-gray-700 transition-colors hover:bg-gray-100 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-blue-400 [&.active]:font-bold [&.active]:text-blue-600 dark:[&.active]:text-blue-400"
               >
