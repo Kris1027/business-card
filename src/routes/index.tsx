@@ -46,11 +46,11 @@ const Index = () => {
   ]
 
   return (
-    <div className="py-12">
-      <div className="mb-12">
+    <div className="py-8 md:py-12">
+      <div className="mb-8 md:mb-12">
         <ImageCarousel images={carouselImages} />
       </div>
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
         {services.map(service => (
           <ServiceCard
             key={service.id}

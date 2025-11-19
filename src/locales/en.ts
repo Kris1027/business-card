@@ -1,9 +1,12 @@
 export const en = {
   navigation: {
-    brand: 'Brand',
+    brand: 'techKris',
     home: 'Home',
     about: 'About',
     contact: 'Contact',
+    equipmentAdvising: 'Equipment Advising',
+    computerAssembly: 'PC Assembly',
+    websiteBuilding: 'Web Development',
     mainNavLabel: 'Main navigation',
     toggleMenuLabel: 'Toggle navigation menu',
     menuLabel: 'Toggle menu',
@@ -22,9 +25,14 @@ export const en = {
     footerLabel: 'Site footer',
     craftedBy: 'Crafted with love by',
     githubLabel: "Visit {{name}}'s GitHub profile (opens in new tab)",
+    quickLinks: 'Quick Links',
+    servicesTitle: 'Services',
+    contactInfo: 'Contact Info',
+    followMe: 'Follow Me',
+    allRightsReserved: '© {{year}} techKris. All rights reserved.',
   },
   home: {
-    title: 'Business Card',
+    title: 'techKris',
   },
   services: {
     equipmentAdvising: {
@@ -50,7 +58,7 @@ export const en = {
     notFound: 'Service not found',
   },
   meta: {
-    pageTitle: 'Business Card',
+    pageTitle: 'techKris',
   },
   about: {
     title: 'About Me',

@@ -41,8 +41,6 @@ const Contact = () => {
       })
   }
 
-  const fullName = `${contactInfo.name} ${contactInfo.surname}`
-
   return (
     <div className="py-12">
       <div className="mx-auto max-w-4xl">
@@ -51,7 +49,6 @@ const Contact = () => {
             {t('contact.title')}
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-400">{t('contact.subtitle')}</p>
-          <p className="mt-4 text-2xl font-semibold text-blue-600 dark:text-blue-400">{fullName}</p>
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">

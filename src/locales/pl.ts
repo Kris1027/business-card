@@ -1,9 +1,12 @@
 export const pl = {
   navigation: {
-    brand: 'Marka',
+    brand: 'techKris',
     home: 'Strona główna',
     about: 'O mnie',
     contact: 'Kontakt',
+    equipmentAdvising: 'Doradztwo sprzętowe',
+    computerAssembly: 'Składanie PC',
+    websiteBuilding: 'Tworzenie stron',
     mainNavLabel: 'Główna nawigacja',
     toggleMenuLabel: 'Przełącz menu nawigacji',
     menuLabel: 'Przełącz menu',
@@ -22,9 +25,14 @@ export const pl = {
     footerLabel: 'Stopka strony',
     craftedBy: 'Stworzone z pasją przez',
     githubLabel: 'Odwiedź profil {{name}} na GitHubie (otwiera się w nowej karcie)',
+    quickLinks: 'Szybkie linki',
+    servicesTitle: 'Usługi',
+    contactInfo: 'Kontakt',
+    followMe: 'Śledź mnie',
+    allRightsReserved: '© {{year}} techKris. Wszelkie prawa zastrzeżone.',
   },
   home: {
-    title: 'Wizytówka',
+    title: 'techKris',
   },
   services: {
     equipmentAdvising: {
@@ -50,7 +58,7 @@ export const pl = {
     notFound: 'Usługa nie została znaleziona',
   },
   meta: {
-    pageTitle: 'Wizytówka',
+    pageTitle: 'techKris',
   },
   about: {
     title: 'O mnie',

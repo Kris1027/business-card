@@ -1,4 +1,4 @@
-# Business Card
+# techKris
 
 A modern, bilingual React + TypeScript business card application built with Vite. Features dark/light mode, Polish/English internationalization, mobile-first responsive design, and strict code quality standards.
 

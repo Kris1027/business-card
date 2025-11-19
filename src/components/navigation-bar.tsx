@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from '@tanstack/react-router'
-import { HiBolt, HiBars3, HiXMark } from 'react-icons/hi2'
+import { HiBars3, HiXMark } from 'react-icons/hi2'
 import { LanguageToggle } from '@/components/language-toggle'
 import { ThemeToggle } from '@/components/theme-toggle'
+import { SERVICE_IDS } from '@/constants/navigation-links'
+import Logo from '@/components/logo'
 
 const NavigationBar = () => {
   const { t } = useTranslation()
@@ -29,6 +31,24 @@ const NavigationBar = () => {
     { name: t('navigation.contact'), to: '/contact' as const },
   ]
 
+  const serviceLinks = [
+    {
+      name: t('navigation.equipmentAdvising'),
+      to: '/services/$service-id' as const,
+      params: { 'service-id': SERVICE_IDS.EQUIPMENT_ADVISING },
+    },
+    {
+      name: t('navigation.computerAssembly'),
+      to: '/services/$service-id' as const,
+      params: { 'service-id': SERVICE_IDS.COMPUTER_ASSEMBLY },
+    },
+    {
+      name: t('navigation.websiteBuilding'),
+      to: '/services/$service-id' as const,
+      params: { 'service-id': SERVICE_IDS.WEBSITE_BUILDING },
+    },
+  ]
+
   return (
     <nav
       className="sticky top-0 z-50 bg-white shadow-md dark:bg-gray-900 dark:shadow-gray-800/50"
@@ -40,13 +60,8 @@ const NavigationBar = () => {
         {/* Mobile header */}
         <div className="flex items-center justify-between py-4 md:hidden">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2" onClick={closeMobileMenu}>
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 dark:bg-blue-500">
-              <HiBolt className="h-5 w-5 text-white" aria-hidden="true" />
-            </div>
-            <span className="text-xl font-bold text-gray-900 dark:text-gray-100">
-              {t('navigation.brand')}
-            </span>
+          <Link to="/" onClick={closeMobileMenu}>
+            <Logo size="md" />
           </Link>
 
           {/* Actions: Language toggle + Theme toggle + Hamburger button */}
@@ -73,13 +88,8 @@ const NavigationBar = () => {
         {/* Desktop header */}
         <div className="hidden items-center justify-between py-4 md:flex">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 dark:bg-blue-500">
-              <HiBolt className="h-6 w-6 text-white" aria-hidden="true" />
-            </div>
-            <span className="text-xl font-bold text-gray-900 dark:text-gray-100">
-              {t('navigation.brand')}
-            </span>
+          <Link to="/">
+            <Logo size="lg" />
           </Link>
 
           {/* Desktop nav links + Language toggle + Theme toggle */}
@@ -88,6 +98,16 @@ const NavigationBar = () => {
               <Link
                 key={link.name}
                 to={link.to}
+                className="text-gray-700 transition-colors hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-300 dark:hover:text-blue-400 [&.active]:font-bold [&.active]:text-blue-600 dark:[&.active]:text-blue-400"
+              >
+                {link.name}
+              </Link>
+            ))}
+            {serviceLinks.map(link => (
+              <Link
+                key={link.name}
+                to={link.to}
+                params={link.params}
                 className="text-gray-700 transition-colors hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-300 dark:hover:text-blue-400 [&.active]:font-bold [&.active]:text-blue-600 dark:[&.active]:text-blue-400"
               >
                 {link.name}
@@ -112,6 +132,17 @@ const NavigationBar = () => {
               <Link
                 key={link.name}
                 to={link.to}
+                onClick={closeMobileMenu}
+                className="block rounded-lg px-4 py-3 text-gray-700 transition-colors hover:bg-gray-100 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-blue-400 [&.active]:font-bold [&.active]:text-blue-600 dark:[&.active]:text-blue-400"
+              >
+                {link.name}
+              </Link>
+            ))}
+            {serviceLinks.map(link => (
+              <Link
+                key={link.name}
+                to={link.to}
+                params={link.params}
                 onClick={closeMobileMenu}
                 className="block rounded-lg px-4 py-3 text-gray-700 transition-colors hover:bg-gray-100 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-blue-400 [&.active]:font-bold [&.active]:text-blue-600 dark:[&.active]:text-blue-400"
               >

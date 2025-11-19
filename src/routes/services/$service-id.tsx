@@ -1,32 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
-import { BackToHomeButton } from '@/components/back-to-home-button'
-import pcImage1 from '@/assets/pc-1.jpg'
-import pcImage2 from '@/assets/pc-2.jpg'
-import webImage1 from '@/assets/web-1.jpg'
-
-type ServiceKey = 'equipmentAdvising' | 'computerAssembly' | 'websiteBuilding'
-
-const serviceData: Record<
-  string,
-  {
-    translationKey: ServiceKey
-    image: string
-  }
-> = {
-  'equipment-advising': {
-    translationKey: 'equipmentAdvising',
-    image: pcImage1,
-  },
-  'computer-assembly': {
-    translationKey: 'computerAssembly',
-    image: pcImage2,
-  },
-  'website-building': {
-    translationKey: 'websiteBuilding',
-    image: webImage1,
-  },
-}
+import { HiChevronLeft, HiEnvelope } from 'react-icons/hi2'
+import { servicesInfo, type ServiceKey } from '@/constants/services-info'
 
 const getServiceTranslations = (t: ReturnType<typeof useTranslation>['t'], key: ServiceKey) => {
   const translations = {
@@ -54,7 +29,7 @@ const ServiceDetail = () => {
   const serviceId = params['service-id']
   const { t } = useTranslation()
 
-  const service = serviceData[serviceId]
+  const service = servicesInfo[serviceId]
 
   if (!service) {
     return (
@@ -79,9 +54,7 @@ const ServiceDetail = () => {
 
   return (
     <div className="py-8">
-      <BackToHomeButton variant="primary" className="mb-8" />
-
-      <div className="overflow-hidden rounded-2xl bg-white shadow-2xl dark:bg-gray-900">
+      <div className="overflow-hidden rounded-2xl bg-white shadow-2xl dark:bg-gray-800">
         <div className="relative aspect-video w-full overflow-hidden">
           <img src={service.image} alt={title} className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent" />
@@ -102,8 +75,21 @@ const ServiceDetail = () => {
             </p>
           </div>
 
-          <div className="mt-8 flex justify-center">
-            <BackToHomeButton variant="secondary" />
+          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <Link
+              to="/"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-100 px-6 py-3 font-semibold text-gray-900 shadow-md transition-all duration-300 hover:gap-3 hover:bg-gray-200 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 active:scale-95 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 dark:focus:ring-offset-gray-900"
+            >
+              <HiChevronLeft className="h-5 w-5" />
+              {t('services.backToHome')}
+            </Link>
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:gap-3 hover:bg-blue-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-95 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-offset-gray-900"
+            >
+              <HiEnvelope className="h-5 w-5" />
+              {t('navigation.contact')}
+            </Link>
           </div>
         </div>
       </div>
