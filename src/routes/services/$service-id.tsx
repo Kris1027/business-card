@@ -1,32 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { HiChevronLeft, HiEnvelope } from 'react-icons/hi2'
-import pcImage1 from '@/assets/pc-1.jpg'
-import pcImage2 from '@/assets/pc-2.jpg'
-import webImage1 from '@/assets/web-1.jpg'
-
-type ServiceKey = 'equipmentAdvising' | 'computerAssembly' | 'websiteBuilding'
-
-const serviceData: Record<
-  string,
-  {
-    translationKey: ServiceKey
-    image: string
-  }
-> = {
-  'equipment-advising': {
-    translationKey: 'equipmentAdvising',
-    image: pcImage1,
-  },
-  'computer-assembly': {
-    translationKey: 'computerAssembly',
-    image: pcImage2,
-  },
-  'website-building': {
-    translationKey: 'websiteBuilding',
-    image: webImage1,
-  },
-}
+import { servicesInfo, type ServiceKey } from '@/constants/services-info'
 
 const getServiceTranslations = (t: ReturnType<typeof useTranslation>['t'], key: ServiceKey) => {
   const translations = {
@@ -54,7 +29,7 @@ const ServiceDetail = () => {
   const serviceId = params['service-id']
   const { t } = useTranslation()
 
-  const service = serviceData[serviceId]
+  const service = servicesInfo[serviceId]
 
   if (!service) {
     return (

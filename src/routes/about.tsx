@@ -25,7 +25,7 @@ const About = () => {
       <section className="mb-16">
         <div className="flex flex-col items-center gap-8 md:flex-row md:items-start md:gap-12">
           {/* Profile Image */}
-          <div className="flex-shrink-0">
+          <div className="shrink-0">
             <img
               src={profileImage}
               alt={aboutInfo.name}
