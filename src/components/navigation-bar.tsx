@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from '@tanstack/react-router'
-import { HiBolt, HiBars3, HiXMark } from 'react-icons/hi2'
+import { HiBars3, HiXMark } from 'react-icons/hi2'
 import { LanguageToggle } from '@/components/language-toggle'
 import { ThemeToggle } from '@/components/theme-toggle'
+import Logo from '@/components/logo'
 
 const NavigationBar = () => {
   const { t } = useTranslation()
@@ -58,13 +59,8 @@ const NavigationBar = () => {
         {/* Mobile header */}
         <div className="flex items-center justify-between py-4 md:hidden">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2" onClick={closeMobileMenu}>
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 dark:bg-blue-500">
-              <HiBolt className="h-5 w-5 text-white" aria-hidden="true" />
-            </div>
-            <span className="text-xl font-bold text-gray-900 dark:text-gray-100">
-              {t('navigation.brand')}
-            </span>
+          <Link to="/" onClick={closeMobileMenu}>
+            <Logo size="md" />
           </Link>
 
           {/* Actions: Language toggle + Theme toggle + Hamburger button */}
@@ -91,13 +87,8 @@ const NavigationBar = () => {
         {/* Desktop header */}
         <div className="hidden items-center justify-between py-4 md:flex">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 dark:bg-blue-500">
-              <HiBolt className="h-6 w-6 text-white" aria-hidden="true" />
-            </div>
-            <span className="text-xl font-bold text-gray-900 dark:text-gray-100">
-              {t('navigation.brand')}
-            </span>
+          <Link to="/">
+            <Logo size="lg" />
           </Link>
 
           {/* Desktop nav links + Language toggle + Theme toggle */}

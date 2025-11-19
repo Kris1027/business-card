@@ -3,6 +3,7 @@ import { Link } from '@tanstack/react-router'
 import { FaGithub, FaLinkedin, FaMapMarkerAlt } from 'react-icons/fa'
 import { HiMail, HiPhone } from 'react-icons/hi'
 import { contactInfo } from '@/constants/contact-info'
+import Logo from '@/components/logo'
 
 const Footer = () => {
   const { t } = useTranslation()
@@ -68,9 +69,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="space-y-4">
-            <h2 className="text-lg font-bold text-gray-900 dark:text-white">
-              {t('navigation.brand')}
-            </h2>
+            <Logo size="md" />
           </div>
 
           {/* Quick links */}
