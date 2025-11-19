@@ -3,6 +3,7 @@ import { Link } from '@tanstack/react-router'
 import { FaGithub, FaLinkedin, FaMapMarkerAlt } from 'react-icons/fa'
 import { HiMail, HiPhone } from 'react-icons/hi'
 import { contactInfo } from '@/constants/contact-info'
+import { SERVICE_IDS } from '@/constants/navigation-links'
 import Logo from '@/components/logo'
 
 const Footer = () => {
@@ -16,9 +17,21 @@ const Footer = () => {
   ]
 
   const serviceLinks = [
-    { to: '/services/equipment-advising', label: t('navigation.equipmentAdvising') },
-    { to: '/services/computer-assembly', label: t('navigation.computerAssembly') },
-    { to: '/services/website-building', label: t('navigation.websiteBuilding') },
+    {
+      to: '/services/$service-id' as const,
+      params: { 'service-id': SERVICE_IDS.EQUIPMENT_ADVISING },
+      label: t('navigation.equipmentAdvising'),
+    },
+    {
+      to: '/services/$service-id' as const,
+      params: { 'service-id': SERVICE_IDS.COMPUTER_ASSEMBLY },
+      label: t('navigation.computerAssembly'),
+    },
+    {
+      to: '/services/$service-id' as const,
+      params: { 'service-id': SERVICE_IDS.WEBSITE_BUILDING },
+      label: t('navigation.websiteBuilding'),
+    },
   ]
 
   const contactInfoItems = [
@@ -98,9 +111,10 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2">
               {serviceLinks.map(link => (
-                <li key={link.to}>
+                <li key={link.params['service-id']}>
                   <Link
                     to={link.to}
+                    params={link.params}
                     className="text-sm text-gray-600 transition-colors duration-200 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-blue-400 dark:focus:ring-offset-gray-900"
                   >
                     {link.label}

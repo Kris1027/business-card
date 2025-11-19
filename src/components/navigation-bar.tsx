@@ -4,6 +4,7 @@ import { Link } from '@tanstack/react-router'
 import { HiBars3, HiXMark } from 'react-icons/hi2'
 import { LanguageToggle } from '@/components/language-toggle'
 import { ThemeToggle } from '@/components/theme-toggle'
+import { SERVICE_IDS } from '@/constants/navigation-links'
 import Logo from '@/components/logo'
 
 const NavigationBar = () => {
@@ -34,17 +35,17 @@ const NavigationBar = () => {
     {
       name: t('navigation.equipmentAdvising'),
       to: '/services/$service-id' as const,
-      params: { 'service-id': 'equipment-advising' },
+      params: { 'service-id': SERVICE_IDS.EQUIPMENT_ADVISING },
     },
     {
       name: t('navigation.computerAssembly'),
       to: '/services/$service-id' as const,
-      params: { 'service-id': 'computer-assembly' },
+      params: { 'service-id': SERVICE_IDS.COMPUTER_ASSEMBLY },
     },
     {
       name: t('navigation.websiteBuilding'),
       to: '/services/$service-id' as const,
-      params: { 'service-id': 'website-building' },
+      params: { 'service-id': SERVICE_IDS.WEBSITE_BUILDING },
     },
   ]
 
