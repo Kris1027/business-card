@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from '@tanstack/react-router'
+import { HiBolt, HiBars3, HiXMark } from 'react-icons/hi2'
 import { LanguageToggle } from '@/components/language-toggle'
 import { ThemeToggle } from '@/components/theme-toggle'
 
@@ -24,7 +25,7 @@ const NavigationBar = () => {
 
   const navLinks = [
     { name: t('navigation.home'), to: '/' as const },
-    { name: t('navigation.about'), to: '/' as const },
+    { name: t('navigation.about'), to: '/about' as const },
     { name: t('navigation.contact'), to: '/contact' as const },
   ]
 
@@ -41,20 +42,7 @@ const NavigationBar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2" onClick={closeMobileMenu}>
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 dark:bg-blue-500">
-              <svg
-                className="h-5 w-5 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
-                />
-              </svg>
+              <HiBolt className="h-5 w-5 text-white" aria-hidden="true" />
             </div>
             <span className="text-xl font-bold text-gray-900 dark:text-gray-100">
               {t('navigation.brand')}
@@ -73,24 +61,11 @@ const NavigationBar = () => {
               className="relative h-10 w-10 rounded-lg p-2 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:hover:bg-gray-800"
             >
               <span className="sr-only">{t('navigation.menuLabel')}</span>
-              {/* Hamburger icon with animation */}
-              <div className="flex h-full flex-col items-center justify-center gap-1.5">
-                <span
-                  className={`h-0.5 w-6 bg-gray-900 transition-all duration-300 dark:bg-gray-100 ${
-                    isMobileMenuOpen ? 'translate-y-2 rotate-45' : ''
-                  }`}
-                />
-                <span
-                  className={`h-0.5 w-6 bg-gray-900 transition-opacity duration-300 dark:bg-gray-100 ${
-                    isMobileMenuOpen ? 'opacity-0' : 'opacity-100'
-                  }`}
-                />
-                <span
-                  className={`h-0.5 w-6 bg-gray-900 transition-all duration-300 dark:bg-gray-100 ${
-                    isMobileMenuOpen ? '-translate-y-2 -rotate-45' : ''
-                  }`}
-                />
-              </div>
+              {isMobileMenuOpen ? (
+                <HiXMark className="h-6 w-6 text-gray-900 dark:text-gray-100" />
+              ) : (
+                <HiBars3 className="h-6 w-6 text-gray-900 dark:text-gray-100" />
+              )}
             </button>
           </div>
         </div>
@@ -100,20 +75,7 @@ const NavigationBar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 dark:bg-blue-500">
-              <svg
-                className="h-6 w-6 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
-                />
-              </svg>
+              <HiBolt className="h-6 w-6 text-white" aria-hidden="true" />
             </div>
             <span className="text-xl font-bold text-gray-900 dark:text-gray-100">
               {t('navigation.brand')}

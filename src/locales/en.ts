@@ -52,6 +52,18 @@ export const en = {
   meta: {
     pageTitle: 'Business Card',
   },
+  about: {
+    title: 'About Me',
+    description:
+      "I'm a passionate technology enthusiast who loves equipment advising, computer assembly, and building websites. My passion for technology drives me to constantly improve my skills and create solutions that combine innovation with practicality.",
+    technologies: 'Technologies',
+    technologiesDescription: 'Tools and technologies I use in my work',
+    visitDocs: 'Visit {{name}} documentation (opens in new tab)',
+    andMore: 'And many more technologies...',
+    askAbout: 'Ask me about other technologies I work with!',
+    viewAll: 'View all',
+    showLess: 'Show less',
+  },
   contact: {
     title: 'Get in Touch',
     subtitle: 'Feel free to reach out through any of the following channels',

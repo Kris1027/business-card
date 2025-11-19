@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { HiChevronLeft, HiChevronRight } from 'react-icons/hi2'
 
 type ImageCarouselProps = {
   images: Array<{
@@ -77,16 +78,7 @@ const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
         className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/20 p-4 text-white backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 active:scale-95"
         aria-label="Previous image"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2.5}
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-        </svg>
+        <HiChevronLeft className="h-6 w-6" />
       </button>
 
       <button
@@ -94,16 +86,7 @@ const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
         className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/20 p-4 text-white backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 active:scale-95"
         aria-label="Next image"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2.5}
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
+        <HiChevronRight className="h-6 w-6" />
       </button>
 
       <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-3">
