@@ -1,6 +1,6 @@
 export const pl = {
   navigation: {
-    brand: 'Marka',
+    brand: 'techKris',
     home: 'Strona główna',
     about: 'O mnie',
     contact: 'Kontakt',
@@ -24,7 +24,7 @@ export const pl = {
     githubLabel: 'Odwiedź profil {{name}} na GitHubie (otwiera się w nowej karcie)',
   },
   home: {
-    title: 'Wizytówka',
+    title: 'techKris',
   },
   services: {
     equipmentAdvising: {
@@ -50,7 +50,7 @@ export const pl = {
     notFound: 'Usługa nie została znaleziona',
   },
   meta: {
-    pageTitle: 'Wizytówka',
+    pageTitle: 'techKris',
   },
   about: {
     title: 'O mnie',

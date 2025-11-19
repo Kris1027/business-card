@@ -1,6 +1,6 @@
 export const en = {
   navigation: {
-    brand: 'Brand',
+    brand: 'techKris',
     home: 'Home',
     about: 'About',
     contact: 'Contact',
@@ -24,7 +24,7 @@ export const en = {
     githubLabel: "Visit {{name}}'s GitHub profile (opens in new tab)",
   },
   home: {
-    title: 'Business Card',
+    title: 'techKris',
   },
   services: {
     equipmentAdvising: {
@@ -50,7 +50,7 @@ export const en = {
     notFound: 'Service not found',
   },
   meta: {
-    pageTitle: 'Business Card',
+    pageTitle: 'techKris',
   },
   about: {
     title: 'About Me',
