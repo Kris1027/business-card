@@ -25,6 +25,11 @@ export const pl = {
     footerLabel: 'Stopka strony',
     craftedBy: 'Stworzone z pasją przez',
     githubLabel: 'Odwiedź profil {{name}} na GitHubie (otwiera się w nowej karcie)',
+    quickLinks: 'Szybkie linki',
+    servicesTitle: 'Usługi',
+    contactInfo: 'Kontakt',
+    followMe: 'Śledź mnie',
+    allRightsReserved: '© {{year}} techKris. Wszelkie prawa zastrzeżone.',
   },
   home: {
     title: 'techKris',

@@ -25,6 +25,11 @@ export const en = {
     footerLabel: 'Site footer',
     craftedBy: 'Crafted with love by',
     githubLabel: "Visit {{name}}'s GitHub profile (opens in new tab)",
+    quickLinks: 'Quick Links',
+    servicesTitle: 'Services',
+    contactInfo: 'Contact Info',
+    followMe: 'Follow Me',
+    allRightsReserved: '© {{year}} techKris. All rights reserved.',
   },
   home: {
     title: 'techKris',
