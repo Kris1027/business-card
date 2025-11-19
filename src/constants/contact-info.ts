@@ -1,6 +1,4 @@
 export const contactInfo = {
-  name: 'Krzysztof',
-  surname: 'Obarzanek',
   email: 'kris1027.dev@gmail.com',
   phone: '+48 792 542 841',
   location: 'Zabrze, Poland',
