@@ -75,7 +75,7 @@ const Footer = () => {
     <footer
       role="contentinfo"
       aria-label={t('footer.footerLabel')}
-      className="border-t border-[var(--color-border-divider)] bg-[var(--color-surface-card)]"
+      className="border-t border-border-divider bg-surface-card"
     >
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Main footer content - grid layout */}
@@ -87,7 +87,7 @@ const Footer = () => {
 
           {/* Quick links */}
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--color-text-primary)]">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-text-primary">
               {t('footer.quickLinks')}
             </h3>
             <ul className="space-y-2">
@@ -95,7 +95,7 @@ const Footer = () => {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="focus-glow inline-block rounded-md px-2 py-1 text-sm text-[var(--color-text-body)] transition-colors hover:text-[var(--color-text-link)]"
+                    className="focus-glow inline-block rounded-md px-2 py-1 text-sm text-text-body transition-colors hover:text-text-link"
                   >
                     {link.label}
                   </Link>
@@ -106,7 +106,7 @@ const Footer = () => {
 
           {/* Services */}
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--color-text-primary)]">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-text-primary">
               {t('footer.servicesTitle')}
             </h3>
             <ul className="space-y-2">
@@ -115,7 +115,7 @@ const Footer = () => {
                   <Link
                     to={link.to}
                     params={link.params}
-                    className="focus-glow inline-block rounded-md px-2 py-1 text-sm text-[var(--color-text-body)] transition-colors hover:text-[var(--color-text-link)]"
+                    className="focus-glow inline-block rounded-md px-2 py-1 text-sm text-text-body transition-colors hover:text-text-link"
                   >
                     {link.label}
                   </Link>
@@ -126,7 +126,7 @@ const Footer = () => {
 
           {/* Contact info */}
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--color-text-primary)]">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-text-primary">
               {t('footer.contactInfo')}
             </h3>
             <ul className="space-y-3">
@@ -137,7 +137,7 @@ const Footer = () => {
                     target={item.external ? '_blank' : undefined}
                     rel={item.external ? 'noopener noreferrer' : undefined}
                     aria-label={item.ariaLabel}
-                    className="focus-glow flex items-center gap-2 rounded-md px-2 py-1 text-sm text-[var(--color-text-body)] transition-colors hover:text-[var(--color-text-link)]"
+                    className="focus-glow flex items-center gap-2 rounded-md px-2 py-1 text-sm text-text-body transition-colors hover:text-text-link"
                   >
                     <item.icon className="h-4 w-4 shrink-0" aria-hidden="true" />
                     <span className="break-all">{item.text}</span>
@@ -149,15 +149,13 @@ const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div className="my-8 border-t border-[var(--color-border-divider)]" />
+        <div className="my-8 border-t border-border-divider" />
 
         {/* Bottom section - social links and copyright */}
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           {/* Social links */}
           <div className="flex items-center gap-4">
-            <span className="text-sm font-semibold text-[var(--color-text-primary)]">
-              {t('footer.followMe')}:
-            </span>
+            <span className="text-sm font-semibold text-text-primary">{t('footer.followMe')}:</span>
             <div className="flex gap-3">
               {socialLinks.map(social => (
                 <a
@@ -166,7 +164,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.ariaLabel}
-                  className="focus-glow rounded-md p-2 text-[var(--color-text-body)] transition-all hover:scale-110 hover:text-[var(--color-text-link)]"
+                  className="focus-glow rounded-md p-2 text-text-body transition-all hover:scale-110 hover:text-text-link"
                 >
                   <social.icon className="h-5 w-5" aria-hidden="true" />
                 </a>
@@ -175,7 +173,7 @@ const Footer = () => {
           </div>
 
           {/* Copyright */}
-          <p className="text-sm text-[var(--color-text-body)]">
+          <p className="text-sm text-text-body">
             {t('footer.allRightsReserved', { year: currentYear })}
           </p>
         </div>

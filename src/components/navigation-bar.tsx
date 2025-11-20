@@ -51,7 +51,7 @@ const NavigationBar = () => {
 
   return (
     <nav
-      className="sticky top-0 z-50 bg-[var(--color-surface-card)] shadow-md"
+      className="sticky top-0 z-50 bg-surface-card shadow-md"
       role="navigation"
       aria-label={t('navigation.mainNavLabel')}
       onKeyDown={handleKeyDown}
@@ -73,13 +73,13 @@ const NavigationBar = () => {
               aria-label={t('navigation.toggleMenuLabel')}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
-              className="focus-glow relative h-10 w-10 rounded-lg p-2 hover:bg-[var(--color-surface-hover)]"
+              className="focus-glow relative h-10 w-10 rounded-lg p-2 hover:bg-surface-hover"
             >
               <span className="sr-only">{t('navigation.menuLabel')}</span>
               {isMobileMenuOpen ? (
-                <HiXMark className="h-6 w-6 text-[var(--color-text-primary)]" />
+                <HiXMark className="h-6 w-6 text-text-primary" />
               ) : (
-                <HiBars3 className="h-6 w-6 text-[var(--color-text-primary)]" />
+                <HiBars3 className="h-6 w-6 text-text-primary" />
               )}
             </button>
           </div>
@@ -98,7 +98,7 @@ const NavigationBar = () => {
               <Link
                 key={link.name}
                 to={link.to}
-                className="focus-glow rounded-md px-2 py-1 text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-link)] [&.active]:font-bold [&.active]:text-[var(--color-text-link)]"
+                className="focus-glow rounded-md px-2 py-1 text-text-secondary transition-colors hover:text-text-link [&.active]:font-bold [&.active]:text-text-link"
               >
                 {link.name}
               </Link>
@@ -108,7 +108,7 @@ const NavigationBar = () => {
                 key={link.name}
                 to={link.to}
                 params={link.params}
-                className="focus-glow rounded-md px-2 py-1 text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-link)] [&.active]:font-bold [&.active]:text-[var(--color-text-link)]"
+                className="focus-glow rounded-md px-2 py-1 text-text-secondary transition-colors hover:text-text-link [&.active]:font-bold [&.active]:text-text-link"
               >
                 {link.name}
               </Link>
@@ -133,7 +133,7 @@ const NavigationBar = () => {
                 key={link.name}
                 to={link.to}
                 onClick={closeMobileMenu}
-                className="focus-glow block rounded-lg px-4 py-3 text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-surface-hover)] hover:text-[var(--color-text-link)] [&.active]:font-bold [&.active]:text-[var(--color-text-link)]"
+                className="focus-glow block rounded-lg px-4 py-3 text-text-secondary transition-colors hover:bg-surface-hover hover:text-text-link [&.active]:font-bold [&.active]:text-text-link"
               >
                 {link.name}
               </Link>
@@ -144,7 +144,7 @@ const NavigationBar = () => {
                 to={link.to}
                 params={link.params}
                 onClick={closeMobileMenu}
-                className="focus-glow block rounded-lg px-4 py-3 text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-surface-hover)] hover:text-[var(--color-text-link)] [&.active]:font-bold [&.active]:text-[var(--color-text-link)]"
+                className="focus-glow block rounded-lg px-4 py-3 text-text-secondary transition-colors hover:bg-surface-hover hover:text-text-link [&.active]:font-bold [&.active]:text-text-link"
               >
                 {link.name}
               </Link>

@@ -34,13 +34,8 @@ const ServiceDetail = () => {
   if (!service) {
     return (
       <div className="flex min-h-[60vh] flex-col items-center justify-center">
-        <h1 className="text-2xl font-bold text-[var(--color-text-primary)]">
-          {t('services.notFound')}
-        </h1>
-        <Link
-          to="/"
-          className="mt-4 text-[var(--color-text-link)] transition-colors hover:text-[var(--color-text-link-hover)]"
-        >
+        <h1 className="text-2xl font-bold text-text-primary">{t('services.notFound')}</h1>
+        <Link to="/" className="mt-4 text-text-link transition-colors hover:text-text-link-hover">
           {t('services.backToHome')}
         </Link>
       </div>
@@ -54,7 +49,7 @@ const ServiceDetail = () => {
 
   return (
     <div className="py-8">
-      <div className="overflow-hidden rounded-2xl bg-[var(--color-surface-card)] shadow-2xl">
+      <div className="overflow-hidden rounded-2xl bg-surface-card shadow-2xl">
         <div className="relative aspect-video w-full overflow-hidden">
           <img src={service.image} alt={title} className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent" />
@@ -66,26 +61,22 @@ const ServiceDetail = () => {
         </div>
 
         <div className="p-8 md:p-12">
-          <p className="text-xl font-semibold text-[var(--color-text-secondary)]">
-            {shortDescription}
-          </p>
-          <div className="mt-6 border-t border-[var(--color-border-divider)] pt-6">
-            <p className="text-lg leading-relaxed text-[var(--color-text-body)]">
-              {longDescription}
-            </p>
+          <p className="text-xl font-semibold text-text-secondary">{shortDescription}</p>
+          <div className="mt-6 border-t border-border-divider pt-6">
+            <p className="text-lg leading-relaxed text-text-body">{longDescription}</p>
           </div>
 
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
             <Link
               to="/"
-              className="focus-glow inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--color-surface-hover)] px-6 py-3 font-semibold text-[var(--color-text-primary)] shadow-md transition-all hover:gap-3 hover:bg-[var(--color-border-default)] hover:shadow-lg active:scale-95"
+              className="focus-glow inline-flex items-center justify-center gap-2 rounded-lg bg-surface-hover px-6 py-3 font-semibold text-text-primary shadow-md transition-all hover:gap-3 hover:bg-border-default hover:shadow-lg active:scale-95"
             >
               <HiChevronLeft className="h-5 w-5" />
               {t('services.backToHome')}
             </Link>
             <Link
               to="/contact"
-              className="focus-glow inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--color-interactive-primary)] px-6 py-3 font-semibold text-white shadow-md transition-all hover:gap-3 hover:bg-[var(--color-interactive-primary-hover)] hover:shadow-lg active:scale-95"
+              className="focus-glow inline-flex items-center justify-center gap-2 rounded-lg bg-interactive-primary px-6 py-3 font-semibold text-white shadow-md transition-all hover:gap-3 hover:bg-interactive-primary-hover hover:shadow-lg active:scale-95"
             >
               <HiEnvelope className="h-5 w-5" />
               {t('navigation.contact')}

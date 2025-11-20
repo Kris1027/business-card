@@ -9,7 +9,7 @@ export const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="focus-glow rounded-lg p-2 text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-hover)]"
+      className="focus-glow rounded-lg p-2 text-text-secondary hover:bg-surface-hover"
       aria-label={theme === 'light' ? t('theme.switchToDark') : t('theme.switchToLight')}
     >
       {theme === 'light' ? <HiMoon className="h-5 w-5" /> : <HiSun className="h-5 w-5" />}

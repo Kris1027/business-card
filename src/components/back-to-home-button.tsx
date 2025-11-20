@@ -14,10 +14,8 @@ const BackToHomeButton = ({ variant = 'primary', className = '' }: BackToHomeBut
     'focus-glow inline-flex items-center gap-2 rounded-lg font-semibold shadow-md transition-all hover:gap-3 hover:shadow-lg active:scale-95'
 
   const variantClasses = {
-    primary:
-      'bg-[var(--color-interactive-primary)] px-4 py-2 text-white hover:bg-[var(--color-interactive-primary-hover)]',
-    secondary:
-      'bg-[var(--color-surface-hover)] px-6 py-3 text-[var(--color-text-primary)] hover:bg-[var(--color-surface-hover)]',
+    primary: 'bg-interactive-primary px-4 py-2 text-white hover:bg-interactive-primary-hover',
+    secondary: 'bg-surface-hover px-6 py-3 text-text-primary hover:bg-surface-hover',
   }
 
   return (

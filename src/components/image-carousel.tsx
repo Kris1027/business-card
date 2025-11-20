@@ -50,7 +50,7 @@ const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
       <div className="sr-only" aria-live="polite" aria-atomic="true">
         {`Slide ${currentIndex + 1} of ${images.length}: ${images[currentIndex].title}`}
       </div>
-      <div className="relative aspect-[4/5] w-full sm:aspect-video">
+      <div className="relative aspect-4/5 w-full sm:aspect-video">
         {images.map((image, index) => (
           <div
             key={image.src}
