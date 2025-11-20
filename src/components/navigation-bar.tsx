@@ -61,7 +61,7 @@ const NavigationBar = () => {
         <div className="flex items-center justify-between py-4 md:hidden">
           {/* Logo */}
           <Link to="/" onClick={closeMobileMenu}>
-            <Logo size="md" />
+            <Logo />
           </Link>
 
           {/* Actions: Language toggle + Theme toggle + Hamburger button */}

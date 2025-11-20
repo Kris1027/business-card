@@ -82,7 +82,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="space-y-4">
-            <Logo size="md" />
+            <Logo />
           </div>
 
           {/* Quick links */}
@@ -139,7 +139,7 @@ const Footer = () => {
                     aria-label={item.ariaLabel}
                     className="flex items-center gap-2 text-sm text-gray-600 transition-colors duration-200 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-blue-400 dark:focus:ring-offset-gray-900"
                   >
-                    <item.icon className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
+                    <item.icon className="h-4 w-4 shrink-0" aria-hidden="true" />
                     <span className="break-all">{item.text}</span>
                   </a>
                 </li>
