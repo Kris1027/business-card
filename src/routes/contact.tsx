@@ -126,7 +126,7 @@ const Contact = () => {
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[var(--color-warning-bg)] text-[var(--color-warning-text)] transition-transform duration-300 group-hover:scale-110">
                 <HiMapPin className="h-6 w-6" aria-hidden="true" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+              <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">
                 {t('contact.location')}
               </h3>
             </div>
@@ -178,7 +178,7 @@ const Contact = () => {
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[var(--color-surface-hover)] text-[var(--color-text-primary)] transition-transform duration-300 group-hover:scale-110">
                 <SiGithub className="h-6 w-6" aria-hidden="true" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+              <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">
                 {t('contact.github')}
               </h3>
             </div>
@@ -198,10 +198,10 @@ const Contact = () => {
             style={{ animationDelay: '500ms' }}
           >
             <div className="mb-4 flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 text-blue-600 transition-transform duration-300 group-hover:scale-110 dark:bg-blue-900/30 dark:text-blue-400">
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[var(--color-info-bg)] text-[var(--color-info-text)] transition-transform duration-300 group-hover:scale-110">
                 <SiLinkedin className="h-6 w-6" aria-hidden="true" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+              <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">
                 {t('contact.linkedin')}
               </h3>
             </div>

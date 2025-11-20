@@ -91,7 +91,7 @@ const About = () => {
             <p className="text-xl font-semibold text-[var(--color-text-secondary)]">
               {t('about.andMore')}
             </p>
-            <p className="mt-2 text-lg text-gray-600 dark:text-gray-400">{t('about.askAbout')}</p>
+            <p className="mt-2 text-lg text-[var(--color-text-body)]">{t('about.askAbout')}</p>
             <button
               onClick={toggleShowAll}
               className="mt-6 inline-flex items-center gap-2 text-lg font-semibold text-[var(--color-text-link)] transition-colors hover:text-[var(--color-text-link-hover)]"
