@@ -11,7 +11,7 @@ const BackToHomeButton = ({ variant = 'primary', className = '' }: BackToHomeBut
   const { t } = useTranslation()
 
   const baseClasses =
-    'focus-glow-pulse inline-flex items-center gap-2 rounded-lg font-semibold shadow-md transition-all duration-300 hover:gap-3 hover:shadow-lg focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none active:scale-95'
+    'focus-glow inline-flex items-center gap-2 rounded-lg font-semibold shadow-md transition-all hover:gap-3 hover:shadow-lg active:scale-95'
 
   const variantClasses = {
     primary:

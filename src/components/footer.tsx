@@ -95,7 +95,7 @@ const Footer = () => {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="focus-glow-pulse inline-block rounded-md px-2 py-1 text-sm text-[var(--color-text-body)] transition-all duration-300 hover:text-[var(--color-text-link)] focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none"
+                    className="focus-glow inline-block rounded-md px-2 py-1 text-sm text-[var(--color-text-body)] transition-colors hover:text-[var(--color-text-link)]"
                   >
                     {link.label}
                   </Link>
@@ -115,7 +115,7 @@ const Footer = () => {
                   <Link
                     to={link.to}
                     params={link.params}
-                    className="focus-glow-pulse inline-block rounded-md px-2 py-1 text-sm text-[var(--color-text-body)] transition-all duration-300 hover:text-[var(--color-text-link)] focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none"
+                    className="focus-glow inline-block rounded-md px-2 py-1 text-sm text-[var(--color-text-body)] transition-colors hover:text-[var(--color-text-link)]"
                   >
                     {link.label}
                   </Link>
@@ -137,7 +137,7 @@ const Footer = () => {
                     target={item.external ? '_blank' : undefined}
                     rel={item.external ? 'noopener noreferrer' : undefined}
                     aria-label={item.ariaLabel}
-                    className="focus-glow-pulse flex items-center gap-2 rounded-md px-2 py-1 text-sm text-[var(--color-text-body)] transition-all duration-300 hover:text-[var(--color-text-link)] focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none"
+                    className="focus-glow flex items-center gap-2 rounded-md px-2 py-1 text-sm text-[var(--color-text-body)] transition-colors hover:text-[var(--color-text-link)]"
                   >
                     <item.icon className="h-4 w-4 shrink-0" aria-hidden="true" />
                     <span className="break-all">{item.text}</span>
@@ -166,7 +166,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.ariaLabel}
-                  className="focus-glow-pulse rounded-md p-2 text-[var(--color-text-body)] transition-all duration-300 hover:scale-110 hover:text-[var(--color-text-link)] focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none"
+                  className="focus-glow rounded-md p-2 text-[var(--color-text-body)] transition-all hover:scale-110 hover:text-[var(--color-text-link)]"
                 >
                   <social.icon className="h-5 w-5" aria-hidden="true" />
                 </a>

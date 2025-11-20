@@ -53,7 +53,7 @@ export const LanguageToggle = () => {
         aria-label={t('language.languageLabel')}
         aria-expanded={isOpen}
         aria-haspopup="menu"
-        className="focus-glow-pulse rounded-lg p-2 text-[var(--color-text-secondary)] transition-shadow duration-300 hover:bg-[var(--color-surface-hover)] focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none"
+        className="focus-glow rounded-lg p-2 text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-hover)]"
       >
         <HiLanguage className="h-5 w-5" />
       </button>
@@ -69,7 +69,7 @@ export const LanguageToggle = () => {
                 key={lang.code}
                 role="menuitem"
                 onClick={() => handleLanguageChange(lang.code)}
-                className={`focus-glow-pulse w-full px-4 py-2 text-left text-sm transition-all duration-300 hover:bg-[var(--color-surface-hover)] focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none ${
+                className={`focus-glow w-full px-4 py-2 text-left text-sm transition-colors hover:bg-[var(--color-surface-hover)] ${
                   language === lang.code
                     ? 'bg-[var(--color-info-bg)] text-[var(--color-text-link)]'
                     : 'text-[var(--color-text-secondary)]'

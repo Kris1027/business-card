@@ -60,11 +60,7 @@ const NavigationBar = () => {
         {/* Mobile header */}
         <div className="flex items-center justify-between md:hidden">
           {/* Logo */}
-          <Link
-            to="/"
-            onClick={closeMobileMenu}
-            className="focus-glow-pulse rounded-lg p-1 transition-shadow duration-300 focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none"
-          >
+          <Link to="/" onClick={closeMobileMenu} className="focus-glow rounded-lg p-1">
             <Logo />
           </Link>
 
@@ -77,7 +73,7 @@ const NavigationBar = () => {
               aria-label={t('navigation.toggleMenuLabel')}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
-              className="focus-glow-pulse relative h-10 w-10 rounded-lg p-2 transition-shadow duration-300 hover:bg-[var(--color-surface-hover)] focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none"
+              className="focus-glow relative h-10 w-10 rounded-lg p-2 hover:bg-[var(--color-surface-hover)]"
             >
               <span className="sr-only">{t('navigation.menuLabel')}</span>
               {isMobileMenuOpen ? (
@@ -92,10 +88,7 @@ const NavigationBar = () => {
         {/* Desktop header */}
         <div className="hidden items-center justify-between md:flex">
           {/* Logo */}
-          <Link
-            to="/"
-            className="focus-glow-pulse rounded-lg p-1 transition-shadow duration-300 focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none"
-          >
+          <Link to="/" className="focus-glow rounded-lg p-1">
             <Logo size="lg" />
           </Link>
 
@@ -105,7 +98,7 @@ const NavigationBar = () => {
               <Link
                 key={link.name}
                 to={link.to}
-                className="focus-glow-pulse rounded-md px-2 py-1 text-[var(--color-text-secondary)] transition-all duration-300 hover:text-[var(--color-text-link)] focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none [&.active]:font-bold [&.active]:text-[var(--color-text-link)]"
+                className="focus-glow rounded-md px-2 py-1 text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-link)] [&.active]:font-bold [&.active]:text-[var(--color-text-link)]"
               >
                 {link.name}
               </Link>
@@ -115,7 +108,7 @@ const NavigationBar = () => {
                 key={link.name}
                 to={link.to}
                 params={link.params}
-                className="focus-glow-pulse rounded-md px-2 py-1 text-[var(--color-text-secondary)] transition-all duration-300 hover:text-[var(--color-text-link)] focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none [&.active]:font-bold [&.active]:text-[var(--color-text-link)]"
+                className="focus-glow rounded-md px-2 py-1 text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-link)] [&.active]:font-bold [&.active]:text-[var(--color-text-link)]"
               >
                 {link.name}
               </Link>
@@ -140,7 +133,7 @@ const NavigationBar = () => {
                 key={link.name}
                 to={link.to}
                 onClick={closeMobileMenu}
-                className="focus-glow-pulse block rounded-lg px-4 py-3 text-[var(--color-text-secondary)] transition-all duration-300 hover:bg-[var(--color-surface-hover)] hover:text-[var(--color-text-link)] focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none [&.active]:font-bold [&.active]:text-[var(--color-text-link)]"
+                className="focus-glow block rounded-lg px-4 py-3 text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-surface-hover)] hover:text-[var(--color-text-link)] [&.active]:font-bold [&.active]:text-[var(--color-text-link)]"
               >
                 {link.name}
               </Link>
@@ -151,7 +144,7 @@ const NavigationBar = () => {
                 to={link.to}
                 params={link.params}
                 onClick={closeMobileMenu}
-                className="focus-glow-pulse block rounded-lg px-4 py-3 text-[var(--color-text-secondary)] transition-all duration-300 hover:bg-[var(--color-surface-hover)] hover:text-[var(--color-text-link)] focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none [&.active]:font-bold [&.active]:text-[var(--color-text-link)]"
+                className="focus-glow block rounded-lg px-4 py-3 text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-surface-hover)] hover:text-[var(--color-text-link)] [&.active]:font-bold [&.active]:text-[var(--color-text-link)]"
               >
                 {link.name}
               </Link>

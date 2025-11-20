@@ -71,7 +71,7 @@ const About = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t('about.visitDocs', { name: tech.name })}
-                className="focus-glow-pulse group flex flex-col items-center gap-3 rounded-lg border border-[var(--color-border-default)] bg-[var(--color-surface-card)] p-6 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none"
+                className="focus-glow group flex flex-col items-center gap-3 rounded-lg border border-[var(--color-border-default)] bg-[var(--color-surface-card)] p-6 shadow-md transition-all hover:scale-105 hover:shadow-xl"
               >
                 <Icon
                   className={`text-5xl ${tech.color} transition-transform duration-300 group-hover:scale-110`}
@@ -94,7 +94,7 @@ const About = () => {
             <p className="mt-2 text-lg text-[var(--color-text-body)]">{t('about.askAbout')}</p>
             <button
               onClick={toggleShowAll}
-              className="focus-glow-pulse mt-6 inline-flex items-center gap-2 rounded-md px-2 py-1 text-lg font-semibold text-[var(--color-text-link)] transition-all duration-300 hover:text-[var(--color-text-link-hover)] focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none"
+              className="focus-glow mt-6 inline-flex items-center gap-2 rounded-md px-2 py-1 text-lg font-semibold text-[var(--color-text-link)] transition-colors hover:text-[var(--color-text-link-hover)]"
               aria-expanded={showAll}
             >
               {t('about.viewAll')} ({technologies.length})
@@ -108,7 +108,7 @@ const About = () => {
           <div className="mt-8 flex justify-center">
             <button
               onClick={toggleShowAll}
-              className="focus-glow-pulse inline-flex items-center gap-2 rounded-lg bg-[var(--color-interactive-primary)] px-6 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:bg-[var(--color-interactive-primary-hover)] hover:shadow-lg focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none active:scale-95"
+              className="focus-glow inline-flex items-center gap-2 rounded-lg bg-[var(--color-interactive-primary)] px-6 py-3 font-semibold text-white shadow-md transition-all hover:bg-[var(--color-interactive-primary-hover)] hover:shadow-lg active:scale-95"
               aria-expanded={showAll}
             >
               {t('about.showLess')}
