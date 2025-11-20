@@ -58,7 +58,7 @@ const NavigationBar = () => {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Mobile header */}
-        <div className="flex items-center justify-between py-4 md:hidden">
+        <div className="flex items-center justify-between md:hidden">
           {/* Logo */}
           <Link to="/" onClick={closeMobileMenu}>
             <Logo />
@@ -86,7 +86,7 @@ const NavigationBar = () => {
         </div>
 
         {/* Desktop header */}
-        <div className="hidden items-center justify-between py-4 md:flex">
+        <div className="hidden items-center justify-between md:flex">
           {/* Logo */}
           <Link to="/">
             <Logo size="lg" />

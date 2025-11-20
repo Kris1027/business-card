@@ -16,7 +16,11 @@ const Logo = ({ size = 'lg', className = '' }: LogoProps) => {
   }
 
   return (
-    <img src={logo} alt={t('navigation.brand')} className={`${sizeClasses[size]} ${className}`} />
+    <img
+      src={logo}
+      alt={t('navigation.brand')}
+      className={`${sizeClasses[size]} dark:brightness-0 dark:invert ${className}`}
+    />
   )
 }
 
