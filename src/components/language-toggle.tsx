@@ -53,7 +53,7 @@ export const LanguageToggle = () => {
         aria-label={t('language.languageLabel')}
         aria-expanded={isOpen}
         aria-haspopup="menu"
-        className="rounded-lg p-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-300 dark:hover:bg-gray-800"
+        className="rounded-lg p-2 text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--color-focus-ring)]"
       >
         <HiLanguage className="h-5 w-5" />
       </button>
@@ -61,7 +61,7 @@ export const LanguageToggle = () => {
       {isOpen && (
         <div
           role="menu"
-          className="absolute right-0 z-10 mt-2 w-40 rounded-lg border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800"
+          className="absolute right-0 z-10 mt-2 w-40 rounded-lg border border-[var(--color-border-default)] bg-[var(--color-surface-card)] shadow-lg"
         >
           <div className="py-1">
             {languages.map(lang => (
@@ -69,10 +69,10 @@ export const LanguageToggle = () => {
                 key={lang.code}
                 role="menuitem"
                 onClick={() => handleLanguageChange(lang.code)}
-                className={`w-full px-4 py-2 text-left text-sm transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:hover:bg-gray-700 ${
+                className={`w-full px-4 py-2 text-left text-sm transition-colors hover:bg-[var(--color-surface-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--color-focus-ring)] ${
                   language === lang.code
-                    ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400'
-                    : 'text-gray-700 dark:text-gray-300'
+                    ? 'bg-[var(--color-info-bg)] text-[var(--color-text-link)]'
+                    : 'text-[var(--color-text-secondary)]'
                 }`}
               >
                 {lang.label}

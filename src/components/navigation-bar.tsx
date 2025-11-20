@@ -51,7 +51,7 @@ const NavigationBar = () => {
 
   return (
     <nav
-      className="sticky top-0 z-50 bg-white shadow-md dark:bg-gray-900 dark:shadow-gray-800/50"
+      className="sticky top-0 z-50 bg-[var(--color-surface-card)] shadow-md"
       role="navigation"
       aria-label={t('navigation.mainNavLabel')}
       onKeyDown={handleKeyDown}
@@ -73,13 +73,13 @@ const NavigationBar = () => {
               aria-label={t('navigation.toggleMenuLabel')}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
-              className="relative h-10 w-10 rounded-lg p-2 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:hover:bg-gray-800"
+              className="relative h-10 w-10 rounded-lg p-2 hover:bg-[var(--color-surface-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--color-focus-ring)]"
             >
               <span className="sr-only">{t('navigation.menuLabel')}</span>
               {isMobileMenuOpen ? (
-                <HiXMark className="h-6 w-6 text-gray-900 dark:text-gray-100" />
+                <HiXMark className="h-6 w-6 text-[var(--color-text-primary)]" />
               ) : (
-                <HiBars3 className="h-6 w-6 text-gray-900 dark:text-gray-100" />
+                <HiBars3 className="h-6 w-6 text-[var(--color-text-primary)]" />
               )}
             </button>
           </div>
@@ -98,7 +98,7 @@ const NavigationBar = () => {
               <Link
                 key={link.name}
                 to={link.to}
-                className="text-gray-700 transition-colors hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-300 dark:hover:text-blue-400 [&.active]:font-bold [&.active]:text-blue-600 dark:[&.active]:text-blue-400"
+                className="text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-link)] focus:outline-none focus:ring-2 focus:ring-[var(--color-focus-ring)] [&.active]:font-bold [&.active]:text-[var(--color-text-link)]"
               >
                 {link.name}
               </Link>
@@ -108,7 +108,7 @@ const NavigationBar = () => {
                 key={link.name}
                 to={link.to}
                 params={link.params}
-                className="text-gray-700 transition-colors hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-300 dark:hover:text-blue-400 [&.active]:font-bold [&.active]:text-blue-600 dark:[&.active]:text-blue-400"
+                className="text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-link)] focus:outline-none focus:ring-2 focus:ring-[var(--color-focus-ring)] [&.active]:font-bold [&.active]:text-[var(--color-text-link)]"
               >
                 {link.name}
               </Link>
@@ -133,7 +133,7 @@ const NavigationBar = () => {
                 key={link.name}
                 to={link.to}
                 onClick={closeMobileMenu}
-                className="block rounded-lg px-4 py-3 text-gray-700 transition-colors hover:bg-gray-100 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-blue-400 [&.active]:font-bold [&.active]:text-blue-600 dark:[&.active]:text-blue-400"
+                className="block rounded-lg px-4 py-3 text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-surface-hover)] hover:text-[var(--color-text-link)] focus:outline-none focus:ring-2 focus:ring-[var(--color-focus-ring)] [&.active]:font-bold [&.active]:text-[var(--color-text-link)]"
               >
                 {link.name}
               </Link>
@@ -144,7 +144,7 @@ const NavigationBar = () => {
                 to={link.to}
                 params={link.params}
                 onClick={closeMobileMenu}
-                className="block rounded-lg px-4 py-3 text-gray-700 transition-colors hover:bg-gray-100 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-blue-400 [&.active]:font-bold [&.active]:text-blue-600 dark:[&.active]:text-blue-400"
+                className="block rounded-lg px-4 py-3 text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-surface-hover)] hover:text-[var(--color-text-link)] focus:outline-none focus:ring-2 focus:ring-[var(--color-focus-ring)] [&.active]:font-bold [&.active]:text-[var(--color-text-link)]"
               >
                 {link.name}
               </Link>
