@@ -67,7 +67,7 @@ const Contact = () => {
               </div>
               <button
                 onClick={() => copyToClipboard(contactInfo.email, 'email')}
-                className="cursor-pointer rounded-lg p-2 text-[var(--color-text-muted)] transition-colors hover:bg-[var(--color-surface-hover)] hover:text-[var(--color-text-secondary)]"
+                className="focus-glow-pulse cursor-pointer rounded-lg p-2 text-[var(--color-text-muted)] transition-all duration-300 hover:bg-[var(--color-surface-hover)] hover:text-[var(--color-text-secondary)] focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none"
                 aria-label={t('contact.copyToClipboard')}
               >
                 {copiedField === 'email' ? <CheckIcon /> : <CopyIcon />}
@@ -75,7 +75,7 @@ const Contact = () => {
             </div>
             <a
               href={`mailto:${contactInfo.email}`}
-              className="text-[var(--color-text-body)] transition-colors hover:text-[var(--color-text-link)]"
+              className="focus-glow-pulse inline-block rounded-md px-2 py-1 text-[var(--color-text-body)] transition-all duration-300 hover:text-[var(--color-text-link)] focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none"
               aria-label={t('contact.emailLabel', { email: contactInfo.email })}
             >
               {contactInfo.email}
@@ -100,7 +100,7 @@ const Contact = () => {
               </div>
               <button
                 onClick={() => copyToClipboard(contactInfo.phone, 'phone')}
-                className="cursor-pointer rounded-lg p-2 text-[var(--color-text-muted)] transition-colors hover:bg-[var(--color-surface-hover)] hover:text-[var(--color-text-secondary)]"
+                className="focus-glow-pulse cursor-pointer rounded-lg p-2 text-[var(--color-text-muted)] transition-all duration-300 hover:bg-[var(--color-surface-hover)] hover:text-[var(--color-text-secondary)] focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none"
                 aria-label={t('contact.copyToClipboard')}
               >
                 {copiedField === 'phone' ? <CheckIcon /> : <CopyIcon />}
@@ -108,7 +108,7 @@ const Contact = () => {
             </div>
             <a
               href={`tel:${contactInfo.phone.replace(/\s/g, '')}`}
-              className="text-[var(--color-text-body)] transition-colors hover:text-[var(--color-success-text)]"
+              className="focus-glow-pulse inline-block rounded-md px-2 py-1 text-[var(--color-text-body)] transition-all duration-300 hover:text-[var(--color-success-text)] focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none"
               aria-label={t('contact.phoneLabel', { phone: contactInfo.phone })}
             >
               {contactInfo.phone}
@@ -134,7 +134,7 @@ const Contact = () => {
               href={contactInfo.locationMapUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--color-text-body)] transition-colors hover:text-[var(--color-warning-text)]"
+              className="focus-glow-pulse inline-block rounded-md px-2 py-1 text-[var(--color-text-body)] transition-all duration-300 hover:text-[var(--color-warning-text)] focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none"
               aria-label={t('contact.locationLabel')}
             >
               {contactInfo.location}
@@ -156,7 +156,7 @@ const Contact = () => {
               </div>
               <button
                 onClick={() => copyToClipboard(contactInfo.discord, 'discord')}
-                className="cursor-pointer rounded-lg p-2 text-[var(--color-text-muted)] transition-colors hover:bg-[var(--color-surface-hover)] hover:text-[var(--color-text-secondary)]"
+                className="focus-glow-pulse cursor-pointer rounded-lg p-2 text-[var(--color-text-muted)] transition-all duration-300 hover:bg-[var(--color-surface-hover)] hover:text-[var(--color-text-secondary)] focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none"
                 aria-label={t('contact.copyToClipboard')}
               >
                 {copiedField === 'discord' ? <CheckIcon /> : <CopyIcon />}
@@ -186,7 +186,7 @@ const Contact = () => {
               href={contactInfo.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--color-text-body)] transition-colors hover:text-[var(--color-text-primary)]"
+              className="focus-glow-pulse inline-block rounded-md px-2 py-1 text-[var(--color-text-body)] transition-all duration-300 hover:text-[var(--color-text-primary)] focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none"
               aria-label={t('contact.githubLabel')}
             >
               {contactInfo.github.replace('https://', '')}
@@ -209,7 +209,7 @@ const Contact = () => {
               href={contactInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--color-text-body)] transition-colors hover:text-[var(--color-text-link)]"
+              className="focus-glow-pulse inline-block rounded-md px-2 py-1 text-[var(--color-text-body)] transition-all duration-300 hover:text-[var(--color-text-link)] focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none"
               aria-label={t('contact.linkedinLabel')}
             >
               {contactInfo.linkedin.replace('https://', '')}

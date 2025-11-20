@@ -21,7 +21,7 @@ const ServiceCard = ({ serviceId, title, shortDescription }: ServiceCardProps) =
         <Link
           to="/services/$service-id"
           params={{ 'service-id': serviceId }}
-          className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-text-link)] transition-all duration-300 hover:gap-3 sm:mt-6 sm:text-base"
+          className="focus-glow-pulse mt-4 inline-flex items-center gap-2 rounded-md px-2 py-1 text-sm font-semibold text-[var(--color-text-link)] transition-all duration-300 hover:gap-3 focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none sm:mt-6 sm:text-base"
         >
           {t('services.readMore')}
           <HiChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />

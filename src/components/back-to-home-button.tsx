@@ -11,13 +11,13 @@ const BackToHomeButton = ({ variant = 'primary', className = '' }: BackToHomeBut
   const { t } = useTranslation()
 
   const baseClasses =
-    'inline-flex items-center gap-2 rounded-lg font-semibold shadow-md transition-all duration-300 hover:gap-3 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-95'
+    'focus-glow-pulse inline-flex items-center gap-2 rounded-lg font-semibold shadow-md transition-all duration-300 hover:gap-3 hover:shadow-lg focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none active:scale-95'
 
   const variantClasses = {
     primary:
-      'bg-[var(--color-interactive-primary)] px-4 py-2 text-white hover:bg-[var(--color-interactive-primary-hover)] focus:ring-[var(--color-focus-ring)]',
+      'bg-[var(--color-interactive-primary)] px-4 py-2 text-white hover:bg-[var(--color-interactive-primary-hover)]',
     secondary:
-      'bg-[var(--color-surface-hover)] px-6 py-3 text-[var(--color-text-primary)] hover:bg-[var(--color-surface-hover)] focus:ring-[var(--color-border-default)]',
+      'bg-[var(--color-surface-hover)] px-6 py-3 text-[var(--color-text-primary)] hover:bg-[var(--color-surface-hover)]',
   }
 
   return (

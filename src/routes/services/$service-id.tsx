@@ -78,14 +78,14 @@ const ServiceDetail = () => {
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
             <Link
               to="/"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--color-surface-hover)] px-6 py-3 font-semibold text-[var(--color-text-primary)] shadow-md transition-all duration-300 hover:gap-3 hover:bg-[var(--color-border-default)] hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-focus-ring)] focus:ring-offset-2 active:scale-95"
+              className="focus-glow-pulse inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--color-surface-hover)] px-6 py-3 font-semibold text-[var(--color-text-primary)] shadow-md transition-all duration-300 hover:gap-3 hover:bg-[var(--color-border-default)] hover:shadow-lg focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none active:scale-95"
             >
               <HiChevronLeft className="h-5 w-5" />
               {t('services.backToHome')}
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--color-interactive-primary)] px-6 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:gap-3 hover:bg-[var(--color-interactive-primary-hover)] hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-focus-ring)] focus:ring-offset-2 active:scale-95"
+              className="focus-glow-pulse inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--color-interactive-primary)] px-6 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:gap-3 hover:bg-[var(--color-interactive-primary-hover)] hover:shadow-lg focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none active:scale-95"
             >
               <HiEnvelope className="h-5 w-5" />
               {t('navigation.contact')}

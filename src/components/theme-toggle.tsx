@@ -9,7 +9,7 @@ export const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="rounded-lg p-2 text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--color-focus-ring)]"
+      className="focus-glow-pulse rounded-lg p-2 text-[var(--color-text-secondary)] transition-shadow duration-300 hover:bg-[var(--color-surface-hover)] focus-visible:shadow-[0_0_0_3px_var(--color-focus-glow-inner),0_0_20px_var(--color-focus-glow-outer)] focus-visible:outline-none"
       aria-label={theme === 'light' ? t('theme.switchToDark') : t('theme.switchToLight')}
     >
       {theme === 'light' ? <HiMoon className="h-5 w-5" /> : <HiSun className="h-5 w-5" />}

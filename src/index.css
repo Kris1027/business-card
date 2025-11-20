@@ -29,6 +29,10 @@
   --color-interactive-primary-hover: #1d4ed8; /* blue-700 */
   --color-focus-ring: #3b82f6; /* blue-500 */
 
+  /* Neon Glow Focus Colors - Light Mode */
+  --color-focus-glow-inner: rgba(59, 130, 246, 0.4); /* blue-500 at 40% */
+  --color-focus-glow-outer: rgba(59, 130, 246, 0.3); /* blue-500 at 30% */
+
   /* Semantic Colors - Light Mode */
   --color-success: #22c55e; /* green-500 */
   --color-success-bg: #dcfce7; /* green-100 */
@@ -69,6 +73,10 @@
   --color-interactive-primary-hover: #60a5fa; /* blue-400 - lighter on hover */
   --color-focus-ring: #60a5fa; /* blue-400 - high visibility focus */
 
+  /* Neon Glow Focus Colors - Dark Mode */
+  --color-focus-glow-inner: rgba(96, 165, 250, 0.5); /* blue-400 at 50% - higher visibility */
+  --color-focus-glow-outer: rgba(96, 165, 250, 0.4); /* blue-400 at 40% */
+
   /* Semantic Colors - Dark Mode */
   --color-success: #22c55e; /* green-500 - vibrant, accessible */
   --color-success-bg: rgba(34, 197, 94, 0.1); /* Subtle green background */
@@ -88,5 +96,20 @@
 @layer base {
   body {
     font-family: var(--font-family-sans);
+  }
+
+  /* Custom smooth pulse animation for focus glow */
+  @keyframes focus-pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .focus-glow-pulse {
+    animation: focus-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 }
