@@ -34,13 +34,8 @@ const ServiceDetail = () => {
   if (!service) {
     return (
       <div className="flex min-h-[60vh] flex-col items-center justify-center">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-          {t('services.notFound')}
-        </h1>
-        <Link
-          to="/"
-          className="mt-4 text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
-        >
+        <h1 className="text-2xl font-bold text-text-primary">{t('services.notFound')}</h1>
+        <Link to="/" className="mt-4 text-text-link transition-colors hover:text-text-link-hover">
           {t('services.backToHome')}
         </Link>
       </div>
@@ -54,7 +49,7 @@ const ServiceDetail = () => {
 
   return (
     <div className="py-8">
-      <div className="overflow-hidden rounded-2xl bg-white shadow-2xl dark:bg-gray-800">
+      <div className="overflow-hidden rounded-2xl bg-surface-card shadow-2xl">
         <div className="relative aspect-video w-full overflow-hidden">
           <img src={service.image} alt={title} className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent" />
@@ -66,26 +61,22 @@ const ServiceDetail = () => {
         </div>
 
         <div className="p-8 md:p-12">
-          <p className="text-xl font-semibold text-gray-700 dark:text-gray-300">
-            {shortDescription}
-          </p>
-          <div className="mt-6 border-t border-gray-200 pt-6 dark:border-gray-700">
-            <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-400">
-              {longDescription}
-            </p>
+          <p className="text-xl font-semibold text-text-secondary">{shortDescription}</p>
+          <div className="mt-6 border-t border-border-divider pt-6">
+            <p className="text-lg leading-relaxed text-text-body">{longDescription}</p>
           </div>
 
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
             <Link
               to="/"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-gray-100 px-6 py-3 font-semibold text-gray-900 shadow-md transition-all duration-300 hover:gap-3 hover:bg-gray-200 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 active:scale-95 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 dark:focus:ring-offset-gray-900"
+              className="focus-glow inline-flex items-center justify-center gap-2 rounded-lg bg-surface-hover px-6 py-3 font-semibold text-text-primary shadow-md transition-all hover:gap-3 hover:bg-border-default hover:shadow-lg active:scale-95"
             >
               <HiChevronLeft className="h-5 w-5" />
               {t('services.backToHome')}
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:gap-3 hover:bg-blue-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-95 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-offset-gray-900"
+              className="focus-glow inline-flex items-center justify-center gap-2 rounded-lg bg-interactive-primary px-6 py-3 font-semibold text-white shadow-md transition-all hover:gap-3 hover:bg-interactive-primary-hover hover:shadow-lg active:scale-95"
             >
               <HiEnvelope className="h-5 w-5" />
               {t('navigation.contact')}

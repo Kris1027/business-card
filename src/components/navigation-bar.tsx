@@ -51,17 +51,17 @@ const NavigationBar = () => {
 
   return (
     <nav
-      className="sticky top-0 z-50 bg-white shadow-md dark:bg-gray-900 dark:shadow-gray-800/50"
+      className="sticky top-0 z-50 bg-surface-card shadow-md"
       role="navigation"
       aria-label={t('navigation.mainNavLabel')}
       onKeyDown={handleKeyDown}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Mobile header */}
-        <div className="flex items-center justify-between py-4 md:hidden">
+        <div className="flex items-center justify-between md:hidden">
           {/* Logo */}
-          <Link to="/" onClick={closeMobileMenu}>
-            <Logo size="md" />
+          <Link to="/" onClick={closeMobileMenu} className="focus-glow rounded-lg p-1">
+            <Logo />
           </Link>
 
           {/* Actions: Language toggle + Theme toggle + Hamburger button */}
@@ -73,22 +73,22 @@ const NavigationBar = () => {
               aria-label={t('navigation.toggleMenuLabel')}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
-              className="relative h-10 w-10 rounded-lg p-2 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:hover:bg-gray-800"
+              className="focus-glow relative h-10 w-10 rounded-lg p-2 hover:bg-surface-hover"
             >
               <span className="sr-only">{t('navigation.menuLabel')}</span>
               {isMobileMenuOpen ? (
-                <HiXMark className="h-6 w-6 text-gray-900 dark:text-gray-100" />
+                <HiXMark className="h-6 w-6 text-text-primary" />
               ) : (
-                <HiBars3 className="h-6 w-6 text-gray-900 dark:text-gray-100" />
+                <HiBars3 className="h-6 w-6 text-text-primary" />
               )}
             </button>
           </div>
         </div>
 
         {/* Desktop header */}
-        <div className="hidden items-center justify-between py-4 md:flex">
+        <div className="hidden items-center justify-between md:flex">
           {/* Logo */}
-          <Link to="/">
+          <Link to="/" className="focus-glow rounded-lg p-1">
             <Logo size="lg" />
           </Link>
 
@@ -98,7 +98,7 @@ const NavigationBar = () => {
               <Link
                 key={link.name}
                 to={link.to}
-                className="text-gray-700 transition-colors hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-300 dark:hover:text-blue-400 [&.active]:font-bold [&.active]:text-blue-600 dark:[&.active]:text-blue-400"
+                className="focus-glow rounded-md px-2 py-1 text-text-secondary transition-colors hover:text-text-link [&.active]:font-bold [&.active]:text-text-link"
               >
                 {link.name}
               </Link>
@@ -108,7 +108,7 @@ const NavigationBar = () => {
                 key={link.name}
                 to={link.to}
                 params={link.params}
-                className="text-gray-700 transition-colors hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-300 dark:hover:text-blue-400 [&.active]:font-bold [&.active]:text-blue-600 dark:[&.active]:text-blue-400"
+                className="focus-glow rounded-md px-2 py-1 text-text-secondary transition-colors hover:text-text-link [&.active]:font-bold [&.active]:text-text-link"
               >
                 {link.name}
               </Link>
@@ -133,7 +133,7 @@ const NavigationBar = () => {
                 key={link.name}
                 to={link.to}
                 onClick={closeMobileMenu}
-                className="block rounded-lg px-4 py-3 text-gray-700 transition-colors hover:bg-gray-100 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-blue-400 [&.active]:font-bold [&.active]:text-blue-600 dark:[&.active]:text-blue-400"
+                className="focus-glow block rounded-lg px-4 py-3 text-text-secondary transition-colors hover:bg-surface-hover hover:text-text-link [&.active]:font-bold [&.active]:text-text-link"
               >
                 {link.name}
               </Link>
@@ -144,7 +144,7 @@ const NavigationBar = () => {
                 to={link.to}
                 params={link.params}
                 onClick={closeMobileMenu}
-                className="block rounded-lg px-4 py-3 text-gray-700 transition-colors hover:bg-gray-100 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-blue-400 [&.active]:font-bold [&.active]:text-blue-600 dark:[&.active]:text-blue-400"
+                className="focus-glow block rounded-lg px-4 py-3 text-text-secondary transition-colors hover:bg-surface-hover hover:text-text-link [&.active]:font-bold [&.active]:text-text-link"
               >
                 {link.name}
               </Link>

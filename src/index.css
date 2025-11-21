@@ -6,10 +6,134 @@
   --font-family-sans:
     'Lato', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
+
+  /* Surface Colors (Backgrounds) */
+  --color-surface-page: #f9fafb; /* gray-50 */
+  --color-surface-card: #ffffff; /* white */
+  --color-surface-hover: #f3f4f6; /* gray-100 */
+
+  /* Text Colors (Hierarchy) */
+  --color-text-primary: #111827; /* gray-900 */
+  --color-text-secondary: #374151; /* gray-700 */
+  --color-text-body: #4b5563; /* gray-600 */
+  --color-text-muted: #6b7280; /* gray-500 */
+  --color-text-link: #2563eb; /* blue-600 */
+  --color-text-link-hover: #1d4ed8; /* blue-700 */
+
+  /* Border Colors */
+  --color-border-default: #d1d5db; /* gray-300 */
+  --color-border-divider: #e5e7eb; /* gray-200 */
+
+  /* Interactive Colors */
+  --color-interactive-primary: #2563eb; /* blue-600 */
+  --color-interactive-primary-hover: #1d4ed8; /* blue-700 */
+  --color-focus-ring: #3b82f6; /* blue-500 */
+
+  /* Neon Glow Focus Colors - Light Mode */
+  --color-focus-glow-inner: rgba(59, 130, 246, 0.4); /* blue-500 at 40% */
+  --color-focus-glow-outer: rgba(59, 130, 246, 0.3); /* blue-500 at 30% */
+
+  /* Semantic Colors - Light Mode */
+  --color-success: #22c55e; /* green-500 */
+  --color-success-bg: #dcfce7; /* green-100 */
+  --color-success-text: #16a34a; /* green-600 */
+  --color-info: #3b82f6; /* blue-500 */
+  --color-info-bg: #dbeafe; /* blue-100 */
+  --color-info-text: #2563eb; /* blue-600 */
+  --color-warning: #ef4444; /* red-500 */
+  --color-warning-bg: #fee2e2; /* red-100 */
+  --color-warning-text: #dc2626; /* red-600 */
+  --color-error: #ef4444; /* red-500 */
+  --color-discord: #a855f7; /* purple-500 */
+  --color-discord-bg: #f3e8ff; /* purple-100 */
+  --color-discord-text: #9333ea; /* purple-600 */
+}
+
+/* Dark Mode Color Overrides */
+:root.dark {
+  /* Surface Colors (Backgrounds) - Dark Mode */
+  --color-surface-page: #0a0a0a; /* Near black for deeper contrast */
+  --color-surface-card: #171717; /* Lighter than page for elevation */
+  --color-surface-hover: #262626; /* Visible hover state */
+
+  /* Text Colors (Hierarchy) - Dark Mode */
+  --color-text-primary: #fafafa; /* Near white for maximum readability */
+  --color-text-secondary: #e5e5e5; /* High contrast secondary text */
+  --color-text-body: #a3a3a3; /* Neutral gray for body text */
+  --color-text-muted: #737373; /* Subtle text that's still readable */
+  --color-text-link: #60a5fa; /* blue-400 - accessible on dark backgrounds */
+  --color-text-link-hover: #93c5fd; /* blue-300 - lighter on hover */
+
+  /* Border Colors - Dark Mode */
+  --color-border-default: #404040; /* Visible but subtle borders */
+  --color-border-divider: #262626; /* Subtle dividers */
+
+  /* Interactive Colors - Dark Mode */
+  --color-interactive-primary: #3b82f6; /* blue-500 - vibrant but accessible */
+  --color-interactive-primary-hover: #60a5fa; /* blue-400 - lighter on hover */
+  --color-focus-ring: #60a5fa; /* blue-400 - high visibility focus */
+
+  /* Neon Glow Focus Colors - Dark Mode */
+  --color-focus-glow-inner: rgba(96, 165, 250, 0.5); /* blue-400 at 50% - higher visibility */
+  --color-focus-glow-outer: rgba(96, 165, 250, 0.4); /* blue-400 at 40% */
+
+  /* Semantic Colors - Dark Mode */
+  --color-success: #22c55e; /* green-500 - vibrant, accessible */
+  --color-success-bg: rgba(34, 197, 94, 0.1); /* Subtle green background */
+  --color-success-text: #4ade80; /* green-400 - high contrast text */
+  --color-info: #3b82f6; /* blue-500 - matches interactive primary */
+  --color-info-bg: rgba(59, 130, 246, 0.1); /* Subtle blue background */
+  --color-info-text: #60a5fa; /* blue-400 - high contrast text */
+  --color-warning: #ef4444; /* red-500 - vibrant, clear warning */
+  --color-warning-bg: rgba(239, 68, 68, 0.1); /* Subtle red background */
+  --color-warning-text: #f87171; /* red-400 - high contrast text */
+  --color-error: #ef4444; /* red-500 - matches warning for consistency */
+  --color-discord: #a855f7; /* purple-500 - vibrant, accessible */
+  --color-discord-bg: rgba(168, 85, 247, 0.1); /* Subtle purple background */
+  --color-discord-text: #c084fc; /* purple-400 - high contrast text */
 }
 
 @layer base {
   body {
     font-family: var(--font-family-sans);
+  }
+
+  /* Custom smooth pulse animation for focus glow */
+  @keyframes focus-pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  /* Neon glow focus utility - standard blue variant */
+  .focus-glow {
+    transition-property: box-shadow;
+    transition-duration: 300ms;
+  }
+
+  .focus-glow:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 3px var(--color-focus-glow-inner),
+      0 0 20px var(--color-focus-glow-outer);
+    animation: focus-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Neon glow focus utility - white variant for image carousel */
+  .focus-glow-white {
+    transition-property: box-shadow;
+    transition-duration: 300ms;
+  }
+
+  .focus-glow-white:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 3px rgba(255, 255, 255, 0.6),
+      0 0 20px rgba(255, 255, 255, 0.4);
+    animation: focus-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 }

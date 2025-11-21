@@ -50,7 +50,7 @@ const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
       <div className="sr-only" aria-live="polite" aria-atomic="true">
         {`Slide ${currentIndex + 1} of ${images.length}: ${images[currentIndex].title}`}
       </div>
-      <div className="relative aspect-[4/5] w-full sm:aspect-video">
+      <div className="relative aspect-4/5 w-full sm:aspect-video">
         {images.map((image, index) => (
           <div
             key={image.src}
@@ -75,7 +75,7 @@ const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
 
       <button
         onClick={goToPrevious}
-        className="absolute left-4 top-1/2 hidden -translate-y-1/2 rounded-full bg-white/20 p-4 text-white backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 active:scale-95 sm:block"
+        className="focus-glow-white absolute left-4 top-1/2 hidden -translate-y-1/2 rounded-full bg-white/20 p-4 text-white backdrop-blur-sm transition-all hover:scale-110 hover:bg-white/30 active:scale-95 sm:block"
         aria-label="Previous image"
       >
         <HiChevronLeft className="h-6 w-6" />
@@ -83,7 +83,7 @@ const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
 
       <button
         onClick={goToNext}
-        className="absolute right-4 top-1/2 hidden -translate-y-1/2 rounded-full bg-white/20 p-4 text-white backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 active:scale-95 sm:block"
+        className="focus-glow-white absolute right-4 top-1/2 hidden -translate-y-1/2 rounded-full bg-white/20 p-4 text-white backdrop-blur-sm transition-all hover:scale-110 hover:bg-white/30 active:scale-95 sm:block"
         aria-label="Next image"
       >
         <HiChevronRight className="h-6 w-6" />
@@ -94,7 +94,7 @@ const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-white/50 ${
+            className={`focus-glow-white transition-all ${
               index === currentIndex
                 ? 'h-2 w-8 rounded-full bg-white shadow-lg sm:h-3 sm:w-10'
                 : 'h-2 w-2 rounded-full bg-white/40 hover:bg-white/60 sm:h-3 sm:w-3'

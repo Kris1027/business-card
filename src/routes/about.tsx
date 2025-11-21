@@ -29,21 +29,17 @@ const About = () => {
             <img
               src={profileImage}
               alt={aboutInfo.name}
-              className="h-48 w-48 rounded-full border-4 border-gray-200 object-cover shadow-lg dark:border-gray-700 md:h-64 md:w-64"
+              className="h-48 w-48 rounded-full border-4 border-border-default object-cover shadow-lg md:h-64 md:w-64"
             />
           </div>
 
           {/* Profile Content */}
           <div className="flex-1 text-center md:text-left">
-            <h1 className="mb-4 text-4xl font-bold text-gray-900 dark:text-gray-100 md:text-5xl">
+            <h1 className="mb-4 text-4xl font-bold text-text-primary md:text-5xl">
               {aboutInfo.name}
             </h1>
-            <h2 className="mb-6 text-2xl font-semibold text-gray-700 dark:text-gray-300">
-              {t('about.title')}
-            </h2>
-            <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-400">
-              {t('about.description')}
-            </p>
+            <h2 className="mb-6 text-2xl font-semibold text-text-secondary">{t('about.title')}</h2>
+            <p className="text-lg leading-relaxed text-text-body">{t('about.description')}</p>
           </div>
         </div>
       </section>
@@ -51,12 +47,8 @@ const About = () => {
       {/* Technologies Section */}
       <section>
         <div className="mb-8 text-center">
-          <h2 className="mb-3 text-3xl font-bold text-gray-900 dark:text-gray-100">
-            {t('about.technologies')}
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
-            {t('about.technologiesDescription')}
-          </p>
+          <h2 className="mb-3 text-3xl font-bold text-text-primary">{t('about.technologies')}</h2>
+          <p className="text-lg text-text-body">{t('about.technologiesDescription')}</p>
         </div>
 
         {/* Technology Grid */}
@@ -71,13 +63,13 @@ const About = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t('about.visitDocs', { name: tech.name })}
-                className="group flex flex-col items-center gap-3 rounded-lg border border-gray-200 bg-white p-6 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800"
+                className="focus-glow group flex flex-col items-center gap-3 rounded-lg border border-border-default bg-surface-card p-6 shadow-md transition-all hover:scale-105 hover:shadow-xl"
               >
                 <Icon
                   className={`text-5xl ${tech.color} transition-transform duration-300 group-hover:scale-110`}
                   aria-hidden="true"
                 />
-                <span className="text-center text-sm font-medium text-gray-700 dark:text-gray-300">
+                <span className="text-center text-sm font-medium text-text-secondary">
                   {tech.name}
                 </span>
               </a>
@@ -88,13 +80,11 @@ const About = () => {
         {/* More Technologies Text */}
         {!showAll && technologies.length > INITIAL_DISPLAY_COUNT && (
           <div className="mt-12 text-center">
-            <p className="text-xl font-semibold text-gray-700 dark:text-gray-300">
-              {t('about.andMore')}
-            </p>
-            <p className="mt-2 text-lg text-gray-600 dark:text-gray-400">{t('about.askAbout')}</p>
+            <p className="text-xl font-semibold text-text-secondary">{t('about.andMore')}</p>
+            <p className="mt-2 text-lg text-text-body">{t('about.askAbout')}</p>
             <button
               onClick={toggleShowAll}
-              className="mt-6 inline-flex items-center gap-2 text-lg font-semibold text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+              className="focus-glow mt-6 inline-flex items-center gap-2 rounded-md px-2 py-1 text-lg font-semibold text-text-link transition-colors hover:text-text-link-hover"
               aria-expanded={showAll}
             >
               {t('about.viewAll')} ({technologies.length})
@@ -108,7 +98,7 @@ const About = () => {
           <div className="mt-8 flex justify-center">
             <button
               onClick={toggleShowAll}
-              className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:bg-blue-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-95 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-offset-gray-900"
+              className="focus-glow inline-flex items-center gap-2 rounded-lg bg-interactive-primary px-6 py-3 font-semibold text-white shadow-md transition-all hover:bg-interactive-primary-hover hover:shadow-lg active:scale-95"
               aria-expanded={showAll}
             >
               {t('about.showLess')}
