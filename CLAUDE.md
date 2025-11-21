@@ -236,38 +236,39 @@ All colors are centrally defined in `src/index.css` using CSS custom properties 
 
 ### Color Architecture
 
-The color system follows industry-standard semantic naming conventions based on design system best practices:
+The color system follows industry-standard semantic naming conventions based on design system best practices (Tailwind CSS and Radix UI). Dark mode colors use deeper blacks (#0a0a0a) for reduced eye strain, higher contrast ratios for WCAG compliance, and more visible borders for improved visual hierarchy:
 
 #### 1. **Surface Colors** (Backgrounds)
 Used for page backgrounds, card surfaces, and interactive hover states:
 
 | Semantic Name | Light Mode | Dark Mode | Usage |
 |---------------|-----------|-----------|-------|
-| `--color-surface-page` | `#f9fafb` (gray-50) | `#111827` (gray-900) | Main page background |
-| `--color-surface-card` | `#ffffff` (white) | `#1f2937` (gray-800) | Card/container background |
-| `--color-surface-hover` | `#f3f4f6` (gray-100) | `#1f2937` (gray-800) | Hover state background |
+| `--color-surface-page` | `#f9fafb` (gray-50) | `#0a0a0a` (near black) | Main page background |
+| `--color-surface-card` | `#ffffff` (white) | `#171717` (neutral-900) | Card/container background |
+| `--color-surface-hover` | `#f3f4f6` (gray-100) | `#262626` (neutral-800) | Hover state background |
 
 **TailwindCSS equivalents**:
-- Page: `bg-gray-50` / `dark:bg-gray-900`
-- Card: `bg-white` / `dark:bg-gray-800`
-- Hover: `hover:bg-gray-100` / `dark:hover:bg-gray-800`
+- Page: `bg-gray-50` / `dark:bg-[#0a0a0a]`
+- Card: `bg-white` / `dark:bg-neutral-900`
+- Hover: `hover:bg-gray-100` / `dark:hover:bg-neutral-800`
 
 #### 2. **Text Colors** (Hierarchy)
 Used for all text content with clear hierarchy:
 
 | Semantic Name | Light Mode | Dark Mode | Usage |
 |---------------|-----------|-----------|-------|
-| `--color-text-primary` | `#111827` (gray-900) | `#f9fafb` (gray-100) | Headings, primary text |
-| `--color-text-secondary` | `#374151` (gray-700) | `#d1d5db` (gray-300) | Subheadings, secondary text |
-| `--color-text-body` | `#4b5563` (gray-600) | `#9ca3af` (gray-400) | Body text, descriptions |
-| `--color-text-muted` | `#6b7280` (gray-500) | `#9ca3af` (gray-400) | Muted text, placeholders |
+| `--color-text-primary` | `#111827` (gray-900) | `#fafafa` (near white) | Headings, primary text |
+| `--color-text-secondary` | `#374151` (gray-700) | `#e5e5e5` (neutral-200) | Subheadings, secondary text |
+| `--color-text-body` | `#4b5563` (gray-600) | `#a3a3a3` (neutral-400) | Body text, descriptions |
+| `--color-text-muted` | `#6b7280` (gray-500) | `#737373` (neutral-500) | Muted text, placeholders |
 | `--color-text-link` | `#2563eb` (blue-600) | `#60a5fa` (blue-400) | Links, CTAs |
 | `--color-text-link-hover` | `#1d4ed8` (blue-700) | `#93c5fd` (blue-300) | Link hover state |
 
 **TailwindCSS equivalents**:
-- Primary: `text-gray-900` / `dark:text-gray-100`
-- Secondary: `text-gray-700` / `dark:text-gray-300`
-- Body: `text-gray-600` / `dark:text-gray-400`
+- Primary: `text-gray-900` / `dark:text-[#fafafa]`
+- Secondary: `text-gray-700` / `dark:text-neutral-200`
+- Body: `text-gray-600` / `dark:text-neutral-400`
+- Muted: `text-gray-500` / `dark:text-neutral-500`
 - Links: `text-blue-600` / `dark:text-blue-400`
 
 #### 3. **Border Colors**
@@ -275,34 +276,36 @@ Used for borders and dividers:
 
 | Semantic Name | Light Mode | Dark Mode | Usage |
 |---------------|-----------|-----------|-------|
-| `--color-border-default` | `#e5e7eb` (gray-200) | `#1f2937` (gray-800) | Default borders |
-| `--color-border-divider` | `#e5e7eb` (gray-200) | `#1f2937` (gray-800) | Section dividers |
+| `--color-border-default` | `#d1d5db` (gray-300) | `#404040` (neutral-700) | Default borders |
+| `--color-border-divider` | `#e5e7eb` (gray-200) | `#262626` (neutral-800) | Section dividers |
 
-**TailwindCSS equivalent**: `border-gray-200` / `dark:border-gray-800`
+**TailwindCSS equivalent**:
+- Default: `border-gray-300` / `dark:border-neutral-700`
+- Divider: `border-gray-200` / `dark:border-neutral-800`
 
 #### 4. **Interactive Colors**
 Used for interactive elements like buttons and focus states:
 
 | Semantic Name | Light Mode | Dark Mode | Usage |
 |---------------|-----------|-----------|-------|
-| `--color-interactive-primary` | `#2563eb` (blue-600) | `#60a5fa` (blue-400) | Primary buttons, CTAs |
-| `--color-interactive-primary-hover` | `#1d4ed8` (blue-700) | `#3b82f6` (blue-500) | Primary button hover |
-| `--color-focus-ring` | `#3b82f6` (blue-500) | `#3b82f6` (blue-500) | Focus ring outline |
+| `--color-interactive-primary` | `#2563eb` (blue-600) | `#3b82f6` (blue-500) | Primary buttons, CTAs |
+| `--color-interactive-primary-hover` | `#1d4ed8` (blue-700) | `#60a5fa` (blue-400) | Primary button hover |
+| `--color-focus-ring` | `#3b82f6` (blue-500) | `#60a5fa` (blue-400) | Focus ring outline |
 
 **TailwindCSS equivalents**:
 - Primary: `bg-blue-600` / `dark:bg-blue-500`
-- Hover: `hover:bg-blue-700` / `dark:hover:bg-blue-600`
-- Focus: `focus:ring-blue-500`
+- Hover: `hover:bg-blue-700` / `dark:hover:bg-blue-400`
+- Focus: `focus:ring-blue-500` / `dark:focus:ring-blue-400`
 
 #### 5. **Semantic Colors** (Status/Feature-specific)
 Used for semantic purposes (success, info, warnings) and feature-specific colors:
 
 | Purpose | Light Colors | Dark Colors | Usage |
 |---------|-------------|------------|-------|
-| **Success** | `bg: #dcfce7` (green-100)<br>`text: #16a34a` (green-600) | `bg: rgba(20, 83, 45, 0.3)`<br>`text: #4ade80` (green-400) | Success messages, checkmarks, phone contact |
-| **Info** | `bg: #dbeafe` (blue-100)<br>`text: #2563eb` (blue-600) | `bg: rgba(30, 58, 138, 0.3)`<br>`text: #60a5fa` (blue-400) | Info messages, email contact, LinkedIn |
-| **Warning** | `bg: #fee2e2` (red-100)<br>`text: #dc2626` (red-600) | `bg: rgba(127, 29, 29, 0.3)`<br>`text: #f87171` (red-400) | Warnings, location contact |
-| **Discord** | `bg: #f3e8ff` (purple-100)<br>`text: #9333ea` (purple-600) | `bg: rgba(88, 28, 135, 0.3)`<br>`text: #c084fc` (purple-400) | Discord-specific styling |
+| **Success** | `bg: #dcfce7` (green-100)<br>`text: #16a34a` (green-600) | `bg: rgba(34, 197, 94, 0.1)`<br>`text: #4ade80` (green-400) | Success messages, checkmarks, phone contact |
+| **Info** | `bg: #dbeafe` (blue-100)<br>`text: #2563eb` (blue-600) | `bg: rgba(59, 130, 246, 0.1)`<br>`text: #60a5fa` (blue-400) | Info messages, email contact, LinkedIn |
+| **Warning** | `bg: #fee2e2` (red-100)<br>`text: #dc2626` (red-600) | `bg: rgba(239, 68, 68, 0.1)`<br>`text: #f87171` (red-400) | Warnings, location contact |
+| **Discord** | `bg: #f3e8ff` (purple-100)<br>`text: #9333ea` (purple-600) | `bg: rgba(168, 85, 247, 0.1)`<br>`text: #c084fc` (purple-400) | Discord-specific styling |
 
 **CSS Variables**:
 - Success: `--color-success-bg`, `--color-success-text`, `--color-success`
@@ -327,16 +330,16 @@ The following color standards must be maintained throughout the application:
 
 | Element | Light Mode | Dark Mode |
 |---------|-----------|----------|
-| **Page Background** | `bg-gray-50` | `bg-gray-900` |
-| **Card Background** | `bg-white` | `bg-gray-800` |
-| **Primary Text** | `text-gray-900` | `text-gray-100` |
-| **Secondary Text** | `text-gray-700` | `text-gray-300` |
-| **Body Text** | `text-gray-600` | `text-gray-400` |
+| **Page Background** | `bg-gray-50` | `bg-[#0a0a0a]` |
+| **Card Background** | `bg-white` | `bg-neutral-900` |
+| **Primary Text** | `text-gray-900` | `text-[#fafafa]` |
+| **Secondary Text** | `text-gray-700` | `text-neutral-200` |
+| **Body Text** | `text-gray-600` | `text-neutral-400` |
 | **Link/CTA Text** | `text-blue-600` | `text-blue-400` |
-| **Borders** | `border-gray-200` | `border-gray-800` |
-| **Button Hover BG** | `hover:bg-gray-100` | `dark:hover:bg-gray-800` |
+| **Borders** | `border-gray-300` | `border-neutral-700` |
+| **Button Hover BG** | `hover:bg-gray-100` | `dark:hover:bg-neutral-800` |
 | **Link Hover** | `hover:text-blue-600` | `dark:hover:text-blue-400` |
-| **Focus Ring** | `focus:ring-blue-500` | `focus:ring-blue-500` |
+| **Focus Ring** | `focus:ring-blue-500` | `focus:ring-blue-400` |
 
 ### Using Custom Colors
 

@@ -111,7 +111,6 @@
 
   /* Neon glow focus utility - standard blue variant */
   .focus-glow {
-    animation: focus-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     transition-property: box-shadow;
     transition-duration: 300ms;
   }
@@ -121,11 +120,11 @@
     box-shadow:
       0 0 0 3px var(--color-focus-glow-inner),
       0 0 20px var(--color-focus-glow-outer);
+    animation: focus-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 
   /* Neon glow focus utility - white variant for image carousel */
   .focus-glow-white {
-    animation: focus-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     transition-property: box-shadow;
     transition-duration: 300ms;
   }
@@ -135,5 +134,6 @@
     box-shadow:
       0 0 0 3px rgba(255, 255, 255, 0.6),
       0 0 20px rgba(255, 255, 255, 0.4);
+    animation: focus-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 }

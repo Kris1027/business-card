@@ -15,7 +15,7 @@ const BackToHomeButton = ({ variant = 'primary', className = '' }: BackToHomeBut
 
   const variantClasses = {
     primary: 'bg-interactive-primary px-4 py-2 text-white hover:bg-interactive-primary-hover',
-    secondary: 'bg-surface-hover px-6 py-3 text-text-primary hover:bg-surface-hover',
+    secondary: 'bg-surface-hover px-6 py-3 text-text-primary hover:bg-border-default',
   }
 
   return (
