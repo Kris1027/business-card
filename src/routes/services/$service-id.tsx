@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import { HiChevronLeft, HiEnvelope } from 'react-icons/hi2'
 import { servicesInfo, type ServiceKey } from '@/constants/services-info'
 
@@ -8,17 +8,17 @@ const getServiceTranslations = (t: ReturnType<typeof useTranslation>['t'], key: 
     equipmentAdvising: {
       title: t('services.equipmentAdvising.title'),
       shortDescription: t('services.equipmentAdvising.shortDescription'),
-      longDescription: t('services.equipmentAdvising.longDescription'),
+      longDescriptionKey: 'services.equipmentAdvising.longDescription' as const,
     },
     computerAssembly: {
       title: t('services.computerAssembly.title'),
       shortDescription: t('services.computerAssembly.shortDescription'),
-      longDescription: t('services.computerAssembly.longDescription'),
+      longDescriptionKey: 'services.computerAssembly.longDescription' as const,
     },
     websiteBuilding: {
       title: t('services.websiteBuilding.title'),
       shortDescription: t('services.websiteBuilding.shortDescription'),
-      longDescription: t('services.websiteBuilding.longDescription'),
+      longDescriptionKey: 'services.websiteBuilding.longDescription' as const,
     },
   }
   return translations[key]
@@ -45,7 +45,7 @@ const ServiceDetail = () => {
   const translations = getServiceTranslations(t, service.translationKey)
   const title = translations.title
   const shortDescription = translations.shortDescription
-  const longDescription = translations.longDescription
+  const longDescriptionKey = translations.longDescriptionKey
 
   return (
     <div className="py-8">
@@ -62,8 +62,16 @@ const ServiceDetail = () => {
 
         <div className="p-8 md:p-12">
           <p className="text-xl font-semibold text-text-secondary">{shortDescription}</p>
-          <div className="mt-6 border-t border-border-divider pt-6">
-            <p className="text-lg leading-relaxed text-text-body">{longDescription}</p>
+          <div className="service-description mt-6 border-t border-border-divider pt-6 text-lg leading-relaxed text-text-body">
+            <Trans
+              i18nKey={longDescriptionKey}
+              components={{
+                p: <p className="mb-4" />,
+                strong: <strong className="font-semibold text-text-primary" />,
+                ul: <ul className="mb-4 ml-6 list-disc space-y-1" />,
+                li: <li />,
+              }}
+            />
           </div>
 
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
