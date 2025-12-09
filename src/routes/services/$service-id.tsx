@@ -64,6 +64,7 @@ const ServiceDetail = () => {
           <p className="text-xl font-semibold text-text-secondary">{shortDescription}</p>
           <div className="service-description mt-6 border-t border-border-divider pt-6 text-lg leading-relaxed text-text-body">
             <Trans
+              t={t}
               i18nKey={longDescriptionKey}
               components={{
                 p: <p className="mb-4" />,
