@@ -33,6 +33,11 @@ export const en = {
   },
   home: {
     title: 'techKris',
+    noPrebuilt: {
+      title: "Don't buy prebuilt PCs!",
+      description:
+        "<p>Prebuilt computer systems are often a <strong>waste of money</strong>. Stores frequently use poorly matched components and very often get rid of parts that have been sitting in their warehouses. The result? Lower performance and limited upgrade options.</p><p>For the price of a prebuilt, I can build you a <strong>much more powerful PC</strong>, perfectly tailored to your needs and budget. <contactLink>Get in touch</contactLink> – I'll advise you and build a better setup.</p>",
+    },
   },
   services: {
     equipmentAdvising: {

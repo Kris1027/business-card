@@ -33,6 +33,11 @@ export const pl = {
   },
   home: {
     title: 'techKris',
+    noPrebuilt: {
+      title: 'Nie kupuj gotowców PC!',
+      description:
+        '<p>Gotowe zestawy komputerowe to często <strong>strata pieniędzy</strong>. Sklepy montują w nich źle dobrane komponenty, a bardzo często wykorzystują części, które zalegają na magazynie. Efekt? Słabsza wydajność i brak sensownej rozbudowy.</p><p>Za cenę gotowca złożę komputer <strong>znacznie wydajniejszy</strong>, idealnie dopasowany do Twoich potrzeb i budżetu. <contactLink>Napisz</contactLink> – doradzę i złożę lepszy zestaw.</p>',
+    },
   },
   services: {
     equipmentAdvising: {

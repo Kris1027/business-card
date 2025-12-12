@@ -1,31 +1,66 @@
 import { Link } from '@tanstack/react-router'
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import { HiChevronRight } from 'react-icons/hi2'
 
 type ServiceCardProps = {
-  serviceId: string
+  serviceId?: string
   title: string
-  shortDescription: string
+  shortDescription?: string
+  image?: {
+    src: string
+    alt: string
+  }
+  descriptionKey?: string
 }
 
-const ServiceCard = ({ serviceId, title, shortDescription }: ServiceCardProps) => {
+const ServiceCard = ({
+  serviceId,
+  title,
+  shortDescription,
+  image,
+  descriptionKey,
+}: ServiceCardProps) => {
   const { t } = useTranslation()
 
   return (
     <article className="group overflow-hidden rounded-2xl bg-surface-card shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+      {image && (
+        <img src={image.src} alt={image.alt} className="h-48 w-full object-cover sm:h-56 md:h-64" />
+      )}
       <div className="p-6 sm:p-8">
         <h3 className="text-xl font-bold text-text-primary sm:text-2xl">{title}</h3>
-        <p className="mt-3 text-sm leading-relaxed text-text-body sm:mt-4 sm:text-base">
-          {shortDescription}
-        </p>
-        <Link
-          to="/services/$service-id"
-          params={{ 'service-id': serviceId }}
-          className="focus-glow mt-4 inline-flex items-center gap-2 rounded-md px-2 py-1 text-sm font-semibold text-text-link transition-all hover:gap-3 sm:mt-6 sm:text-base"
-        >
-          {t('services.readMore')}
-          <HiChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
-        </Link>
+        {descriptionKey ? (
+          <div className="mt-3 text-sm leading-relaxed text-text-body sm:mt-4 sm:text-base">
+            <Trans
+              t={t}
+              i18nKey={descriptionKey as 'home.noPrebuilt.description'}
+              components={{
+                p: <p className="mb-3 last:mb-0" />,
+                strong: <strong className="font-semibold text-text-primary" />,
+                contactLink: (
+                  <Link
+                    to="/contact"
+                    className="font-semibold text-text-link underline transition-colors hover:text-text-link-hover"
+                  />
+                ),
+              }}
+            />
+          </div>
+        ) : (
+          <p className="mt-3 text-sm leading-relaxed text-text-body sm:mt-4 sm:text-base">
+            {shortDescription}
+          </p>
+        )}
+        {serviceId && (
+          <Link
+            to="/services/$service-id"
+            params={{ 'service-id': serviceId }}
+            className="focus-glow mt-4 inline-flex items-center gap-2 rounded-md px-2 py-1 text-sm font-semibold text-text-link transition-all hover:gap-3 sm:mt-6 sm:text-base"
+          >
+            {t('services.readMore')}
+            <HiChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
+          </Link>
+        )}
       </div>
     </article>
   )
