@@ -4,16 +4,27 @@ import { HiChevronRight } from 'react-icons/hi2'
 
 type TranslationKeyWithHtml = 'home.noPrebuilt.description'
 
-type ServiceCardProps = {
-  serviceId?: string
+type ServiceCardBaseProps = {
   title: string
-  shortDescription?: string
   image?: {
     src: string
     alt: string
   }
-  descriptionKey?: TranslationKeyWithHtml
 }
+
+type ServiceCardWithShortDescription = ServiceCardBaseProps & {
+  serviceId?: string
+  shortDescription: string
+  descriptionKey?: never
+}
+
+type ServiceCardWithDescriptionKey = ServiceCardBaseProps & {
+  serviceId?: never
+  shortDescription?: never
+  descriptionKey: TranslationKeyWithHtml
+}
+
+type ServiceCardProps = ServiceCardWithShortDescription | ServiceCardWithDescriptionKey
 
 const ServiceCard = ({
   serviceId,
