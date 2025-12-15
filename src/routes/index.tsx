@@ -4,6 +4,7 @@ import { ServiceCard } from '@/components/service-card'
 import { ImageCarousel } from '@/components/image-carousel'
 import pcImage1 from '@/assets/pc-1.jpg'
 import pcImage2 from '@/assets/pc-2.jpg'
+import prebuildImage from '@/assets/prebuild-1.webp'
 import webImage1 from '@/assets/web-1.jpg'
 
 const Index = () => {
@@ -59,6 +60,14 @@ const Index = () => {
             shortDescription={service.shortDescription}
           />
         ))}
+      </div>
+
+      <div className="mt-12 md:mt-16">
+        <ServiceCard
+          title={t('home.noPrebuilt.title')}
+          descriptionKey="home.noPrebuilt.description"
+          image={{ src: prebuildImage, alt: t('home.noPrebuilt.title') }}
+        />
       </div>
     </div>
   )

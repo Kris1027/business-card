@@ -58,7 +58,7 @@ const NavigationBar = () => {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Mobile header */}
-        <div className="flex items-center justify-between md:hidden">
+        <div className="flex items-center justify-between lg:hidden">
           {/* Logo */}
           <Link to="/" onClick={closeMobileMenu} className="focus-glow rounded-lg p-1">
             <Logo />
@@ -86,19 +86,19 @@ const NavigationBar = () => {
         </div>
 
         {/* Desktop header */}
-        <div className="hidden items-center justify-between md:flex">
+        <div className="hidden items-center justify-between lg:flex">
           {/* Logo */}
           <Link to="/" className="focus-glow rounded-lg p-1">
             <Logo size="lg" />
           </Link>
 
           {/* Desktop nav links + Language toggle + Theme toggle */}
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-4 xl:gap-6">
             {navLinks.map(link => (
               <Link
                 key={link.name}
                 to={link.to}
-                className="focus-glow rounded-md px-2 py-1 text-text-secondary transition-colors hover:text-text-link [&.active]:font-bold [&.active]:text-text-link"
+                className="focus-glow whitespace-nowrap rounded-md px-1 py-1 text-sm text-text-secondary transition-colors hover:text-text-link xl:px-2 xl:text-base [&.active]:font-bold [&.active]:text-text-link"
               >
                 {link.name}
               </Link>
@@ -108,7 +108,7 @@ const NavigationBar = () => {
                 key={link.name}
                 to={link.to}
                 params={link.params}
-                className="focus-glow rounded-md px-2 py-1 text-text-secondary transition-colors hover:text-text-link [&.active]:font-bold [&.active]:text-text-link"
+                className="focus-glow whitespace-nowrap rounded-md px-1 py-1 text-sm text-text-secondary transition-colors hover:text-text-link xl:px-2 xl:text-base [&.active]:font-bold [&.active]:text-text-link"
               >
                 {link.name}
               </Link>
@@ -123,7 +123,7 @@ const NavigationBar = () => {
         {/* Mobile menu */}
         <div
           id="mobile-menu"
-          className={`overflow-hidden transition-all duration-300 ease-in-out md:hidden ${
+          className={`overflow-hidden transition-all duration-300 ease-in-out lg:hidden ${
             isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
