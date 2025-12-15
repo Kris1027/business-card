@@ -2,6 +2,8 @@ import { Link } from '@tanstack/react-router'
 import { Trans, useTranslation } from 'react-i18next'
 import { HiChevronRight } from 'react-icons/hi2'
 
+type TranslationKeyWithHtml = 'home.noPrebuilt.description'
+
 type ServiceCardProps = {
   serviceId?: string
   title: string
@@ -10,7 +12,7 @@ type ServiceCardProps = {
     src: string
     alt: string
   }
-  descriptionKey?: string
+  descriptionKey?: TranslationKeyWithHtml
 }
 
 const ServiceCard = ({
@@ -33,7 +35,7 @@ const ServiceCard = ({
           <div className="mt-3 text-sm leading-relaxed text-text-body sm:mt-4 sm:text-base">
             <Trans
               t={t}
-              i18nKey={descriptionKey as 'home.noPrebuilt.description'}
+              i18nKey={descriptionKey}
               components={{
                 p: <p className="mb-3 last:mb-0" />,
                 strong: <strong className="font-semibold text-text-primary" />,
