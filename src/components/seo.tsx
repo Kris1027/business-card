@@ -1,7 +1,5 @@
 import { Helmet } from '@dr.pogodin/react-helmet'
-
-const SITE_URL = 'https://techkris.eu'
-const DEFAULT_OG_IMAGE = '/og-image.png'
+import { DEFAULT_OG_IMAGE, SITE_URL } from '@/constants/site-config'
 
 type SeoProps = {
   title: string
@@ -32,8 +30,6 @@ const Seo = ({
 
       <link rel="canonical" href={canonicalUrl} />
 
-      <link rel="alternate" hrefLang="pl" href={canonicalUrl} />
-      <link rel="alternate" hrefLang="en" href={canonicalUrl} />
       <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
 
       <meta property="og:type" content={type} />

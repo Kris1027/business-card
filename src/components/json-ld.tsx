@@ -1,6 +1,5 @@
 import { Helmet } from '@dr.pogodin/react-helmet'
-
-const SITE_URL = 'https://techkris.eu'
+import { DEFAULT_OG_IMAGE, SITE_URL } from '@/constants/site-config'
 
 type LocalBusinessJsonLdProps = {
   name: string
@@ -35,7 +34,7 @@ export const LocalBusinessJsonLd = ({
       addressRegion: address.region,
       addressCountry: address.country,
     },
-    image: `${SITE_URL}/og-image.png`,
+    image: `${SITE_URL}${DEFAULT_OG_IMAGE}`,
     priceRange: '$$',
   }
 
@@ -61,7 +60,7 @@ export const PersonJsonLd = ({ name, description, jobTitle, url }: PersonJsonLdP
     description,
     jobTitle,
     url,
-    image: `${SITE_URL}/og-image.png`,
+    image: `${SITE_URL}${DEFAULT_OG_IMAGE}`,
     sameAs: [
       'https://github.com/Kris1027',
       'https://www.linkedin.com/in/krzysztof-obarzanek-6b8803254/',
