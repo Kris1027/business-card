@@ -65,6 +65,40 @@ export const en = {
   meta: {
     pageTitle: 'techKris',
   },
+  seo: {
+    home: {
+      title: 'techKris - Equipment Advising & PC Assembly',
+      description:
+        'Professional equipment advising, custom PC assembly, and web development services. Get expert help choosing computer components tailored to your needs.',
+    },
+    about: {
+      title: 'About Me - techKris',
+      description:
+        'Technology enthusiast specializing in equipment advising, computer assembly, and web development. Learn about my skills and experience.',
+    },
+    contact: {
+      title: 'Contact - techKris',
+      description:
+        'Get in touch for equipment advising, PC assembly, or web development services. Available via email, phone, and social media.',
+    },
+    services: {
+      equipmentAdvising: {
+        title: 'Equipment Advising - techKris',
+        description:
+          'Expert computer hardware consulting. Get personalized component recommendations tailored to your needs and budget without overpaying.',
+      },
+      computerAssembly: {
+        title: 'PC Assembly - techKris',
+        description:
+          'Professional PC building service. Get a stable, well-cooled, and quiet computer ready to use right out of the box.',
+      },
+      websiteBuilding: {
+        title: 'Web Development - techKris',
+        description:
+          'Modern, fast, and effective websites. Responsive design, SEO basics, and clear structure to support your business goals.',
+      },
+    },
+  },
   about: {
     title: 'About Me',
     description:

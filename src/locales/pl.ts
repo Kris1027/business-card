@@ -65,6 +65,40 @@ export const pl = {
   meta: {
     pageTitle: 'techKris',
   },
+  seo: {
+    home: {
+      title: 'techKris - Doradztwo sprzętowe i składanie PC',
+      description:
+        'Profesjonalne doradztwo sprzętowe, składanie komputerów na zamówienie i tworzenie stron internetowych. Dobór komponentów idealnie dopasowany do Twoich potrzeb.',
+    },
+    about: {
+      title: 'O mnie - techKris',
+      description:
+        'Pasjonat technologii specjalizujący się w doradztwie sprzętowym, składaniu komputerów i tworzeniu stron internetowych. Poznaj moje umiejętności i doświadczenie.',
+    },
+    contact: {
+      title: 'Kontakt - techKris',
+      description:
+        'Skontaktuj się w sprawie doradztwa sprzętowego, składania PC lub tworzenia stron. Dostępny przez email, telefon i media społecznościowe.',
+    },
+    services: {
+      equipmentAdvising: {
+        title: 'Doradztwo sprzętowe - techKris',
+        description:
+          'Profesjonalne doradztwo w doborze sprzętu komputerowego. Spersonalizowane rekomendacje komponentów dopasowane do Twoich potrzeb i budżetu.',
+      },
+      computerAssembly: {
+        title: 'Składanie PC - techKris',
+        description:
+          'Profesjonalne składanie komputerów. Stabilny, dobrze chłodzony i cichy komputer gotowy do pracy od razu po wyjęciu z pudełka.',
+      },
+      websiteBuilding: {
+        title: 'Tworzenie stron - techKris',
+        description:
+          'Nowoczesne, szybkie i skuteczne strony internetowe. Responsywny design, podstawy SEO i przejrzysta struktura wspierająca Twoje cele biznesowe.',
+      },
+    },
+  },
   about: {
     title: 'O mnie',
     description:

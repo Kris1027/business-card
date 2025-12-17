@@ -2,6 +2,16 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { Trans, useTranslation } from 'react-i18next'
 import { HiChevronLeft, HiEnvelope } from 'react-icons/hi2'
 import { servicesInfo, type ServiceKey } from '@/constants/services-info'
+import Seo from '@/components/seo'
+import { ServiceJsonLd } from '@/components/json-ld'
+
+type SeoServiceKey = 'equipmentAdvising' | 'computerAssembly' | 'websiteBuilding'
+
+const SERVICE_ID_TO_SEO_KEY: Record<string, SeoServiceKey> = {
+  'equipment-advising': 'equipmentAdvising',
+  'computer-assembly': 'computerAssembly',
+  'website-building': 'websiteBuilding',
+}
 
 const getServiceTranslations = (t: ReturnType<typeof useTranslation>['t'], key: ServiceKey) => {
   const translations = {
@@ -47,53 +57,66 @@ const ServiceDetail = () => {
   const shortDescription = translations.shortDescription
   const longDescriptionKey = translations.longDescriptionKey
 
+  const seoKey = SERVICE_ID_TO_SEO_KEY[serviceId]
+  const seoTitle = seoKey ? t(`seo.services.${seoKey}.title`) : title
+  const seoDescription = seoKey ? t(`seo.services.${seoKey}.description`) : shortDescription
+
   return (
-    <div className="py-8">
-      <div className="overflow-hidden rounded-2xl bg-surface-card shadow-2xl">
-        <div className="relative aspect-video w-full overflow-hidden">
-          <img src={service.image} alt={title} className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent" />
-          <div className="absolute bottom-8 left-8 right-8">
-            <h1 className="text-4xl font-extrabold tracking-tight text-white drop-shadow-2xl md:text-5xl lg:text-6xl">
-              {title}
-            </h1>
-          </div>
-        </div>
-
-        <div className="p-8 md:p-12">
-          <p className="text-xl font-semibold text-text-secondary">{shortDescription}</p>
-          <div className="service-description mt-6 border-t border-border-divider pt-6 text-lg leading-relaxed text-text-body">
-            <Trans
-              t={t}
-              i18nKey={longDescriptionKey}
-              components={{
-                p: <p className="mb-4" />,
-                strong: <strong className="font-semibold text-text-primary" />,
-                ul: <ul className="mb-4 ml-6 list-disc space-y-1" />,
-                li: <li />,
-              }}
-            />
+    <>
+      <Seo title={seoTitle} description={seoDescription} path={`/services/${serviceId}`} />
+      <ServiceJsonLd
+        name={title}
+        description={seoDescription}
+        provider="techKris"
+        serviceType={title}
+      />
+      <div className="py-8">
+        <div className="overflow-hidden rounded-2xl bg-surface-card shadow-2xl">
+          <div className="relative aspect-video w-full overflow-hidden">
+            <img src={service.image} alt={title} className="h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent" />
+            <div className="absolute bottom-8 left-8 right-8">
+              <h1 className="text-4xl font-extrabold tracking-tight text-white drop-shadow-2xl md:text-5xl lg:text-6xl">
+                {title}
+              </h1>
+            </div>
           </div>
 
-          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <Link
-              to="/"
-              className="focus-glow inline-flex items-center justify-center gap-2 rounded-lg bg-surface-hover px-6 py-3 font-semibold text-text-primary shadow-md transition-all hover:gap-3 hover:bg-border-default hover:shadow-lg active:scale-95"
-            >
-              <HiChevronLeft className="h-5 w-5" />
-              {t('services.backToHome')}
-            </Link>
-            <Link
-              to="/contact"
-              className="focus-glow inline-flex items-center justify-center gap-2 rounded-lg bg-interactive-primary px-6 py-3 font-semibold text-white shadow-md transition-all hover:gap-3 hover:bg-interactive-primary-hover hover:shadow-lg active:scale-95"
-            >
-              <HiEnvelope className="h-5 w-5" />
-              {t('navigation.contact')}
-            </Link>
+          <div className="p-8 md:p-12">
+            <p className="text-xl font-semibold text-text-secondary">{shortDescription}</p>
+            <div className="service-description mt-6 border-t border-border-divider pt-6 text-lg leading-relaxed text-text-body">
+              <Trans
+                t={t}
+                i18nKey={longDescriptionKey}
+                components={{
+                  p: <p className="mb-4" />,
+                  strong: <strong className="font-semibold text-text-primary" />,
+                  ul: <ul className="mb-4 ml-6 list-disc space-y-1" />,
+                  li: <li />,
+                }}
+              />
+            </div>
+
+            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+              <Link
+                to="/"
+                className="focus-glow inline-flex items-center justify-center gap-2 rounded-lg bg-surface-hover px-6 py-3 font-semibold text-text-primary shadow-md transition-all hover:gap-3 hover:bg-border-default hover:shadow-lg active:scale-95"
+              >
+                <HiChevronLeft className="h-5 w-5" />
+                {t('services.backToHome')}
+              </Link>
+              <Link
+                to="/contact"
+                className="focus-glow inline-flex items-center justify-center gap-2 rounded-lg bg-interactive-primary px-6 py-3 font-semibold text-white shadow-md transition-all hover:gap-3 hover:bg-interactive-primary-hover hover:shadow-lg active:scale-95"
+              >
+                <HiEnvelope className="h-5 w-5" />
+                {t('navigation.contact')}
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
