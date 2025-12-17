@@ -1,6 +1,7 @@
 import { StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
+import { HelmetProvider } from '@dr.pogodin/react-helmet'
 import '@/index.css'
 import '@/i18n/config'
 import { LanguageProvider } from '@/components/language-provider'
@@ -17,12 +18,14 @@ declare module '@tanstack/react-router' {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Suspense fallback={<div>Loading...</div>}>
-      <ThemeProvider>
-        <LanguageProvider>
-          <RouterProvider router={router} />
-        </LanguageProvider>
-      </ThemeProvider>
-    </Suspense>
+    <HelmetProvider>
+      <Suspense fallback={<div>Loading...</div>}>
+        <ThemeProvider>
+          <LanguageProvider>
+            <RouterProvider router={router} />
+          </LanguageProvider>
+        </ThemeProvider>
+      </Suspense>
+    </HelmetProvider>
   </StrictMode>
 )
