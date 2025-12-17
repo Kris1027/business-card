@@ -30,8 +30,6 @@ const Seo = ({
 
       <link rel="canonical" href={canonicalUrl} />
 
-      <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
-
       <meta property="og:type" content={type} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:title" content={title} />
