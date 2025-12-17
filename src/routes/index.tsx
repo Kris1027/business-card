@@ -2,6 +2,8 @@ import { createFileRoute } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { ServiceCard } from '@/components/service-card'
 import { ImageCarousel } from '@/components/image-carousel'
+import Seo from '@/components/seo'
+import { LocalBusinessJsonLd } from '@/components/json-ld'
 import pcImage1 from '@/assets/pc-1.jpg'
 import pcImage2 from '@/assets/pc-2.jpg'
 import prebuildImage from '@/assets/prebuild-1.webp'
@@ -47,29 +49,42 @@ const Index = () => {
   ]
 
   return (
-    <div className="py-8 md:py-12">
-      <div className="mb-8 md:mb-12">
-        <ImageCarousel images={carouselImages} />
-      </div>
-      <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {services.map(service => (
+    <>
+      <Seo title={t('seo.home.title')} description={t('seo.home.description')} path="/" />
+      <LocalBusinessJsonLd
+        name="techKris"
+        description={t('seo.home.description')}
+        email="kris1027.dev@gmail.com"
+        telephone="+48 792 542 841"
+        address={{
+          locality: 'Zabrze',
+          region: 'Silesian Voivodeship',
+          country: 'Poland',
+        }}
+      />
+      <div className="py-8 md:py-12">
+        <div className="mb-8 md:mb-12">
+          <ImageCarousel images={carouselImages} />
+        </div>
+        <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {services.map(service => (
+            <ServiceCard
+              key={service.id}
+              serviceId={service.id}
+              title={service.title}
+              shortDescription={service.shortDescription}
+            />
+          ))}
+        </div>
+        <div className="mt-12 md:mt-16">
           <ServiceCard
-            key={service.id}
-            serviceId={service.id}
-            title={service.title}
-            shortDescription={service.shortDescription}
+            title={t('home.noPrebuilt.title')}
+            descriptionKey="home.noPrebuilt.description"
+            image={{ src: prebuildImage, alt: t('home.noPrebuilt.title') }}
           />
-        ))}
+        </div>
       </div>
-
-      <div className="mt-12 md:mt-16">
-        <ServiceCard
-          title={t('home.noPrebuilt.title')}
-          descriptionKey="home.noPrebuilt.description"
-          image={{ src: prebuildImage, alt: t('home.noPrebuilt.title') }}
-        />
-      </div>
-    </div>
+    </>
   )
 }
 
