@@ -2,6 +2,7 @@ import { StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { HelmetProvider } from '@dr.pogodin/react-helmet'
+import { Analytics } from '@vercel/analytics/react'
 import '@/index.css'
 import '@/i18n/config'
 import { LanguageProvider } from '@/components/language-provider'
@@ -27,5 +28,6 @@ createRoot(document.getElementById('root')!).render(
         </ThemeProvider>
       </Suspense>
     </HelmetProvider>
+    <Analytics />
   </StrictMode>
 )

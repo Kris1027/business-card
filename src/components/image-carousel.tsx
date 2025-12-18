@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi2'
 
 type ImageCarouselProps = {
@@ -10,9 +10,12 @@ type ImageCarouselProps = {
   interval?: number
 }
 
+const SWIPE_THRESHOLD = 50
+
 const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [resetKey, setResetKey] = useState(0)
+  const touchStartX = useRef<number | null>(null)
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -41,11 +44,34 @@ const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
     resetTimer()
   }
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return
+
+    const touchEndX = e.changedTouches[0].clientX
+    const diff = touchStartX.current - touchEndX
+
+    if (Math.abs(diff) > SWIPE_THRESHOLD) {
+      if (diff > 0) {
+        goToNext()
+      } else {
+        goToPrevious()
+      }
+    }
+
+    touchStartX.current = null
+  }
+
   return (
     <div
       className="group relative w-full overflow-hidden rounded-2xl shadow-2xl"
       aria-roledescription="carousel"
       aria-label="Image Carousel"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       <div className="sr-only" aria-live="polite" aria-atomic="true">
         {`Slide ${currentIndex + 1} of ${images.length}: ${images[currentIndex].title}`}
