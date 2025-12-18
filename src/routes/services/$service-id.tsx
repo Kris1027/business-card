@@ -72,7 +72,7 @@ const ServiceDetail = () => {
       />
       <div className="py-8">
         <div className="overflow-hidden rounded-2xl bg-surface-card shadow-2xl">
-          <div className="relative aspect-video w-full overflow-hidden">
+          <div className="relative aspect-4/5 w-full overflow-hidden sm:aspect-video">
             <img src={service.image} alt={title} className="h-full w-full object-cover" />
             <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent" />
             <div className="absolute bottom-8 left-8 right-8">

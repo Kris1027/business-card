@@ -38,7 +38,11 @@ const ServiceCard = ({
   return (
     <article className="group overflow-hidden rounded-2xl bg-surface-card shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
       {image && (
-        <img src={image.src} alt={image.alt} className="h-48 w-full object-cover sm:h-56 md:h-64" />
+        <img
+          src={image.src}
+          alt={image.alt}
+          className="aspect-4/5 w-full object-cover sm:aspect-video"
+        />
       )}
       <div className="p-6 sm:p-8">
         <h3 className="text-xl font-bold text-text-primary sm:text-2xl">{title}</h3>

@@ -75,7 +75,7 @@ const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
 
       <button
         onClick={goToPrevious}
-        className="focus-glow-white absolute left-4 top-1/2 hidden -translate-y-1/2 rounded-full bg-white/20 p-4 text-white backdrop-blur-sm transition-all hover:scale-110 hover:bg-white/30 active:scale-95 sm:block"
+        className="focus-glow-white absolute left-4 top-1/2 hidden -translate-y-1/2 cursor-pointer rounded-full bg-white/20 p-4 text-white backdrop-blur-sm transition-all hover:scale-110 hover:bg-white/30 active:scale-95 sm:block"
         aria-label="Previous image"
       >
         <HiChevronLeft className="h-6 w-6" />
@@ -83,7 +83,7 @@ const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
 
       <button
         onClick={goToNext}
-        className="focus-glow-white absolute right-4 top-1/2 hidden -translate-y-1/2 rounded-full bg-white/20 p-4 text-white backdrop-blur-sm transition-all hover:scale-110 hover:bg-white/30 active:scale-95 sm:block"
+        className="focus-glow-white absolute right-4 top-1/2 hidden -translate-y-1/2 cursor-pointer rounded-full bg-white/20 p-4 text-white backdrop-blur-sm transition-all hover:scale-110 hover:bg-white/30 active:scale-95 sm:block"
         aria-label="Next image"
       >
         <HiChevronRight className="h-6 w-6" />
