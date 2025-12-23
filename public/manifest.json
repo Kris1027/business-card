@@ -1,0 +1,22 @@
+{
+  "name": "techKris - Składanie komputerów Zabrze | Doradztwo sprzętowe",
+  "short_name": "techKris",
+  "description": "Składanie komputerów Zabrze, doradztwo sprzętowe i tworzenie stron internetowych. Profesjonalny dobór komponentów PC na Śląsku.",
+  "start_url": "/",
+  "display": "standalone",
+  "lang": "pl",
+  "background_color": "#f9fafb",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

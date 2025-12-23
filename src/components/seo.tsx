@@ -1,4 +1,5 @@
 import { Helmet } from '@dr.pogodin/react-helmet'
+import { useTranslation } from 'react-i18next'
 import { DEFAULT_OG_IMAGE, SITE_URL } from '@/constants/site-config'
 
 type SeoProps = {
@@ -23,11 +24,14 @@ const Seo = ({
   noindex = false,
   keywords = DEFAULT_KEYWORDS,
 }: SeoProps) => {
+  const { i18n } = useTranslation()
   const canonicalUrl = `${SITE_URL}${path}`
   const imageUrl = image.startsWith('http') ? image : `${SITE_URL}${image}`
+  const currentLocale = i18n.language === 'en' ? 'en_US' : 'pl_PL'
 
   return (
     <Helmet>
+      <html lang={i18n.language} />
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
@@ -35,6 +39,9 @@ const Seo = ({
       {noindex && <meta name="robots" content="noindex, nofollow" />}
 
       <link rel="canonical" href={canonicalUrl} />
+      <link rel="alternate" hrefLang="pl" href={canonicalUrl} />
+      <link rel="alternate" hrefLang="en" href={canonicalUrl} />
+      <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
 
       <meta property="og:type" content={type} />
       <meta property="og:url" content={canonicalUrl} />
@@ -42,8 +49,11 @@ const Seo = ({
       <meta property="og:description" content={description} />
       <meta property="og:image" content={imageUrl} />
       <meta property="og:site_name" content="techKris" />
-      <meta property="og:locale" content="pl_PL" />
-      <meta property="og:locale:alternate" content="en_US" />
+      <meta property="og:locale" content={currentLocale} />
+      <meta
+        property="og:locale:alternate"
+        content={currentLocale === 'pl_PL' ? 'en_US' : 'pl_PL'}
+      />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={canonicalUrl} />

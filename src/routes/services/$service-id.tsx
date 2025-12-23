@@ -2,8 +2,9 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { Trans, useTranslation } from 'react-i18next'
 import { HiChevronLeft, HiEnvelope } from 'react-icons/hi2'
 import { servicesInfo, type ServiceKey } from '@/constants/services-info'
+import { SITE_URL } from '@/constants/site-config'
 import Seo from '@/components/seo'
-import { ServiceJsonLd } from '@/components/json-ld'
+import { BreadcrumbJsonLd, ServiceJsonLd } from '@/components/json-ld'
 
 type SeoServiceKey = 'equipmentAdvising' | 'computerAssembly' | 'websiteBuilding'
 
@@ -61,9 +62,16 @@ const ServiceDetail = () => {
   const seoTitle = seoKey ? t(`seo.services.${seoKey}.title`) : title
   const seoDescription = seoKey ? t(`seo.services.${seoKey}.description`) : shortDescription
 
+  const breadcrumbItems = [
+    { name: t('navigation.home'), url: SITE_URL },
+    { name: t('footer.servicesTitle'), url: SITE_URL },
+    { name: title, url: `${SITE_URL}/services/${serviceId}` },
+  ]
+
   return (
     <>
       <Seo title={seoTitle} description={seoDescription} path={`/services/${serviceId}`} />
+      <BreadcrumbJsonLd items={breadcrumbItems} />
       <ServiceJsonLd
         name={title}
         description={seoDescription}

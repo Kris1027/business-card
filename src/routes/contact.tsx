@@ -4,8 +4,9 @@ import { useTranslation } from 'react-i18next'
 import { HiEnvelope, HiPhone, HiMapPin, HiClipboardDocument, HiCheck } from 'react-icons/hi2'
 import { SiDiscord, SiGithub, SiLinkedin } from 'react-icons/si'
 import { contactInfo } from '@/constants/contact-info'
+import { SITE_URL } from '@/constants/site-config'
 import Seo from '@/components/seo'
-import { LocalBusinessJsonLd } from '@/components/json-ld'
+import { BreadcrumbJsonLd, LocalBusinessJsonLd } from '@/components/json-ld'
 
 const CheckIcon = () => <HiCheck className="h-5 w-5 text-success" />
 
@@ -43,6 +44,11 @@ const Contact = () => {
       })
   }
 
+  const breadcrumbItems = [
+    { name: t('navigation.home'), url: SITE_URL },
+    { name: t('navigation.contact'), url: `${SITE_URL}/contact` },
+  ]
+
   return (
     <>
       <Seo
@@ -50,6 +56,7 @@ const Contact = () => {
         description={t('seo.contact.description')}
         path="/contact"
       />
+      <BreadcrumbJsonLd items={breadcrumbItems} />
       <LocalBusinessJsonLd
         name="techKris"
         description={t('seo.contact.description')}
