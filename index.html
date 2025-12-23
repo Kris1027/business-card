@@ -55,7 +55,7 @@
         // If you modify this logic, you MUST update src/i18n/config.ts accordingly.
         // Supported languages are defined in src/locales/index.ts (SUPPORTED_LANGUAGES constant).
         const SUPPORTED_LANGUAGES = ['en', 'pl']
-        const DEFAULT_LANGUAGE = 'en'
+        const DEFAULT_LANGUAGE = 'pl'
 
         const getBrowserLanguage = () => {
           try {
@@ -73,9 +73,9 @@
 
         document.documentElement.lang = language
 
-        // Update title based on language
+        // Update title based on language (default HTML title is Polish)
         if (language === 'en') {
-          document.title = 'techKris'
+          document.title = 'techKris - Equipment Advising & PC Assembly'
         }
       } catch (e) {
         // If localStorage access fails, fallback to system preference only
