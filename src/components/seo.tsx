@@ -8,7 +8,11 @@ type SeoProps = {
   image?: string
   type?: 'website' | 'article' | 'profile'
   noindex?: boolean
+  keywords?: string
 }
+
+const DEFAULT_KEYWORDS =
+  'składanie komputerów, komputery Zabrze, doradztwo sprzętowe, tworzenie stron internetowych, składanie PC, komputery na zamówienie, Gliwice, Śląsk'
 
 const Seo = ({
   title,
@@ -17,6 +21,7 @@ const Seo = ({
   image = DEFAULT_OG_IMAGE,
   type = 'website',
   noindex = false,
+  keywords = DEFAULT_KEYWORDS,
 }: SeoProps) => {
   const canonicalUrl = `${SITE_URL}${path}`
   const imageUrl = image.startsWith('http') ? image : `${SITE_URL}${image}`
@@ -25,6 +30,7 @@ const Seo = ({
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
+      <meta name="keywords" content={keywords} />
 
       {noindex && <meta name="robots" content="noindex, nofollow" />}
 

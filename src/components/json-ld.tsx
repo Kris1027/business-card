@@ -36,6 +36,25 @@ export const LocalBusinessJsonLd = ({
     },
     image: `${SITE_URL}${DEFAULT_OG_IMAGE}`,
     priceRange: '$$',
+    areaServed: [
+      { '@type': 'City', name: 'Zabrze' },
+      { '@type': 'City', name: 'Gliwice' },
+      { '@type': 'City', name: 'Bytom' },
+      { '@type': 'City', name: 'Katowice' },
+      { '@type': 'AdministrativeArea', name: 'Śląsk' },
+    ],
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: '50.3249',
+      longitude: '18.7857',
+    },
+    knowsAbout: [
+      'Składanie komputerów',
+      'Doradztwo sprzętowe',
+      'Tworzenie stron internetowych',
+      'Dobór komponentów PC',
+      'Komputery na zamówienie',
+    ],
   }
 
   return (
@@ -91,12 +110,21 @@ export const ServiceJsonLd = ({ name, description, provider, serviceType }: Serv
       '@type': 'LocalBusiness',
       name: provider,
       url: SITE_URL,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Zabrze',
+        addressRegion: 'Śląskie',
+        addressCountry: 'PL',
+      },
     },
     serviceType,
-    areaServed: {
-      '@type': 'Country',
-      name: 'Poland',
-    },
+    areaServed: [
+      { '@type': 'City', name: 'Zabrze' },
+      { '@type': 'City', name: 'Gliwice' },
+      { '@type': 'City', name: 'Bytom' },
+      { '@type': 'City', name: 'Katowice' },
+      { '@type': 'AdministrativeArea', name: 'Śląsk' },
+    ],
   }
 
   return (
