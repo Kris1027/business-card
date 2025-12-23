@@ -12,7 +12,7 @@ type SeoProps = {
 }
 
 const DEFAULT_KEYWORDS =
-  'składanie komputerów, komputery Zabrze, doradztwo sprzętowe, tworzenie stron internetowych, składanie PC, komputery na zamówienie, Gliwice, Śląsk'
+  'składanie komputerów, komputery Zabrze, doradztwo sprzętowe, tworzenie stron internetowych, składanie PC, komputery na zamówienie, komputer do gier, komputer gamingowy, PC do gier, zestaw komputerowy, montaż komputera, modernizacja komputera, upgrade PC, strony www Zabrze, strony internetowe Śląsk, projektowanie stron, Gliwice, Katowice, Bytom, Chorzów, Śląsk'
 
 const Seo = ({
   title,

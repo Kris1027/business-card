@@ -54,6 +54,15 @@ export const LocalBusinessJsonLd = ({
       'Tworzenie stron internetowych',
       'Dobór komponentów PC',
       'Komputery na zamówienie',
+      'Komputer do gier',
+      'Komputer gamingowy',
+      'Montaż komputera',
+      'Modernizacja komputera',
+      'Upgrade PC',
+      'Konfiguracja PC',
+      'Zestaw komputerowy',
+      'Projektowanie stron www',
+      'Responsywne strony internetowe',
     ],
   }
 
