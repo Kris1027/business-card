@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { ServiceCard } from '@/components/service-card'
 import { ImageCarousel } from '@/components/image-carousel'
 import Seo from '@/components/seo'
-import { LocalBusinessJsonLd } from '@/components/json-ld'
+import { LocalBusinessJsonLd, WebSiteJsonLd } from '@/components/json-ld'
 import pcImage1 from '@/assets/pc-1.jpg'
 import pcImage2 from '@/assets/pc-2.jpg'
 import prebuildImage from '@/assets/prebuild-1.webp'
@@ -51,6 +51,7 @@ const Index = () => {
   return (
     <>
       <Seo title={t('seo.home.title')} description={t('seo.home.description')} path="/" />
+      <WebSiteJsonLd />
       <LocalBusinessJsonLd
         name="techKris"
         description={t('seo.home.description')}

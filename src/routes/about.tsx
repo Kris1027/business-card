@@ -3,8 +3,9 @@ import { createFileRoute } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { HiChevronDown, HiChevronUp } from 'react-icons/hi2'
 import { aboutInfo, technologies } from '@/constants/about-info'
+import { SITE_URL } from '@/constants/site-config'
 import Seo from '@/components/seo'
-import { PersonJsonLd } from '@/components/json-ld'
+import { BreadcrumbJsonLd, PersonJsonLd } from '@/components/json-ld'
 import profileImage from '@/assets/profil-1.jpg'
 
 const INITIAL_DISPLAY_COUNT = 12
@@ -21,6 +22,11 @@ const About = () => {
     setShowAll(prev => !prev)
   }
 
+  const breadcrumbItems = [
+    { name: t('navigation.home'), url: SITE_URL },
+    { name: t('navigation.about'), url: `${SITE_URL}/about` },
+  ]
+
   return (
     <>
       <Seo
@@ -29,6 +35,7 @@ const About = () => {
         path="/about"
         type="profile"
       />
+      <BreadcrumbJsonLd items={breadcrumbItems} />
       <PersonJsonLd
         name={aboutInfo.name}
         description={t('seo.about.description')}

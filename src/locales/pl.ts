@@ -67,35 +67,35 @@ export const pl = {
   },
   seo: {
     home: {
-      title: 'techKris - Doradztwo sprzętowe i składanie PC',
+      title: 'techKris - Składanie komputerów Zabrze | Doradztwo sprzętowe',
       description:
-        'Profesjonalne doradztwo sprzętowe, składanie komputerów na zamówienie i tworzenie stron internetowych. Dobór komponentów idealnie dopasowany do Twoich potrzeb.',
+        'Składanie komputerów Zabrze, doradztwo sprzętowe i tworzenie stron internetowych. Profesjonalny dobór komponentów PC dopasowany do Twoich potrzeb. Zabrze, Gliwice, Śląsk.',
     },
     about: {
-      title: 'O mnie - techKris',
+      title: 'O mnie - techKris | Komputery Zabrze',
       description:
-        'Pasjonat technologii specjalizujący się w doradztwie sprzętowym, składaniu komputerów i tworzeniu stron internetowych. Poznaj moje umiejętności i doświadczenie.',
+        'Pasjonat technologii z Zabrza specjalizujący się w składaniu komputerów, doradztwie sprzętowym i tworzeniu stron internetowych. Poznaj moje umiejętności i doświadczenie.',
     },
     contact: {
-      title: 'Kontakt - techKris',
+      title: 'Kontakt - techKris | Składanie PC Zabrze',
       description:
-        'Skontaktuj się w sprawie doradztwa sprzętowego, składania PC lub tworzenia stron. Dostępny przez email, telefon i media społecznościowe.',
+        'Skontaktuj się w sprawie składania komputerów, doradztwa sprzętowego lub tworzenia stron. Zabrze, Gliwice i okolice. Email, telefon, media społecznościowe.',
     },
     services: {
       equipmentAdvising: {
-        title: 'Doradztwo sprzętowe - techKris',
+        title: 'Doradztwo sprzętowe Zabrze - techKris | Dobór komponentów PC',
         description:
-          'Profesjonalne doradztwo w doborze sprzętu komputerowego. Spersonalizowane rekomendacje komponentów dopasowane do Twoich potrzeb i budżetu.',
+          'Profesjonalne doradztwo sprzętowe w Zabrzu i okolicach. Dobór komponentów komputerowych dopasowany do Twoich potrzeb i budżetu. Gliwice, Śląsk.',
       },
       computerAssembly: {
-        title: 'Składanie PC - techKris',
+        title: 'Składanie komputerów Zabrze - techKris | Komputery na zamówienie',
         description:
-          'Profesjonalne składanie komputerów. Stabilny, dobrze chłodzony i cichy komputer gotowy do pracy od razu po wyjęciu z pudełka.',
+          'Profesjonalne składanie komputerów w Zabrzu. Komputery na zamówienie, dobór podzespołów, konfiguracja. Stabilny, cichy PC gotowy do pracy. Gliwice, Śląsk.',
       },
       websiteBuilding: {
-        title: 'Tworzenie stron - techKris',
+        title: 'Tworzenie stron internetowych Zabrze - techKris | Strony www',
         description:
-          'Nowoczesne, szybkie i skuteczne strony internetowe. Responsywny design, podstawy SEO i przejrzysta struktura wspierająca Twoje cele biznesowe.',
+          'Tworzenie stron internetowych w Zabrzu. Nowoczesne, szybkie strony www z SEO. Responsywny design dla firm i osób prywatnych. Gliwice, Śląsk.',
       },
     },
   },

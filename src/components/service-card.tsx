@@ -41,6 +41,7 @@ const ServiceCard = ({
         <img
           src={image.src}
           alt={image.alt}
+          loading="lazy"
           className="aspect-4/5 w-full object-cover sm:aspect-video"
         />
       )}
