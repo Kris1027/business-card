@@ -348,7 +348,7 @@ export const categorizedTechnologies: TechnologyCategory[] = [
       {
         name: 'Claude Code',
         icon: SiAnthropic,
-        url: 'https://docs.anthropic.com/en/docs/claude-code',
+        url: 'https://code.claude.com/docs',
         color: 'text-orange-600 dark:text-orange-500',
       },
       {
