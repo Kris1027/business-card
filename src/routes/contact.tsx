@@ -70,14 +70,14 @@ const Contact = () => {
       />
       <div className="py-12">
         <div className="mx-auto max-w-4xl">
-          <div className="mb-12 text-center">
+          <div className="animate-fade-in-up mb-12 text-center">
             <h1 className="mb-4 text-4xl font-bold text-text-primary">{t('contact.title')}</h1>
             <p className="text-lg text-text-body">{t('contact.subtitle')}</p>
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div
-              className="group rounded-xl bg-surface-card p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className="animate-fade-in-up group rounded-xl bg-surface-card p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               style={{ animationDelay: '0ms' }}
             >
               <div className="mb-4 flex items-center justify-between">
@@ -108,7 +108,7 @@ const Contact = () => {
             </div>
 
             <div
-              className="group rounded-xl bg-surface-card p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className="animate-fade-in-up group rounded-xl bg-surface-card p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               style={{ animationDelay: '100ms' }}
             >
               <div className="mb-4 flex items-center justify-between">
@@ -139,7 +139,7 @@ const Contact = () => {
             </div>
 
             <div
-              className="group rounded-xl bg-surface-card p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className="animate-fade-in-up group rounded-xl bg-surface-card p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               style={{ animationDelay: '200ms' }}
             >
               <div className="mb-4 flex items-center gap-3">
@@ -160,7 +160,7 @@ const Contact = () => {
             </div>
 
             <div
-              className="group rounded-xl bg-surface-card p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className="animate-fade-in-up group rounded-xl bg-surface-card p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               style={{ animationDelay: '300ms' }}
             >
               <div className="mb-4 flex items-center justify-between">
@@ -189,7 +189,7 @@ const Contact = () => {
             </div>
 
             <div
-              className="group rounded-xl bg-surface-card p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className="animate-fade-in-up group rounded-xl bg-surface-card p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               style={{ animationDelay: '400ms' }}
             >
               <div className="mb-4 flex items-center gap-3">
@@ -210,7 +210,7 @@ const Contact = () => {
             </div>
 
             <div
-              className="group rounded-xl bg-surface-card p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className="animate-fade-in-up group rounded-xl bg-surface-card p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               style={{ animationDelay: '500ms' }}
             >
               <div className="mb-4 flex items-center gap-3">

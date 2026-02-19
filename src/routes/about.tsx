@@ -31,7 +31,7 @@ const About = () => {
       />
       <div className="py-12">
         {/* Profile Section */}
-        <section className="mb-16">
+        <section className="animate-fade-in-up mb-16">
           <div className="flex flex-col items-center gap-8 md:flex-row md:items-start md:gap-12">
             {/* Profile Image */}
             <div className="shrink-0">
@@ -57,7 +57,7 @@ const About = () => {
 
         {/* Technologies Section */}
         <section>
-          <div className="mb-8 text-center">
+          <div className="animate-fade-in-up mb-8 text-center" style={{ animationDelay: '100ms' }}>
             <h2 className="mb-3 text-3xl font-bold text-text-primary">{t('about.technologies')}</h2>
             <p className="text-lg text-text-body">{t('about.technologiesDescription')}</p>
           </div>

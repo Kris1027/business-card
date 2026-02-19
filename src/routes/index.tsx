@@ -64,20 +64,25 @@ const Index = () => {
         }}
       />
       <div className="py-8 md:py-12">
-        <div className="mb-8 md:mb-12">
+        <div className="animate-fade-in-up mb-8 md:mb-12">
           <ImageCarousel images={carouselImages} />
         </div>
         <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {services.map(service => (
-            <ServiceCard
+          {services.map((service, index) => (
+            <div
               key={service.id}
-              serviceId={service.id}
-              title={service.title}
-              shortDescription={service.shortDescription}
-            />
+              className="animate-fade-in-up"
+              style={{ animationDelay: `${(index + 1) * 100}ms` }}
+            >
+              <ServiceCard
+                serviceId={service.id}
+                title={service.title}
+                shortDescription={service.shortDescription}
+              />
+            </div>
           ))}
         </div>
-        <div className="mt-12 md:mt-16">
+        <div className="animate-fade-in-up mt-12 md:mt-16" style={{ animationDelay: '400ms' }}>
           <ServiceCard
             title={t('home.noPrebuilt.title')}
             descriptionKey="home.noPrebuilt.description"
