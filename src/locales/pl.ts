@@ -2,6 +2,14 @@ export const pl = {
   accessibility: {
     skipToContent: 'Przejdź do głównej treści',
   },
+  error: {
+    notFoundTitle: 'Nie znaleziono strony',
+    notFoundDescription: 'Strona, której szukasz, nie istnieje lub została przeniesiona.',
+    errorTitle: 'Coś poszło nie tak',
+    errorDescription: 'Wystąpił nieoczekiwany błąd. Spróbuj ponownie lub wróć na stronę główną.',
+    tryAgain: 'Spróbuj ponownie',
+    loading: 'Ładowanie...',
+  },
   navigation: {
     brand: 'techKris',
     home: 'Strona główna',
