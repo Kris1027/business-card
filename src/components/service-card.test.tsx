@@ -1,6 +1,11 @@
 import { renderWithRouter, screen, waitFor } from '@/test/router-utils'
 import { ServiceCard } from '@/components/service-card'
 
+const mockPictureData = {
+  sources: { webp: [{ src: '/test.webp', w: 640 }] },
+  img: { src: '/test.jpg', w: 640, h: 480 },
+}
+
 describe('ServiceCard', () => {
   it('renders title and short description', async () => {
     renderWithRouter(<ServiceCard title="Test Service" shortDescription="A test description" />)
@@ -36,15 +41,11 @@ describe('ServiceCard', () => {
 
   it('renders image when provided', async () => {
     renderWithRouter(
-      <ServiceCard
-        title="Test Service"
-        shortDescription="Description"
-        image={{ src: 'test.jpg', alt: 'Test image' }}
-      />
+      <ServiceCard title="Test Service" shortDescription="Description" image={mockPictureData} />
     )
 
     await waitFor(() => {
-      expect(screen.getByAltText('Test image')).toBeInTheDocument()
+      expect(screen.getByAltText('Test Service')).toBeInTheDocument()
     })
   })
 

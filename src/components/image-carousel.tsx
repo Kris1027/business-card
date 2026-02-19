@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi2'
+import { Picture, type PictureData } from '@/components/picture'
 
 type ImageCarouselProps = {
   images: Array<{
-    src: string
+    data: PictureData
     alt: string
     title: string
   }>
@@ -79,12 +80,17 @@ const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
       <div className="relative aspect-4/5 w-full sm:aspect-video">
         {images.map((image, index) => (
           <div
-            key={image.src}
+            key={image.alt}
             className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
               index === currentIndex ? 'scale-100 opacity-100' : 'scale-105 opacity-0'
             }`}
           >
-            <img src={image.src} alt={image.alt} className="h-full w-full object-cover" />
+            <Picture
+              data={image.data}
+              alt={image.alt}
+              className="h-full w-full object-cover"
+              loading={index === 0 ? 'eager' : 'lazy'}
+            />
             <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
             <div
               className={`absolute bottom-12 left-0 right-0 text-center transition-all delay-300 duration-700 sm:bottom-16 ${

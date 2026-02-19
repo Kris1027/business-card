@@ -1,15 +1,13 @@
 import { Link } from '@tanstack/react-router'
 import { Trans, useTranslation } from 'react-i18next'
 import { HiChevronRight } from 'react-icons/hi2'
+import { Picture, type PictureData } from '@/components/picture'
 
 type TranslationKeyWithHtml = 'home.noPrebuilt.description'
 
 type ServiceCardBaseProps = {
   title: string
-  image?: {
-    src: string
-    alt: string
-  }
+  image?: PictureData
 }
 
 type ServiceCardWithShortDescription = ServiceCardBaseProps & {
@@ -38,10 +36,9 @@ const ServiceCard = ({
   return (
     <article className="group overflow-hidden rounded-2xl bg-surface-card shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
       {image && (
-        <img
-          src={image.src}
-          alt={image.alt}
-          loading="lazy"
+        <Picture
+          data={image}
+          alt={title}
           className="aspect-4/5 w-full object-cover sm:aspect-video"
         />
       )}

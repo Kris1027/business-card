@@ -2,7 +2,11 @@ import { renderWithRouter, screen, waitFor, userEvent } from '@/test/router-util
 import i18n from '@/i18n/config'
 import NavigationBar from '@/components/navigation-bar'
 
-vi.mock('@/assets/logo-1.png', () => ({ default: 'test-logo.png' }))
+vi.mock('@/components/logo', () => ({
+  default: ({ className }: { className?: string }) => (
+    <img src="test-logo.png" alt="techKris" className={className} />
+  ),
+}))
 
 describe('NavigationBar', () => {
   beforeEach(async () => {

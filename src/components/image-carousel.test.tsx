@@ -2,10 +2,15 @@ import { render, screen, act } from '@/test/test-utils'
 import { fireEvent } from '@testing-library/react'
 import { ImageCarousel } from '@/components/image-carousel'
 
+const mockPictureData = {
+  sources: { webp: [{ src: '/img.webp', w: 640 }] },
+  img: { src: '/img.jpg', w: 640, h: 480 },
+}
+
 const mockImages = [
-  { src: '/img-1.jpg', alt: 'Image 1', title: 'Slide 1' },
-  { src: '/img-2.jpg', alt: 'Image 2', title: 'Slide 2' },
-  { src: '/img-3.jpg', alt: 'Image 3', title: 'Slide 3' },
+  { data: { ...mockPictureData }, alt: 'Image 1', title: 'Slide 1' },
+  { data: { ...mockPictureData }, alt: 'Image 2', title: 'Slide 2' },
+  { data: { ...mockPictureData }, alt: 'Image 3', title: 'Slide 3' },
 ]
 
 describe('ImageCarousel', () => {
