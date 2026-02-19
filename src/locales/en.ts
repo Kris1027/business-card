@@ -1,4 +1,7 @@
 export const en = {
+  accessibility: {
+    skipToContent: 'Skip to main content',
+  },
   navigation: {
     brand: 'techKris',
     home: 'Home',
