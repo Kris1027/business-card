@@ -1,4 +1,4 @@
-import { createRootRoute, Link, Outlet, useRouter } from '@tanstack/react-router'
+import { createRootRoute, Outlet, useRouter } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import { useTranslation } from 'react-i18next'
 import { HiExclamationTriangle, HiMagnifyingGlass } from 'react-icons/hi2'
@@ -45,17 +45,13 @@ const ErrorPage = () => {
       <p className="mb-8 max-w-md text-lg text-text-body">{t('error.errorDescription')}</p>
       <div className="flex gap-4">
         <button
+          type="button"
           onClick={handleRetry}
           className="focus-glow inline-flex items-center gap-2 rounded-lg bg-interactive-primary px-6 py-3 font-semibold text-white shadow-md transition-all hover:bg-interactive-primary-hover hover:shadow-lg active:scale-95"
         >
           {t('error.tryAgain')}
         </button>
-        <Link
-          to="/"
-          className="focus-glow inline-flex items-center gap-2 rounded-lg bg-surface-hover px-6 py-3 font-semibold text-text-primary shadow-md transition-all hover:bg-border-default hover:shadow-lg active:scale-95"
-        >
-          {t('services.backToHome')}
-        </Link>
+        <BackToHomeButton variant="secondary" />
       </div>
     </div>
   )

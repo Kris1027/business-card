@@ -12,7 +12,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com"
+          "value": "default-src 'self'; script-src 'self' 'sha256-uWjNESCL0QPpp6Bys9A+23Rg+8AntJi2IpbT5VJKhnU=' https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com; object-src 'none'; base-uri 'self'"
         }
       ]
     }
