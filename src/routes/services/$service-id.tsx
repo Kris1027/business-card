@@ -79,7 +79,7 @@ const ServiceDetail = () => {
         serviceType={title}
       />
       <div className="py-8">
-        <div className="overflow-hidden rounded-2xl bg-surface-card shadow-2xl">
+        <div className="animate-fade-in-up overflow-hidden rounded-2xl bg-surface-card shadow-2xl">
           <div className="relative aspect-4/5 w-full overflow-hidden sm:aspect-video">
             <img src={service.image} alt={title} className="h-full w-full object-cover" />
             <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent" />
@@ -91,8 +91,16 @@ const ServiceDetail = () => {
           </div>
 
           <div className="p-8 md:p-12">
-            <p className="text-xl font-semibold text-text-secondary">{shortDescription}</p>
-            <div className="service-description mt-6 border-t border-border-divider pt-6 text-lg leading-relaxed text-text-body">
+            <p
+              className="animate-fade-in-up text-xl font-semibold text-text-secondary"
+              style={{ animationDelay: '100ms' }}
+            >
+              {shortDescription}
+            </p>
+            <div
+              className="animate-fade-in-up service-description mt-6 border-t border-border-divider pt-6 text-lg leading-relaxed text-text-body"
+              style={{ animationDelay: '200ms' }}
+            >
               <Trans
                 t={t}
                 i18nKey={longDescriptionKey}
@@ -105,7 +113,10 @@ const ServiceDetail = () => {
               />
             </div>
 
-            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <div
+              className="animate-fade-in mt-8 flex flex-col justify-center gap-4 sm:flex-row"
+              style={{ animationDelay: '300ms' }}
+            >
               <Link
                 to="/"
                 className="focus-glow inline-flex items-center justify-center gap-2 rounded-lg bg-surface-hover px-6 py-3 font-semibold text-text-primary shadow-md transition-all hover:gap-3 hover:bg-border-default hover:shadow-lg active:scale-95"
