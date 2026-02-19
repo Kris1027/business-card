@@ -1,10 +1,5 @@
-type PictureSource = {
-  src: string
-  w: number
-}
-
 type PictureData = {
-  sources: Record<string, PictureSource[]>
+  sources: Record<string, string>
   img: {
     src: string
     w: number

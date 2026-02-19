@@ -1,10 +1,5 @@
-type PictureSource = {
-  src: string
-  w: number
-}
-
 type PictureData = {
-  sources: Record<string, PictureSource[]>
+  sources: Record<string, string>
   img: {
     src: string
     w: number
@@ -33,10 +28,10 @@ const Picture = ({ data, alt, sizes = '100vw', className, loading = 'lazy' }: Pi
 
   return (
     <picture>
-      {formatEntries.map(([format, images]) => (
+      {formatEntries.map(([format, srcSet]) => (
         <source
           key={format}
-          srcSet={images.map(img => `${img.src} ${img.w}w`).join(', ')}
+          srcSet={srcSet}
           sizes={sizes}
           type={MIME_TYPES[format] ?? `image/${format}`}
         />

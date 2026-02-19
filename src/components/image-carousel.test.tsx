@@ -3,7 +3,7 @@ import { fireEvent } from '@testing-library/react'
 import { ImageCarousel } from '@/components/image-carousel'
 
 const mockPictureData = {
-  sources: { webp: [{ src: '/img.webp', w: 640 }] },
+  sources: { webp: '/img.webp 640w' },
   img: { src: '/img.jpg', w: 640, h: 480 },
 }
 

@@ -2,7 +2,7 @@ import { renderWithRouter, screen, waitFor } from '@/test/router-utils'
 import { ServiceCard } from '@/components/service-card'
 
 const mockPictureData = {
-  sources: { webp: [{ src: '/test.webp', w: 640 }] },
+  sources: { webp: '/test.webp 640w' },
   img: { src: '/test.jpg', w: 640, h: 480 },
 }
 
