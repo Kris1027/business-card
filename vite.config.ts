@@ -11,6 +11,7 @@ export default defineConfig({
     TanStackRouterVite({
       target: 'react',
       autoCodeSplitting: true,
+      routeFileIgnorePattern: '.test.',
     }),
     react({
       babel: {

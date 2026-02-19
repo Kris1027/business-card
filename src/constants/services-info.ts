@@ -1,4 +1,3 @@
-import type { PictureData } from '@/components/picture'
 import pcImage1 from '@/assets/pc-1.jpg?w=640;960;1280;1920&format=webp;jpg&as=picture'
 import pcImage2 from '@/assets/pc-2.jpg?w=640;960;1280;1920&format=webp;jpg&as=picture'
 import webImage1 from '@/assets/web-1.jpg?w=640;960;1280;1920&format=webp;jpg&as=picture'

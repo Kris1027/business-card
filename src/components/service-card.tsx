@@ -1,7 +1,7 @@
 import { Link } from '@tanstack/react-router'
 import { Trans, useTranslation } from 'react-i18next'
 import { HiChevronRight } from 'react-icons/hi2'
-import { Picture, type PictureData } from '@/components/picture'
+import { Picture } from '@/components/picture'
 
 type TranslationKeyWithHtml = 'home.noPrebuilt.description'
 

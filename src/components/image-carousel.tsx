@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi2'
-import { Picture, type PictureData } from '@/components/picture'
+import { Picture } from '@/components/picture'
 
 type ImageCarouselProps = {
   images: Array<{

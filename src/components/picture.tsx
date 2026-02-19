@@ -1,12 +1,3 @@
-type PictureData = {
-  sources: Record<string, string>
-  img: {
-    src: string
-    w: number
-    h: number
-  }
-}
-
 type PictureProps = {
   data: PictureData
   alt: string
@@ -49,4 +40,3 @@ const Picture = ({ data, alt, sizes = '100vw', className, loading = 'lazy' }: Pi
 }
 
 export { Picture }
-export type { PictureData }
