@@ -1,4 +1,15 @@
 export const en = {
+  accessibility: {
+    skipToContent: 'Skip to main content',
+  },
+  error: {
+    notFoundTitle: 'Page not found',
+    notFoundDescription: 'The page you are looking for does not exist or has been moved.',
+    errorTitle: 'Something went wrong',
+    errorDescription: 'An unexpected error occurred. Please try again or go back to the home page.',
+    tryAgain: 'Try again',
+    loading: 'Loading...',
+  },
   navigation: {
     brand: 'techKris',
     home: 'Home',

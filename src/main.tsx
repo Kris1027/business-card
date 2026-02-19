@@ -20,7 +20,18 @@ declare module '@tanstack/react-router' {
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HelmetProvider>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense
+        fallback={
+          <div
+            className="flex min-h-screen items-center justify-center bg-surface-page"
+            role="status"
+            aria-live="polite"
+          >
+            <div className="h-10 w-10 animate-spin rounded-full border-4 border-border-default border-t-interactive-primary" />
+            <span className="sr-only">Loading...</span>
+          </div>
+        }
+      >
         <ThemeProvider>
           <LanguageProvider>
             <RouterProvider router={router} />
