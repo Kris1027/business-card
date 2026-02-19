@@ -21,8 +21,13 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      - run: pnpm generate
+        name: Generate route tree
+
       - run: pnpm format:check
 
       - run: pnpm lint
+
+      - run: pnpm test
 
       - run: pnpm build

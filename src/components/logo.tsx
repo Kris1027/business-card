@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
-import logo from '@/assets/logo-1.png'
+import { Picture } from '@/components/picture'
+import logo from '@/assets/logo-1.png?w=192&format=webp;png&as=picture'
 
 type LogoProps = {
   size?: 'sm' | 'md' | 'lg'
@@ -16,10 +17,12 @@ const Logo = ({ size = 'lg', className = '' }: LogoProps) => {
   }
 
   return (
-    <img
-      src={logo}
+    <Picture
+      data={logo}
       alt={t('navigation.brand')}
+      sizes="96px"
       className={`${sizeClasses[size]} dark:brightness-0 dark:invert ${className}`}
+      loading="eager"
     />
   )
 }

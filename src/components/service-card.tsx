@@ -1,15 +1,13 @@
 import { Link } from '@tanstack/react-router'
 import { Trans, useTranslation } from 'react-i18next'
 import { HiChevronRight } from 'react-icons/hi2'
+import { Picture } from '@/components/picture'
 
 type TranslationKeyWithHtml = 'home.noPrebuilt.description'
 
 type ServiceCardBaseProps = {
   title: string
-  image?: {
-    src: string
-    alt: string
-  }
+  image?: PictureData
 }
 
 type ServiceCardWithShortDescription = ServiceCardBaseProps & {
@@ -38,10 +36,9 @@ const ServiceCard = ({
   return (
     <article className="group overflow-hidden rounded-2xl bg-surface-card shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
       {image && (
-        <img
-          src={image.src}
-          alt={image.alt}
-          loading="lazy"
+        <Picture
+          data={image}
+          alt={title}
           className="aspect-4/5 w-full object-cover sm:aspect-video"
         />
       )}
@@ -71,8 +68,8 @@ const ServiceCard = ({
         )}
         {serviceId && (
           <Link
-            to="/services/$service-id"
-            params={{ 'service-id': serviceId }}
+            to="/services/$serviceId"
+            params={{ serviceId: serviceId }}
             className="focus-glow mt-4 inline-flex items-center gap-2 rounded-md px-2 py-1 text-sm font-semibold text-text-link transition-all hover:gap-3 sm:mt-6 sm:text-base"
           >
             {t('services.readMore')}

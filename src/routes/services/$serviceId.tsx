@@ -5,6 +5,7 @@ import { servicesInfo, type ServiceKey } from '@/constants/services-info'
 import { SITE_URL } from '@/constants/site-config'
 import Seo from '@/components/seo'
 import { BreadcrumbJsonLd, ServiceJsonLd } from '@/components/json-ld'
+import { Picture } from '@/components/picture'
 
 type SeoServiceKey = 'equipmentAdvising' | 'computerAssembly' | 'websiteBuilding'
 
@@ -37,7 +38,7 @@ const getServiceTranslations = (t: ReturnType<typeof useTranslation>['t'], key: 
 
 const ServiceDetail = () => {
   const params = Route.useParams()
-  const serviceId = params['service-id']
+  const serviceId = params.serviceId
   const { t } = useTranslation()
 
   const service = servicesInfo[serviceId]
@@ -81,7 +82,12 @@ const ServiceDetail = () => {
       <div className="py-8">
         <div className="animate-fade-in-up overflow-hidden rounded-2xl bg-surface-card shadow-2xl">
           <div className="relative aspect-4/5 w-full overflow-hidden sm:aspect-video">
-            <img src={service.image} alt={title} className="h-full w-full object-cover" />
+            <Picture
+              data={service.image}
+              alt={title}
+              className="h-full w-full object-cover"
+              loading="eager"
+            />
             <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent" />
             <div className="absolute bottom-8 left-8 right-8">
               <h1 className="text-4xl font-extrabold tracking-tight text-white drop-shadow-2xl md:text-5xl lg:text-6xl">
@@ -139,6 +145,6 @@ const ServiceDetail = () => {
   )
 }
 
-export const Route = createFileRoute('/services/$service-id')({
+export const Route = createFileRoute('/services/$serviceId')({
   component: ServiceDetail,
 })

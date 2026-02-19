@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
+import { imagetools } from 'vite-imagetools'
 import path from 'node:path'
 
 // https://vite.dev/config/
@@ -10,6 +11,7 @@ export default defineConfig({
     TanStackRouterVite({
       target: 'react',
       autoCodeSplitting: true,
+      routeFileIgnorePattern: '.test.',
     }),
     react({
       babel: {
@@ -17,6 +19,7 @@ export default defineConfig({
       },
     }),
     tailwindcss(),
+    imagetools(),
   ],
   resolve: {
     alias: {

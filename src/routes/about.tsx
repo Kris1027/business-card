@@ -4,7 +4,8 @@ import { aboutInfo, categorizedTechnologies } from '@/constants/about-info'
 import { SITE_URL } from '@/constants/site-config'
 import Seo from '@/components/seo'
 import { BreadcrumbJsonLd, PersonJsonLd } from '@/components/json-ld'
-import profileImage from '@/assets/profil-1.jpg'
+import { Picture } from '@/components/picture'
+import profileImage from '@/assets/profil-1.jpg?w=512&format=webp;jpg&as=picture'
 
 const About = () => {
   const { t } = useTranslation()
@@ -35,10 +36,12 @@ const About = () => {
           <div className="flex flex-col items-center gap-8 md:flex-row md:items-start md:gap-12">
             {/* Profile Image */}
             <div className="shrink-0">
-              <img
-                src={profileImage}
+              <Picture
+                data={profileImage}
                 alt={aboutInfo.name}
+                sizes="(min-width: 768px) 256px, 192px"
                 className="h-48 w-48 rounded-full border-4 border-border-default object-cover shadow-lg md:h-64 md:w-64"
+                loading="eager"
               />
             </div>
 

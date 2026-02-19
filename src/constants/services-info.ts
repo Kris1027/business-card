@@ -1,12 +1,12 @@
-import pcImage1 from '@/assets/pc-1.jpg'
-import pcImage2 from '@/assets/pc-2.jpg'
-import webImage1 from '@/assets/web-1.jpg'
+import pcImage1 from '@/assets/pc-1.jpg?w=640;960;1280;1920&format=webp;jpg&as=picture'
+import pcImage2 from '@/assets/pc-2.jpg?w=640;960;1280;1920&format=webp;jpg&as=picture'
+import webImage1 from '@/assets/web-1.jpg?w=640;960;1280;1920&format=webp;jpg&as=picture'
 
 export type ServiceKey = 'equipmentAdvising' | 'computerAssembly' | 'websiteBuilding'
 
 export type ServiceData = {
   translationKey: ServiceKey
-  image: string
+  image: PictureData
 }
 
 export const servicesInfo: Record<string, ServiceData> = {

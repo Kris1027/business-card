@@ -18,6 +18,8 @@ export const en = {
     equipmentAdvising: 'Equipment Advising',
     computerAssembly: 'PC Assembly',
     websiteBuilding: 'Web Development',
+    privacyPolicy: 'Privacy Policy',
+    terms: 'Terms of Service',
     mainNavLabel: 'Main navigation',
     toggleMenuLabel: 'Toggle navigation menu',
     menuLabel: 'Toggle menu',
@@ -41,6 +43,7 @@ export const en = {
     contactInfo: 'Contact Info',
     followMe: 'Follow Me',
     allRightsReserved: '© {{year}} techKris. All rights reserved.',
+    legal: 'Legal',
   },
   home: {
     title: 'techKris',
@@ -109,6 +112,16 @@ export const en = {
           'Modern, fast, and effective websites. Responsive design, SEO basics, and clear structure to support your business goals.',
       },
     },
+    privacyPolicy: {
+      title: 'Privacy Policy - techKris',
+      description:
+        'Privacy policy for the techKris website. Information about personal data processing, user rights, and cookies.',
+    },
+    terms: {
+      title: 'Terms of Service - techKris',
+      description:
+        'Terms of service for the techKris website. Service conditions, liability, and complaints.',
+    },
   },
   about: {
     title: 'About Me',
@@ -146,5 +159,13 @@ export const en = {
     discordLabel: 'Discord username',
     copyToClipboard: 'Copy to clipboard',
     copied: 'Copied!',
+  },
+  privacyPolicy: {
+    content:
+      '<h2>1. Data Controller</h2><p>The data controller is Krzysztof Obarzanek, operating under the brand <strong>techKris</strong>, based in Zabrze, Poland.</p><h2>2. Data Collected</h2><p>The website collects personal data only in the following cases:</p><ul><li>When you voluntarily provide contact information (name, email address, phone number) to get in touch</li><li>Analytics data collected automatically by Vercel Analytics (cookieless, anonymous)</li></ul><h2>3. Purpose and Legal Basis</h2><p>Personal data is processed based on:</p><ul><li><strong>Art. 6(1)(b) GDPR</strong> — for the performance of a contract or to take steps prior to entering into a contract</li><li><strong>Art. 6(1)(f) GDPR</strong> — for the legitimate interests of the controller (responding to inquiries)</li><li><strong>Art. 6(1)(a) GDPR</strong> — based on voluntary consent</li></ul><h2>4. Retention Period</h2><p>Personal data is retained for the period necessary to fulfill the purpose for which it was collected, no longer than 3 years from the last contact or until consent is withdrawn.</p><h2>5. Data Sharing</h2><p>Data may be shared with the following entities:</p><ul><li><strong>Vercel Inc.</strong> — website hosting and anonymous analytics</li></ul><p>Data is not sold or shared with third parties for marketing purposes.</p><h2>6. User Rights</h2><p>You have the right to:</p><ul><li>Access your personal data</li><li>Rectify inaccurate data</li><li>Erase your data (right to be forgotten)</li><li>Data portability</li><li>Object to processing</li><li>Lodge a complaint with the supervisory authority (UODO in Poland)</li></ul><h2>7. Cookies</h2><p>This website <strong>does not use cookies</strong>. User preferences (theme, language) are stored in the browser localStorage and are not transmitted to the server.</p><h2>8. Fonts</h2><p>Fonts are self-hosted on the website server. They are not loaded from external services (e.g., Google Fonts), meaning no data is transmitted to third parties in this regard.</p><h2>9. Contact</h2><p>For matters related to personal data protection, please contact: <strong>kris1027.dev@gmail.com</strong></p>',
+  },
+  terms: {
+    content:
+      '<h2>1. General Provisions</h2><p>These terms of service define the rules for using the <strong>techkris.eu</strong> website and the conditions for services provided by Krzysztof Obarzanek, operating under the brand techKris.</p><h2>2. Scope of Services</h2><p>The following services are offered under the techKris brand:</p><ul><li>Computer equipment advising</li><li>Computer assembly</li><li>Website building</li></ul><h2>3. Website Usage Rules</h2><p>The user agrees to:</p><ul><li>Use the website in accordance with its intended purpose</li><li>Refrain from actions that may disrupt the website operation</li><li>Provide accurate contact information</li></ul><h2>4. Service Delivery Terms</h2><p>Specific service terms, including scope, timeline, and pricing, are agreed upon individually with each client before the service begins.</p><h2>5. Liability Limitations</h2><p>The administrator will make every effort to ensure the website operates correctly and without interruptions. However, they are not liable for:</p><ul><li>Temporary unavailability caused by technical reasons</li><li>Consequences of force majeure</li><li>Unlawful actions by third parties</li></ul><h2>6. Intellectual Property</h2><p>All content published on the website, including text, graphics, and source code, is the intellectual property of the administrator and is protected by copyright law.</p><h2>7. Complaints</h2><p>Complaints regarding services can be submitted electronically to: <strong>kris1027.dev@gmail.com</strong>. Complaints are processed within 14 business days.</p><h2>8. Governing Law</h2><p>These terms are governed by Polish law. In matters not covered herein, the provisions of the Civil Code and other applicable legal acts shall apply.</p>',
   },
 }

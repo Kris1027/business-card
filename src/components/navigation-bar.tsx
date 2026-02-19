@@ -34,18 +34,18 @@ const NavigationBar = () => {
   const serviceLinks = [
     {
       name: t('navigation.equipmentAdvising'),
-      to: '/services/$service-id' as const,
-      params: { 'service-id': SERVICE_IDS.EQUIPMENT_ADVISING },
+      to: '/services/$serviceId' as const,
+      params: { serviceId: SERVICE_IDS.EQUIPMENT_ADVISING },
     },
     {
       name: t('navigation.computerAssembly'),
-      to: '/services/$service-id' as const,
-      params: { 'service-id': SERVICE_IDS.COMPUTER_ASSEMBLY },
+      to: '/services/$serviceId' as const,
+      params: { serviceId: SERVICE_IDS.COMPUTER_ASSEMBLY },
     },
     {
       name: t('navigation.websiteBuilding'),
-      to: '/services/$service-id' as const,
-      params: { 'service-id': SERVICE_IDS.WEBSITE_BUILDING },
+      to: '/services/$serviceId' as const,
+      params: { serviceId: SERVICE_IDS.WEBSITE_BUILDING },
     },
   ]
 

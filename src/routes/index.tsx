@@ -4,27 +4,27 @@ import { ServiceCard } from '@/components/service-card'
 import { ImageCarousel } from '@/components/image-carousel'
 import Seo from '@/components/seo'
 import { LocalBusinessJsonLd, WebSiteJsonLd } from '@/components/json-ld'
-import pcImage1 from '@/assets/pc-1.jpg'
-import pcImage2 from '@/assets/pc-2.jpg'
-import prebuildImage from '@/assets/prebuild-1.webp'
-import webImage1 from '@/assets/web-1.jpg'
+import pcImage1 from '@/assets/pc-1.jpg?w=640;960;1280;1920&format=webp;jpg&as=picture'
+import pcImage2 from '@/assets/pc-2.jpg?w=640;960;1280;1920&format=webp;jpg&as=picture'
+import prebuildImage from '@/assets/prebuild-1.webp?w=640;960;1280&format=webp&as=picture'
+import webImage1 from '@/assets/web-1.jpg?w=640;960;1280;1920&format=webp;jpg&as=picture'
 
 const Index = () => {
   const { t } = useTranslation()
 
   const carouselImages = [
     {
-      src: pcImage1,
+      data: pcImage1,
       alt: t('services.equipmentAdvising.title'),
       title: t('services.equipmentAdvising.title'),
     },
     {
-      src: pcImage2,
+      data: pcImage2,
       alt: t('services.computerAssembly.title'),
       title: t('services.computerAssembly.title'),
     },
     {
-      src: webImage1,
+      data: webImage1,
       alt: t('services.websiteBuilding.title'),
       title: t('services.websiteBuilding.title'),
     },
@@ -86,7 +86,7 @@ const Index = () => {
           <ServiceCard
             title={t('home.noPrebuilt.title')}
             descriptionKey="home.noPrebuilt.description"
-            image={{ src: prebuildImage, alt: t('home.noPrebuilt.title') }}
+            image={prebuildImage}
           />
         </div>
       </div>

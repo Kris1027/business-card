@@ -18,18 +18,18 @@ const Footer = () => {
 
   const serviceLinks = [
     {
-      to: '/services/$service-id' as const,
-      params: { 'service-id': SERVICE_IDS.EQUIPMENT_ADVISING },
+      to: '/services/$serviceId' as const,
+      params: { serviceId: SERVICE_IDS.EQUIPMENT_ADVISING },
       label: t('navigation.equipmentAdvising'),
     },
     {
-      to: '/services/$service-id' as const,
-      params: { 'service-id': SERVICE_IDS.COMPUTER_ASSEMBLY },
+      to: '/services/$serviceId' as const,
+      params: { serviceId: SERVICE_IDS.COMPUTER_ASSEMBLY },
       label: t('navigation.computerAssembly'),
     },
     {
-      to: '/services/$service-id' as const,
-      params: { 'service-id': SERVICE_IDS.WEBSITE_BUILDING },
+      to: '/services/$serviceId' as const,
+      params: { serviceId: SERVICE_IDS.WEBSITE_BUILDING },
       label: t('navigation.websiteBuilding'),
     },
   ]
@@ -111,7 +111,7 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2">
               {serviceLinks.map(link => (
-                <li key={link.params['service-id']}>
+                <li key={link.params['serviceId']}>
                   <Link
                     to={link.to}
                     params={link.params}
@@ -170,6 +170,23 @@ const Footer = () => {
                 </a>
               ))}
             </div>
+          </div>
+
+          {/* Legal links */}
+          <div className="flex items-center gap-1 text-sm text-text-body">
+            <Link
+              to="/privacy-policy"
+              className="focus-glow rounded-md px-2 py-1 transition-colors hover:text-text-link"
+            >
+              {t('navigation.privacyPolicy')}
+            </Link>
+            <span aria-hidden="true">&middot;</span>
+            <Link
+              to="/terms"
+              className="focus-glow rounded-md px-2 py-1 transition-colors hover:text-text-link"
+            >
+              {t('navigation.terms')}
+            </Link>
           </div>
 
           {/* Copyright */}
