@@ -17,6 +17,9 @@ yarn.lock
 .vscode
 .idea
 
+# Generated files
+src/routeTree.gen.ts
+
 # Other
 *.min.js
 *.min.css
