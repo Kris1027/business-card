@@ -172,6 +172,23 @@ const Footer = () => {
             </div>
           </div>
 
+          {/* Legal links */}
+          <div className="flex items-center gap-1 text-sm text-text-body">
+            <Link
+              to="/privacy-policy"
+              className="focus-glow rounded-md px-2 py-1 transition-colors hover:text-text-link"
+            >
+              {t('navigation.privacyPolicy')}
+            </Link>
+            <span aria-hidden="true">&middot;</span>
+            <Link
+              to="/terms"
+              className="focus-glow rounded-md px-2 py-1 transition-colors hover:text-text-link"
+            >
+              {t('navigation.terms')}
+            </Link>
+          </div>
+
           {/* Copyright */}
           <p className="text-sm text-text-body">
             {t('footer.allRightsReserved', { year: currentYear })}

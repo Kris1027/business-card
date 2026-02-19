@@ -18,6 +18,8 @@ export const pl = {
     equipmentAdvising: 'Doradztwo sprzętowe',
     computerAssembly: 'Składanie PC',
     websiteBuilding: 'Tworzenie stron',
+    privacyPolicy: 'Polityka prywatności',
+    terms: 'Regulamin',
     mainNavLabel: 'Główna nawigacja',
     toggleMenuLabel: 'Przełącz menu nawigacji',
     menuLabel: 'Przełącz menu',
@@ -41,6 +43,7 @@ export const pl = {
     contactInfo: 'Kontakt',
     followMe: 'Śledź mnie',
     allRightsReserved: '© {{year}} techKris. Wszelkie prawa zastrzeżone.',
+    legal: 'Informacje prawne',
   },
   home: {
     title: 'techKris',
@@ -109,6 +112,16 @@ export const pl = {
           'Tworzenie stron internetowych w Zabrzu. Nowoczesne, szybkie strony www z SEO. Responsywny design dla firm i osób prywatnych. Gliwice, Śląsk.',
       },
     },
+    privacyPolicy: {
+      title: 'Polityka prywatności - techKris',
+      description:
+        'Polityka prywatności serwisu techKris. Informacje o przetwarzaniu danych osobowych, prawach użytkowników i plikach cookies.',
+    },
+    terms: {
+      title: 'Regulamin - techKris',
+      description:
+        'Regulamin korzystania z serwisu techKris. Warunki świadczenia usług, odpowiedzialność i reklamacje.',
+    },
   },
   about: {
     title: 'O mnie',
@@ -146,5 +159,13 @@ export const pl = {
     discordLabel: 'Nazwa użytkownika Discord',
     copyToClipboard: 'Kopiuj do schowka',
     copied: 'Skopiowano!',
+  },
+  privacyPolicy: {
+    content:
+      '<h2>1. Administrator danych</h2><p>Administratorem danych osobowych jest Krzysztof Obarzanek, prowadzący działalność pod marką <strong>techKris</strong>, z siedzibą w Zabrzu, Polska.</p><h2>2. Zakres zbieranych danych</h2><p>Serwis zbiera dane osobowe wyłącznie w następujących przypadkach:</p><ul><li>Gdy dobrowolnie podasz dane kontaktowe (imię, adres e-mail, numer telefonu) w celu nawiązania kontaktu</li><li>Dane analityczne zbierane automatycznie przez Vercel Analytics (bez plików cookies, anonimowo)</li></ul><h2>3. Cel i podstawa przetwarzania</h2><p>Dane osobowe przetwarzane są na podstawie:</p><ul><li><strong>Art. 6 ust. 1 lit. b RODO</strong> — w celu realizacji umowy lub podjęcia działań przed jej zawarciem</li><li><strong>Art. 6 ust. 1 lit. f RODO</strong> — w celu realizacji prawnie uzasadnionych interesów administratora (odpowiedź na zapytania)</li><li><strong>Art. 6 ust. 1 lit. a RODO</strong> — na podstawie dobrowolnej zgody</li></ul><h2>4. Okres przechowywania</h2><p>Dane osobowe przechowywane są przez okres niezbędny do realizacji celu, dla którego zostały zebrane, nie dłużej niż 3 lata od ostatniego kontaktu lub do momentu wycofania zgody.</p><h2>5. Udostępnianie danych</h2><p>Dane mogą być udostępniane następującym podmiotom:</p><ul><li><strong>Vercel Inc.</strong> — hosting serwisu i anonimowa analityka</li></ul><p>Dane nie są sprzedawane ani udostępniane podmiotom trzecim w celach marketingowych.</p><h2>6. Prawa użytkownika</h2><p>Przysługuje Ci prawo do:</p><ul><li>Dostępu do swoich danych osobowych</li><li>Sprostowania nieprawidłowych danych</li><li>Usunięcia danych (prawo do bycia zapomnianym)</li><li>Przenoszenia danych</li><li>Sprzeciwu wobec przetwarzania</li><li>Złożenia skargi do Prezesa Urzędu Ochrony Danych Osobowych (UODO)</li></ul><h2>7. Pliki cookies</h2><p>Serwis <strong>nie wykorzystuje plików cookies</strong>. Preferencje użytkownika (motyw, język) przechowywane są w localStorage przeglądarki i nie są przesyłane na serwer.</p><h2>8. Czcionki</h2><p>Czcionki są hostowane lokalnie na serwerze serwisu. Nie są ładowane z zewnętrznych serwisów (np. Google Fonts), co oznacza brak przekazywania danych do podmiotów trzecich w tym zakresie.</p><h2>9. Kontakt</h2><p>W sprawach dotyczących ochrony danych osobowych można kontaktować się pod adresem: <strong>kris1027.dev@gmail.com</strong></p>',
+  },
+  terms: {
+    content:
+      '<h2>1. Postanowienia ogólne</h2><p>Niniejszy regulamin określa zasady korzystania z serwisu internetowego <strong>techkris.eu</strong> oraz warunki świadczenia usług przez Krzysztofa Obarzanka, prowadzącego działalność pod marką techKris.</p><h2>2. Zakres usług</h2><p>W ramach działalności techKris świadczone są następujące usługi:</p><ul><li>Doradztwo w doborze sprzętu komputerowego</li><li>Składanie komputerów</li><li>Tworzenie stron internetowych</li></ul><h2>3. Zasady korzystania z serwisu</h2><p>Użytkownik zobowiązuje się do:</p><ul><li>Korzystania z serwisu zgodnie z jego przeznaczeniem</li><li>Niepodejmowania działań mogących zakłócić funkcjonowanie serwisu</li><li>Podawania prawdziwych danych kontaktowych</li></ul><h2>4. Warunki realizacji usług</h2><p>Szczegółowe warunki realizacji usług, w tym zakres, termin i wynagrodzenie, ustalane są indywidualnie z każdym klientem przed rozpoczęciem realizacji.</p><h2>5. Ograniczenie odpowiedzialności</h2><p>Administrator dołoży wszelkich starań, aby serwis działał prawidłowo i bez przerw. Nie ponosi jednak odpowiedzialności za:</p><ul><li>Czasową niedostępność serwisu spowodowaną przyczynami technicznymi</li><li>Skutki działania siły wyższej</li><li>Działania osób trzecich niezgodne z prawem</li></ul><h2>6. Własność intelektualna</h2><p>Wszelkie treści zamieszczone w serwisie, w tym teksty, grafiki i kod źródłowy, stanowią własność intelektualną administratora i są chronione prawem autorskim.</p><h2>7. Reklamacje</h2><p>Reklamacje dotyczące świadczonych usług można składać drogą elektroniczną na adres: <strong>kris1027.dev@gmail.com</strong>. Reklamacje rozpatrywane są w terminie 14 dni roboczych.</p><h2>8. Prawo właściwe</h2><p>Niniejszy regulamin podlega prawu polskiemu. W sprawach nieuregulowanych zastosowanie mają przepisy Kodeksu cywilnego oraz inne właściwe akty prawne.</p>',
   },
 }
