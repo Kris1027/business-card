@@ -68,8 +68,8 @@ const ServiceCard = ({
         )}
         {serviceId && (
           <Link
-            to="/services/$service-id"
-            params={{ 'service-id': serviceId }}
+            to="/services/$serviceId"
+            params={{ serviceId: serviceId }}
             className="focus-glow mt-4 inline-flex items-center gap-2 rounded-md px-2 py-1 text-sm font-semibold text-text-link transition-all hover:gap-3 sm:mt-6 sm:text-base"
           >
             {t('services.readMore')}

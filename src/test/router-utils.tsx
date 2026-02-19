@@ -39,7 +39,7 @@ const renderWithRouter = (ui: ReactElement, options: RenderWithRouterOptions = {
 
   const serviceRoute = createRoute({
     getParentRoute: () => rootRoute,
-    path: '/services/$service-id',
+    path: '/services/$serviceId',
   })
 
   const routeTree = rootRoute.addChildren([indexRoute, aboutRoute, contactRoute, serviceRoute])

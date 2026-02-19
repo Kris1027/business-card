@@ -38,7 +38,7 @@ const getServiceTranslations = (t: ReturnType<typeof useTranslation>['t'], key: 
 
 const ServiceDetail = () => {
   const params = Route.useParams()
-  const serviceId = params['service-id']
+  const serviceId = params.serviceId
   const { t } = useTranslation()
 
   const service = servicesInfo[serviceId]
@@ -145,6 +145,6 @@ const ServiceDetail = () => {
   )
 }
 
-export const Route = createFileRoute('/services/$service-id')({
+export const Route = createFileRoute('/services/$serviceId')({
   component: ServiceDetail,
 })

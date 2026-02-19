@@ -41,5 +41,11 @@ export default defineConfig([
       'no-warning-comments': ['error', { terms: ['eslint-disable', 'eslint-ignore'] }],
     },
   },
+  {
+    files: ['src/routes/**/$*.tsx'],
+    rules: {
+      'unicorn/filename-case': 'off',
+    },
+  },
   eslintConfigPrettier,
 ])
