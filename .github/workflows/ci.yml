@@ -21,7 +21,8 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: npx @tanstack/router-cli generate
+      - run: pnpm generate
+        name: Generate route tree
 
       - run: pnpm format:check
 
