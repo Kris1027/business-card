@@ -58,8 +58,8 @@ src/
 
 ### Prerequisites
 
-- Node.js
-- pnpm 10.20.0+
+- Node.js >= 20.0.0
+- pnpm >= 10.0.0
 
 ### Installation
 
@@ -91,7 +91,13 @@ pnpm format
 # Check code formatting
 pnpm format:check
 
-# Full pre-commit validation (format + lint + build)
+# Run tests
+pnpm test
+
+# Run tests in watch mode
+pnpm test:watch
+
+# Full pre-commit validation (format + lint + test + build)
 pnpm pre-commit
 ```
 
@@ -191,6 +197,7 @@ Configured in:
 - React Compiler (experimental) for optimizations
 - TailwindCSS v4 integration
 - Path alias resolution
+- Vendor chunk splitting (react, router, i18n, icons)
 
 ### TypeScript Settings
 
@@ -324,10 +331,26 @@ The following are excluded from version control and formatting:
 - `*.log`
 - IDE-specific files (`.vscode/*`, `.idea`)
 
+## Testing
+
+The project uses **Vitest** with **React Testing Library** for unit and integration tests.
+
+```bash
+pnpm test           # Run all tests once
+pnpm test:watch     # Run tests in watch mode
+pnpm test:coverage  # Run tests with coverage report
+```
+
+Test files are co-located with their source files using the `.test.tsx` / `.test.ts` suffix.
+
+## License
+
+All Rights Reserved. See [LICENSE](./LICENSE) for details.
+
 ## Package Manager
 
 This project uses `pnpm` with a locked version specified in `package.json`:
 
 ```bash
-pnpm@10.20.0
+pnpm@10.26.0
 ```
