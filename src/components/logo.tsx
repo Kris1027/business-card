@@ -11,9 +11,9 @@ const Logo = ({ size = 'lg', className = '' }: LogoProps) => {
   const { t } = useTranslation()
 
   const sizeClasses = {
-    sm: 'h-8 w-8',
-    md: 'h-16 w-16',
-    lg: 'h-24 w-24',
+    sm: 'h-6 w-6',
+    md: 'h-10 w-10',
+    lg: 'h-16 w-16',
   }
 
   return (
