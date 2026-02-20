@@ -1,13 +1,16 @@
-# Build directories
-dist
-build
-coverage
-
 # Dependencies
 node_modules
 pnpm-lock.yaml
 package-lock.json
 yarn.lock
+
+# Build output
+dist
+build
+coverage
+
+# Generated files
+src/routeTree.gen.ts
 
 # System files
 .DS_Store
@@ -17,9 +20,6 @@ yarn.lock
 .vscode
 .idea
 
-# Generated files
-src/routeTree.gen.ts
-
-# Other
+# Minified files
 *.min.js
 *.min.css

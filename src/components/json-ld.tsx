@@ -8,8 +8,7 @@ export const WebSiteJsonLd = () => {
     '@id': `${SITE_URL}/#website`,
     url: SITE_URL,
     name: 'techKris',
-    description:
-      'Składanie komputerów Zabrze - doradztwo sprzętowe i tworzenie stron internetowych na Śląsku',
+    description: 'Składanie komputerów, doradztwo sprzętowe i tworzenie stron internetowych',
     inLanguage: ['pl-PL', 'en-US'],
     publisher: {
       '@id': `${SITE_URL}/#localbusiness`,
@@ -56,11 +55,6 @@ type LocalBusinessJsonLdProps = {
   description: string
   email: string
   telephone: string
-  address: {
-    locality: string
-    region: string
-    country: string
-  }
 }
 
 export const LocalBusinessJsonLd = ({
@@ -68,7 +62,6 @@ export const LocalBusinessJsonLd = ({
   description,
   email,
   telephone,
-  address,
 }: LocalBusinessJsonLdProps) => {
   const schema = {
     '@context': 'https://schema.org',
@@ -79,12 +72,6 @@ export const LocalBusinessJsonLd = ({
     url: SITE_URL,
     email,
     telephone,
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: address.locality,
-      addressRegion: address.region,
-      addressCountry: address.country,
-    },
     image: `${SITE_URL}${DEFAULT_OG_IMAGE}`,
     priceRange: '$$',
     contactPoint: {
@@ -96,21 +83,6 @@ export const LocalBusinessJsonLd = ({
     },
     founder: {
       '@id': `${SITE_URL}/#person`,
-    },
-    areaServed: [
-      { '@type': 'City', name: 'Zabrze' },
-      { '@type': 'City', name: 'Gliwice' },
-      { '@type': 'City', name: 'Bytom' },
-      { '@type': 'City', name: 'Katowice' },
-      { '@type': 'City', name: 'Chorzów' },
-      { '@type': 'City', name: 'Ruda Śląska' },
-      { '@type': 'City', name: 'Sosnowiec' },
-      { '@type': 'AdministrativeArea', name: 'Śląsk' },
-    ],
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: '50.3249',
-      longitude: '18.7857',
     },
     sameAs: [
       'https://github.com/Kris1027',
@@ -194,16 +166,6 @@ export const ServiceJsonLd = ({ name, description, provider, serviceType }: Serv
       url: SITE_URL,
     },
     serviceType,
-    areaServed: [
-      { '@type': 'City', name: 'Zabrze' },
-      { '@type': 'City', name: 'Gliwice' },
-      { '@type': 'City', name: 'Bytom' },
-      { '@type': 'City', name: 'Katowice' },
-      { '@type': 'City', name: 'Chorzów' },
-      { '@type': 'City', name: 'Ruda Śląska' },
-      { '@type': 'City', name: 'Sosnowiec' },
-      { '@type': 'AdministrativeArea', name: 'Śląsk' },
-    ],
   }
 
   return (

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
-import { HiEnvelope, HiPhone, HiMapPin, HiClipboardDocument, HiCheck } from 'react-icons/hi2'
+import { HiEnvelope, HiPhone, HiClipboardDocument, HiCheck } from 'react-icons/hi2'
 import { SiDiscord, SiGithub, SiLinkedin } from 'react-icons/si'
 import { contactInfo } from '@/constants/contact-info'
 import { SITE_URL } from '@/constants/site-config'
@@ -62,11 +62,6 @@ const Contact = () => {
         description={t('seo.contact.description')}
         email={contactInfo.email}
         telephone={contactInfo.phone}
-        address={{
-          locality: 'Zabrze',
-          region: 'Silesian Voivodeship',
-          country: 'Poland',
-        }}
       />
       <div className="py-12">
         <div className="mx-auto max-w-4xl">
@@ -142,27 +137,6 @@ const Contact = () => {
               className="animate-fade-in-up group rounded-xl bg-surface-card p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               style={{ animationDelay: '200ms' }}
             >
-              <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-warning-bg text-warning-text transition-transform duration-300 group-hover:scale-110">
-                  <HiMapPin className="h-6 w-6" aria-hidden="true" />
-                </div>
-                <h3 className="text-lg font-semibold text-text-primary">{t('contact.location')}</h3>
-              </div>
-              <a
-                href={contactInfo.locationMapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="focus-glow inline-block rounded-md px-2 py-1 text-text-body transition-colors hover:text-warning-text"
-                aria-label={t('contact.locationLabel')}
-              >
-                {contactInfo.location}
-              </a>
-            </div>
-
-            <div
-              className="animate-fade-in-up group rounded-xl bg-surface-card p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-              style={{ animationDelay: '300ms' }}
-            >
               <div className="mb-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-discord-bg text-discord-text transition-transform duration-300 group-hover:scale-110">
@@ -190,7 +164,7 @@ const Contact = () => {
 
             <div
               className="animate-fade-in-up group rounded-xl bg-surface-card p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-              style={{ animationDelay: '400ms' }}
+              style={{ animationDelay: '300ms' }}
             >
               <div className="mb-4 flex items-center gap-3">
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-surface-hover text-text-primary transition-transform duration-300 group-hover:scale-110">
@@ -211,7 +185,7 @@ const Contact = () => {
 
             <div
               className="animate-fade-in-up group rounded-xl bg-surface-card p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-              style={{ animationDelay: '500ms' }}
+              style={{ animationDelay: '400ms' }}
             >
               <div className="mb-4 flex items-center gap-3">
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-info-bg text-info-text transition-transform duration-300 group-hover:scale-110">
