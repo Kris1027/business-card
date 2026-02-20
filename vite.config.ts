@@ -72,6 +72,18 @@ export default defineConfig(({ mode }) => {
       imagetools(),
       ...(env.VITE_SITE_URL ? [sitemapPlugin(env.VITE_SITE_URL)] : []),
     ],
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'react-vendor': ['react', 'react-dom'],
+            'router-vendor': ['@tanstack/react-router'],
+            'i18n-vendor': ['i18next', 'react-i18next'],
+            'icons-vendor': ['react-icons'],
+          },
+        },
+      },
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
