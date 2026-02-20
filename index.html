@@ -77,11 +77,6 @@
           : getBrowserLanguage()
 
         document.documentElement.lang = language
-
-        // Update title based on language (default HTML title is Polish)
-        if (language === 'en') {
-          document.title = 'techKris - Equipment Advising & PC Assembly'
-        }
       } catch (e) {
         // If localStorage access fails, fallback to system preference only
         try {
