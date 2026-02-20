@@ -81,35 +81,35 @@ export const pl = {
   },
   seo: {
     home: {
-      title: 'techKris - Składanie komputerów Zabrze | Doradztwo sprzętowe',
+      title: 'techKris - Składanie komputerów | Doradztwo sprzętowe',
       description:
-        'Składanie komputerów Zabrze, doradztwo sprzętowe i tworzenie stron internetowych. Profesjonalny dobór komponentów PC dopasowany do Twoich potrzeb. Zabrze, Gliwice, Śląsk.',
+        'Składanie komputerów, doradztwo sprzętowe i tworzenie stron internetowych. Profesjonalny dobór komponentów PC dopasowany do Twoich potrzeb.',
     },
     about: {
-      title: 'O mnie - techKris | Komputery Zabrze',
+      title: 'O mnie - techKris',
       description:
-        'Pasjonat technologii z Zabrza specjalizujący się w składaniu komputerów, doradztwie sprzętowym i tworzeniu stron internetowych. Poznaj moje umiejętności i doświadczenie.',
+        'Pasjonat technologii specjalizujący się w składaniu komputerów, doradztwie sprzętowym i tworzeniu stron internetowych. Poznaj moje umiejętności i doświadczenie.',
     },
     contact: {
-      title: 'Kontakt - techKris | Składanie PC Zabrze',
+      title: 'Kontakt - techKris',
       description:
-        'Skontaktuj się w sprawie składania komputerów, doradztwa sprzętowego lub tworzenia stron. Zabrze, Gliwice i okolice. Email, telefon, media społecznościowe.',
+        'Skontaktuj się w sprawie składania komputerów, doradztwa sprzętowego lub tworzenia stron. Email, telefon, media społecznościowe.',
     },
     services: {
       equipmentAdvising: {
-        title: 'Doradztwo sprzętowe Zabrze - techKris | Dobór komponentów PC',
+        title: 'Doradztwo sprzętowe - techKris | Dobór komponentów PC',
         description:
-          'Profesjonalne doradztwo sprzętowe w Zabrzu i okolicach. Dobór komponentów komputerowych dopasowany do Twoich potrzeb i budżetu. Gliwice, Śląsk.',
+          'Profesjonalne doradztwo sprzętowe. Dobór komponentów komputerowych dopasowany do Twoich potrzeb i budżetu.',
       },
       computerAssembly: {
-        title: 'Składanie komputerów Zabrze - techKris | Komputery na zamówienie',
+        title: 'Składanie komputerów - techKris | Komputery na zamówienie',
         description:
-          'Profesjonalne składanie komputerów w Zabrzu. Komputery na zamówienie, dobór podzespołów, konfiguracja. Stabilny, cichy PC gotowy do pracy. Gliwice, Śląsk.',
+          'Profesjonalne składanie komputerów. Komputery na zamówienie, dobór podzespołów, konfiguracja. Stabilny, cichy PC gotowy do pracy.',
       },
       websiteBuilding: {
-        title: 'Tworzenie stron internetowych Zabrze - techKris | Strony www',
+        title: 'Tworzenie stron internetowych - techKris | Strony www',
         description:
-          'Tworzenie stron internetowych w Zabrzu. Nowoczesne, szybkie strony www z SEO. Responsywny design dla firm i osób prywatnych. Gliwice, Śląsk.',
+          'Tworzenie stron internetowych. Nowoczesne, szybkie strony www z SEO. Responsywny design dla firm i osób prywatnych.',
       },
     },
     privacyPolicy: {
@@ -149,8 +149,6 @@ export const pl = {
     emailLabel: 'Wyślij email na adres {{email}}',
     phone: 'Telefon',
     phoneLabel: 'Zadzwoń pod numer {{phone}}',
-    location: 'Lokalizacja',
-    locationLabel: 'Zobacz lokalizację na Google Maps (otwiera się w nowej karcie)',
     github: 'GitHub',
     githubLabel: 'Odwiedź profil GitHub (otwiera się w nowej karcie)',
     linkedin: 'LinkedIn',
@@ -162,7 +160,7 @@ export const pl = {
   },
   privacyPolicy: {
     content:
-      '<h2>1. Administrator danych</h2><p>Administratorem danych osobowych jest Krzysztof Obarzanek, prowadzący działalność pod marką <strong>techKris</strong>, z siedzibą w Zabrzu, Polska.</p><h2>2. Zakres zbieranych danych</h2><p>Serwis zbiera dane osobowe wyłącznie w następujących przypadkach:</p><ul><li>Gdy dobrowolnie podasz dane kontaktowe (imię, adres e-mail, numer telefonu) w celu nawiązania kontaktu</li><li>Dane analityczne zbierane automatycznie przez Vercel Analytics (bez plików cookies, anonimowo)</li></ul><h2>3. Cel i podstawa przetwarzania</h2><p>Dane osobowe przetwarzane są na podstawie:</p><ul><li><strong>Art. 6 ust. 1 lit. b RODO</strong> — w celu realizacji umowy lub podjęcia działań przed jej zawarciem</li><li><strong>Art. 6 ust. 1 lit. f RODO</strong> — w celu realizacji prawnie uzasadnionych interesów administratora (odpowiedź na zapytania)</li><li><strong>Art. 6 ust. 1 lit. a RODO</strong> — na podstawie dobrowolnej zgody</li></ul><h2>4. Okres przechowywania</h2><p>Dane osobowe przechowywane są przez okres niezbędny do realizacji celu, dla którego zostały zebrane, nie dłużej niż 3 lata od ostatniego kontaktu lub do momentu wycofania zgody.</p><h2>5. Udostępnianie danych</h2><p>Dane mogą być udostępniane następującym podmiotom:</p><ul><li><strong>Vercel Inc.</strong> — hosting serwisu i anonimowa analityka</li></ul><p>Dane nie są sprzedawane ani udostępniane podmiotom trzecim w celach marketingowych.</p><h2>6. Prawa użytkownika</h2><p>Przysługuje Ci prawo do:</p><ul><li>Dostępu do swoich danych osobowych</li><li>Sprostowania nieprawidłowych danych</li><li>Usunięcia danych (prawo do bycia zapomnianym)</li><li>Przenoszenia danych</li><li>Sprzeciwu wobec przetwarzania</li><li>Złożenia skargi do Prezesa Urzędu Ochrony Danych Osobowych (UODO)</li></ul><h2>7. Pliki cookies</h2><p>Serwis <strong>nie wykorzystuje plików cookies</strong>. Preferencje użytkownika (motyw, język) przechowywane są w localStorage przeglądarki i nie są przesyłane na serwer.</p><h2>8. Czcionki</h2><p>Czcionki są hostowane lokalnie na serwerze serwisu. Nie są ładowane z zewnętrznych serwisów (np. Google Fonts), co oznacza brak przekazywania danych do podmiotów trzecich w tym zakresie.</p><h2>9. Kontakt</h2><p>W sprawach dotyczących ochrony danych osobowych można kontaktować się pod adresem: <strong>kris1027.dev@gmail.com</strong></p>',
+      '<h2>1. Administrator danych</h2><p>Administratorem danych osobowych jest Krzysztof Obarzanek, prowadzący działalność pod marką <strong>techKris</strong>.</p><h2>2. Zakres zbieranych danych</h2><p>Serwis zbiera dane osobowe wyłącznie w następujących przypadkach:</p><ul><li>Gdy dobrowolnie podasz dane kontaktowe (imię, adres e-mail, numer telefonu) w celu nawiązania kontaktu</li><li>Dane analityczne zbierane automatycznie przez Vercel Analytics (bez plików cookies, anonimowo)</li></ul><h2>3. Cel i podstawa przetwarzania</h2><p>Dane osobowe przetwarzane są na podstawie:</p><ul><li><strong>Art. 6 ust. 1 lit. b RODO</strong> — w celu realizacji umowy lub podjęcia działań przed jej zawarciem</li><li><strong>Art. 6 ust. 1 lit. f RODO</strong> — w celu realizacji prawnie uzasadnionych interesów administratora (odpowiedź na zapytania)</li><li><strong>Art. 6 ust. 1 lit. a RODO</strong> — na podstawie dobrowolnej zgody</li></ul><h2>4. Okres przechowywania</h2><p>Dane osobowe przechowywane są przez okres niezbędny do realizacji celu, dla którego zostały zebrane, nie dłużej niż 3 lata od ostatniego kontaktu lub do momentu wycofania zgody.</p><h2>5. Udostępnianie danych</h2><p>Dane mogą być udostępniane następującym podmiotom:</p><ul><li><strong>Vercel Inc.</strong> — hosting serwisu i anonimowa analityka</li></ul><p>Dane nie są sprzedawane ani udostępniane podmiotom trzecim w celach marketingowych.</p><h2>6. Prawa użytkownika</h2><p>Przysługuje Ci prawo do:</p><ul><li>Dostępu do swoich danych osobowych</li><li>Sprostowania nieprawidłowych danych</li><li>Usunięcia danych (prawo do bycia zapomnianym)</li><li>Przenoszenia danych</li><li>Sprzeciwu wobec przetwarzania</li><li>Złożenia skargi do Prezesa Urzędu Ochrony Danych Osobowych (UODO)</li></ul><h2>7. Pliki cookies</h2><p>Serwis <strong>nie wykorzystuje plików cookies</strong>. Preferencje użytkownika (motyw, język) przechowywane są w localStorage przeglądarki i nie są przesyłane na serwer.</p><h2>8. Czcionki</h2><p>Czcionki są hostowane lokalnie na serwerze serwisu. Nie są ładowane z zewnętrznych serwisów (np. Google Fonts), co oznacza brak przekazywania danych do podmiotów trzecich w tym zakresie.</p><h2>9. Kontakt</h2><p>W sprawach dotyczących ochrony danych osobowych można kontaktować się pod adresem: <strong>kris1027.dev@gmail.com</strong></p>',
   },
   terms: {
     content:

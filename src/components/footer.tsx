@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from '@tanstack/react-router'
-import { FaGithub, FaLinkedin, FaMapMarkerAlt } from 'react-icons/fa'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { HiMail, HiPhone } from 'react-icons/hi'
 import { contactInfo } from '@/constants/contact-info'
 import { SERVICE_IDS } from '@/constants/navigation-links'
@@ -46,13 +46,6 @@ const Footer = () => {
       text: contactInfo.phone,
       href: `tel:${contactInfo.phone}`,
       ariaLabel: t('contact.phoneLabel', { phone: contactInfo.phone }),
-    },
-    {
-      icon: FaMapMarkerAlt,
-      text: contactInfo.location,
-      href: contactInfo.locationMapUrl,
-      ariaLabel: t('contact.locationLabel'),
-      external: true,
     },
   ]
 
@@ -134,8 +127,6 @@ const Footer = () => {
                 <li key={index}>
                   <a
                     href={item.href}
-                    target={item.external ? '_blank' : undefined}
-                    rel={item.external ? 'noopener noreferrer' : undefined}
                     aria-label={item.ariaLabel}
                     className="focus-glow flex items-center gap-2 rounded-md px-2 py-1 text-sm text-text-body transition-colors hover:text-text-link"
                   >

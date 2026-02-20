@@ -57,11 +57,6 @@ const Index = () => {
         description={t('seo.home.description')}
         email="kris1027.dev@gmail.com"
         telephone="+48 792 542 841"
-        address={{
-          locality: 'Zabrze',
-          region: 'Silesian Voivodeship',
-          country: 'Poland',
-        }}
       />
       <div className="py-8 md:py-12">
         <div className="animate-fade-in-up mb-8 md:mb-12">
