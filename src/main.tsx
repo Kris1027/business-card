@@ -42,7 +42,7 @@ createRoot(document.getElementById('root')!).render(
           </ThemeProvider>
         </Suspense>
       </HelmetProvider>
-      <Analytics />
     </ErrorBoundary>
+    <Analytics />
   </StrictMode>
 )

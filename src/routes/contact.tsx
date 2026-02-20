@@ -15,6 +15,7 @@ const CopyIcon = () => <HiClipboardDocument className="h-5 w-5" />
 const Contact = () => {
   const { t } = useTranslation()
   const [copiedField, setCopiedField] = useState<string | null>(null)
+  const [failedField, setFailedField] = useState<string | null>(null)
   const timeoutRef = useRef<number | null>(null)
 
   useEffect(() => {
@@ -24,8 +25,6 @@ const Contact = () => {
       }
     }
   }, [])
-
-  const [failedField, setFailedField] = useState<string | null>(null)
 
   const copyToClipboard = (text: string, field: string) => {
     if (timeoutRef.current !== null) {
