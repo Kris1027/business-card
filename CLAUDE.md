@@ -15,7 +15,7 @@ pnpm lint             # Run ESLint on all TypeScript files
 pnpm lint:fix         # Auto-fix ESLint issues
 pnpm format           # Format all source files with Prettier
 pnpm format:check     # Check if files are formatted correctly
-pnpm pre-commit       # Full validation: format + lint:fix + build
+pnpm pre-commit       # Full validation: format + lint:fix + test + build
 ```
 
 ## Architecture
@@ -25,7 +25,7 @@ pnpm pre-commit       # Full validation: format + lint:fix + build
 - **TypeScript 5.9** in strict mode with bundler resolution
 - **Vite 7.1** for dev server and builds
 - **TailwindCSS 4.1** integrated via Vite plugin
-- **pnpm** as package manager (locked to 10.20.0)
+- **pnpm** as package manager (locked to 10.26.0)
 
 ### Project Organization
 - `src/pages/` - Page components (entry point: `src/main.tsx` → `src/pages/home.tsx`)
@@ -36,8 +36,10 @@ pnpm pre-commit       # Full validation: format + lint:fix + build
 
 ### Build Configuration
 - **Vite** uses React plugin with babel-plugin-react-compiler for automatic optimizations
+- **Vendor chunk splitting** via `manualChunks` in `vite.config.ts` — react, router, i18n, and icons are split into separate cacheable chunks
 - **TypeScript** compiles to ES2022, targets modern browsers (DOM + DOM.Iterable)
 - Module resolution uses bundler mode (no baseUrl, paths work directly)
+- **Noscript fallback** — bilingual (PL/EN) `<noscript>` message in `index.html` for users with JavaScript disabled
 
 ## Enforced Code Standards
 
@@ -92,7 +94,7 @@ pnpm pre-commit       # Full validation: format + lint:fix + build
 
 ### When Modifying Code
 - Run `pnpm lint:fix` to auto-fix imports and formatting issues
-- The `pre-commit` script validates everything (format + lint + build) before committing
+- The `pre-commit` script validates everything (format + lint + test + build) before committing
 - **ALWAYS run `pnpm pre-commit` after implementing any new feature** - This ensures all code quality checks pass
 - **When fixing an issue, always search for similar occurrences** - Use Grep/Glob to find and fix all instances of the same problem across the codebase
 - TypeScript strict mode is enabled: handle all edge cases and avoid `any`
