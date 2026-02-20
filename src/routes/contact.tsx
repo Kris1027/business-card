@@ -88,7 +88,7 @@ const Contact = () => {
             <p className="text-lg text-text-body">{t('contact.subtitle')}</p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6">
             <div
               className="animate-fade-in-up group rounded-xl bg-surface-card p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               style={{ animationDelay: '0ms' }}
