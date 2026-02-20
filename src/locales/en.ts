@@ -157,6 +157,7 @@ export const en = {
     discordLabel: 'Discord username',
     copyToClipboard: 'Copy to clipboard',
     copied: 'Copied!',
+    copyFailed: 'Copy failed',
   },
   privacyPolicy: {
     content:

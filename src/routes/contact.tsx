@@ -25,22 +25,40 @@ const Contact = () => {
     }
   }, [])
 
+  const [failedField, setFailedField] = useState<string | null>(null)
+
   const copyToClipboard = (text: string, field: string) => {
     if (timeoutRef.current !== null) {
       clearTimeout(timeoutRef.current)
+    }
+
+    if (!navigator.clipboard) {
+      setFailedField(field)
+      setCopiedField(null)
+      timeoutRef.current = window.setTimeout(() => {
+        setFailedField(null)
+        timeoutRef.current = null
+      }, 2000)
+      return
     }
 
     navigator.clipboard
       .writeText(text)
       .then(() => {
         setCopiedField(field)
+        setFailedField(null)
         timeoutRef.current = window.setTimeout(() => {
           setCopiedField(null)
           timeoutRef.current = null
         }, 2000)
       })
-      .catch(err => {
-        console.error('Failed to copy to clipboard:', err)
+      .catch(() => {
+        setFailedField(field)
+        setCopiedField(null)
+        timeoutRef.current = window.setTimeout(() => {
+          setFailedField(null)
+          timeoutRef.current = null
+        }, 2000)
       })
   }
 
@@ -100,6 +118,9 @@ const Contact = () => {
               {copiedField === 'email' && (
                 <p className="mt-2 text-sm text-success-text">{t('contact.copied')}</p>
               )}
+              {failedField === 'email' && (
+                <p className="mt-2 text-sm text-warning-text">{t('contact.copyFailed')}</p>
+              )}
             </div>
 
             <div
@@ -131,6 +152,9 @@ const Contact = () => {
               {copiedField === 'phone' && (
                 <p className="mt-2 text-sm text-success-text">{t('contact.copied')}</p>
               )}
+              {failedField === 'phone' && (
+                <p className="mt-2 text-sm text-warning-text">{t('contact.copyFailed')}</p>
+              )}
             </div>
 
             <div
@@ -159,6 +183,9 @@ const Contact = () => {
               </p>
               {copiedField === 'discord' && (
                 <p className="mt-2 text-sm text-success-text">{t('contact.copied')}</p>
+              )}
+              {failedField === 'discord' && (
+                <p className="mt-2 text-sm text-warning-text">{t('contact.copyFailed')}</p>
               )}
             </div>
 
