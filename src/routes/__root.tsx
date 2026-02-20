@@ -1,6 +1,14 @@
 import { createRootRoute, Outlet, useRouter } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
+import { lazy } from 'react'
 import { useTranslation } from 'react-i18next'
+
+const TanStackRouterDevtools = import.meta.env.DEV
+  ? lazy(() =>
+      import('@tanstack/react-router-devtools').then(mod => ({
+        default: mod.TanStackRouterDevtools,
+      }))
+    )
+  : () => null
 import { HiExclamationTriangle, HiMagnifyingGlass } from 'react-icons/hi2'
 import AppLayout from '@/components/app-layout'
 import { BackToHomeButton } from '@/components/back-to-home-button'
