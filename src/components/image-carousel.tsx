@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi2'
 import { Picture } from '@/components/picture'
 
@@ -14,6 +15,7 @@ type ImageCarouselProps = {
 const SWIPE_THRESHOLD = 50
 
 const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
+  const { t } = useTranslation()
   const [currentIndex, setCurrentIndex] = useState(0)
   const [resetKey, setResetKey] = useState(0)
   const touchStartX = useRef<number | null>(null)
@@ -70,12 +72,16 @@ const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
     <div
       className="group relative w-full overflow-hidden rounded-2xl shadow-2xl"
       aria-roledescription="carousel"
-      aria-label="Image Carousel"
+      aria-label={t('carousel.label')}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
       <div className="sr-only" aria-live="polite" aria-atomic="true">
-        {`Slide ${currentIndex + 1} of ${images.length}: ${images[currentIndex].title}`}
+        {t('carousel.slideAnnouncement', {
+          current: currentIndex + 1,
+          total: images.length,
+          title: images[currentIndex].title,
+        })}
       </div>
       <div className="relative aspect-4/5 w-full sm:aspect-video">
         {images.map((image, index) => (
@@ -108,7 +114,7 @@ const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
       <button
         onClick={goToPrevious}
         className="focus-glow-white absolute left-4 top-1/2 hidden -translate-y-1/2 cursor-pointer rounded-full bg-white/20 p-4 text-white backdrop-blur-sm transition-all hover:scale-110 hover:bg-white/30 active:scale-95 sm:block"
-        aria-label="Previous image"
+        aria-label={t('carousel.previousImage')}
       >
         <HiChevronLeft className="h-6 w-6" />
       </button>
@@ -116,7 +122,7 @@ const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
       <button
         onClick={goToNext}
         className="focus-glow-white absolute right-4 top-1/2 hidden -translate-y-1/2 cursor-pointer rounded-full bg-white/20 p-4 text-white backdrop-blur-sm transition-all hover:scale-110 hover:bg-white/30 active:scale-95 sm:block"
-        aria-label="Next image"
+        aria-label={t('carousel.nextImage')}
       >
         <HiChevronRight className="h-6 w-6" />
       </button>
@@ -131,7 +137,7 @@ const ImageCarousel = ({ images, interval = 5000 }: ImageCarouselProps) => {
                 ? 'h-2 w-8 rounded-full bg-white shadow-lg sm:h-3 sm:w-10'
                 : 'h-2 w-2 rounded-full bg-white/40 hover:bg-white/60 sm:h-3 sm:w-3'
             }`}
-            aria-label={`Go to slide ${index + 1}`}
+            aria-label={t('carousel.goToSlide', { number: index + 1 })}
           />
         ))}
       </div>

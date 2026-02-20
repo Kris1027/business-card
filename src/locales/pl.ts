@@ -2,6 +2,13 @@ export const pl = {
   accessibility: {
     skipToContent: 'Przejdź do głównej treści',
   },
+  carousel: {
+    label: 'Karuzela zdjęć',
+    previousImage: 'Poprzednie zdjęcie',
+    nextImage: 'Następne zdjęcie',
+    goToSlide: 'Przejdź do slajdu {{number}}',
+    slideAnnouncement: 'Slajd {{current}} z {{total}}: {{title}}',
+  },
   error: {
     notFoundTitle: 'Nie znaleziono strony',
     notFoundDescription: 'Strona, której szukasz, nie istnieje lub została przeniesiona.',

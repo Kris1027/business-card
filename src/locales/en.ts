@@ -2,6 +2,13 @@ export const en = {
   accessibility: {
     skipToContent: 'Skip to main content',
   },
+  carousel: {
+    label: 'Image Carousel',
+    previousImage: 'Previous image',
+    nextImage: 'Next image',
+    goToSlide: 'Go to slide {{number}}',
+    slideAnnouncement: 'Slide {{current}} of {{total}}: {{title}}',
+  },
   error: {
     notFoundTitle: 'Page not found',
     notFoundDescription: 'The page you are looking for does not exist or has been moved.',
