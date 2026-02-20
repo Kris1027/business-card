@@ -1,6 +1,9 @@
 import { createRootRoute, Outlet, useRouter } from '@tanstack/react-router'
 import { lazy } from 'react'
 import { useTranslation } from 'react-i18next'
+import { HiExclamationTriangle, HiMagnifyingGlass } from 'react-icons/hi2'
+import AppLayout from '@/components/app-layout'
+import { BackToHomeButton } from '@/components/back-to-home-button'
 
 const TanStackRouterDevtools = import.meta.env.DEV
   ? lazy(() =>
@@ -9,9 +12,6 @@ const TanStackRouterDevtools = import.meta.env.DEV
       }))
     )
   : () => null
-import { HiExclamationTriangle, HiMagnifyingGlass } from 'react-icons/hi2'
-import AppLayout from '@/components/app-layout'
-import { BackToHomeButton } from '@/components/back-to-home-button'
 
 const RootLayout = () => (
   <>

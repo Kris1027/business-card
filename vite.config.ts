@@ -1,6 +1,5 @@
 import { writeFileSync } from 'node:fs'
-import { resolve } from 'node:path'
-import path from 'node:path'
+import path, { resolve } from 'node:path'
 import { defineConfig, loadEnv } from 'vite'
 import type { Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
@@ -71,7 +70,7 @@ export default defineConfig(({ mode }) => {
       }),
       tailwindcss(),
       imagetools(),
-      sitemapPlugin(env.VITE_SITE_URL),
+      ...(env.VITE_SITE_URL ? [sitemapPlugin(env.VITE_SITE_URL)] : []),
     ],
     resolve: {
       alias: {
