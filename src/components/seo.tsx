@@ -39,9 +39,6 @@ const Seo = ({
       {noindex && <meta name="robots" content="noindex, nofollow" />}
 
       <link rel="canonical" href={canonicalUrl} />
-      <link rel="alternate" hrefLang="pl" href={canonicalUrl} />
-      <link rel="alternate" hrefLang="en" href={canonicalUrl} />
-      <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
 
       <meta property="og:type" content={type} />
       <meta property="og:url" content={canonicalUrl} />

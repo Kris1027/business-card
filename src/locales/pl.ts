@@ -157,6 +157,7 @@ export const pl = {
     discordLabel: 'Nazwa użytkownika Discord',
     copyToClipboard: 'Kopiuj do schowka',
     copied: 'Skopiowano!',
+    copyFailed: 'Kopiowanie nie powiodło się',
   },
   privacyPolicy: {
     content:

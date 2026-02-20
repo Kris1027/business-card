@@ -15,6 +15,7 @@ const CopyIcon = () => <HiClipboardDocument className="h-5 w-5" />
 const Contact = () => {
   const { t } = useTranslation()
   const [copiedField, setCopiedField] = useState<string | null>(null)
+  const [failedField, setFailedField] = useState<string | null>(null)
   const timeoutRef = useRef<number | null>(null)
 
   useEffect(() => {
@@ -30,17 +31,33 @@ const Contact = () => {
       clearTimeout(timeoutRef.current)
     }
 
+    if (!navigator.clipboard) {
+      setFailedField(field)
+      setCopiedField(null)
+      timeoutRef.current = window.setTimeout(() => {
+        setFailedField(null)
+        timeoutRef.current = null
+      }, 2000)
+      return
+    }
+
     navigator.clipboard
       .writeText(text)
       .then(() => {
         setCopiedField(field)
+        setFailedField(null)
         timeoutRef.current = window.setTimeout(() => {
           setCopiedField(null)
           timeoutRef.current = null
         }, 2000)
       })
-      .catch(err => {
-        console.error('Failed to copy to clipboard:', err)
+      .catch(() => {
+        setFailedField(field)
+        setCopiedField(null)
+        timeoutRef.current = window.setTimeout(() => {
+          setFailedField(null)
+          timeoutRef.current = null
+        }, 2000)
       })
   }
 
@@ -70,7 +87,7 @@ const Contact = () => {
             <p className="text-lg text-text-body">{t('contact.subtitle')}</p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6">
             <div
               className="animate-fade-in-up group rounded-xl bg-surface-card p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               style={{ animationDelay: '0ms' }}
@@ -99,6 +116,9 @@ const Contact = () => {
               </a>
               {copiedField === 'email' && (
                 <p className="mt-2 text-sm text-success-text">{t('contact.copied')}</p>
+              )}
+              {failedField === 'email' && (
+                <p className="mt-2 text-sm text-warning-text">{t('contact.copyFailed')}</p>
               )}
             </div>
 
@@ -131,6 +151,9 @@ const Contact = () => {
               {copiedField === 'phone' && (
                 <p className="mt-2 text-sm text-success-text">{t('contact.copied')}</p>
               )}
+              {failedField === 'phone' && (
+                <p className="mt-2 text-sm text-warning-text">{t('contact.copyFailed')}</p>
+              )}
             </div>
 
             <div
@@ -159,6 +182,9 @@ const Contact = () => {
               </p>
               {copiedField === 'discord' && (
                 <p className="mt-2 text-sm text-success-text">{t('contact.copied')}</p>
+              )}
+              {failedField === 'discord' && (
+                <p className="mt-2 text-sm text-warning-text">{t('contact.copyFailed')}</p>
               )}
             </div>
 
