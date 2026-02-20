@@ -79,7 +79,7 @@ const ServiceDetail = () => {
         provider="techKris"
         serviceType={title}
       />
-      <div className="py-8">
+      <div key={serviceId} className="py-8">
         <div className="animate-fade-in-up overflow-hidden rounded-2xl bg-surface-card shadow-2xl">
           <div className="relative aspect-4/5 w-full overflow-hidden sm:aspect-video">
             <Picture
