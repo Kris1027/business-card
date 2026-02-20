@@ -1,2 +1,2 @@
-export const SITE_URL = 'https://techkris.eu'
+export const SITE_URL = import.meta.env.VITE_SITE_URL
 export const DEFAULT_OG_IMAGE = '/og-image.png'
