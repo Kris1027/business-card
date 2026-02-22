@@ -177,9 +177,7 @@ const Contact = () => {
                   {copiedField === 'discord' ? <CheckIcon /> : <CopyIcon />}
                 </button>
               </div>
-              <p className="text-text-body" aria-label={t('contact.discordLabel')}>
-                {contactInfo.discord}
-              </p>
+              <p className="text-text-body">{contactInfo.discord}</p>
               {copiedField === 'discord' && (
                 <p className="mt-2 text-sm text-success-text">{t('contact.copied')}</p>
               )}
