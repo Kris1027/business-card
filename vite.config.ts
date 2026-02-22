@@ -14,6 +14,7 @@ const sitemapRoutes = [
   { path: '/services/equipment-advising', changefreq: 'monthly', priority: '0.9' },
   { path: '/services/computer-assembly', changefreq: 'monthly', priority: '0.9' },
   { path: '/services/website-building', changefreq: 'monthly', priority: '0.9' },
+  { path: '/services/technical-support', changefreq: 'monthly', priority: '0.9' },
   { path: '/privacy-policy', changefreq: 'yearly', priority: '0.3' },
   { path: '/terms', changefreq: 'yearly', priority: '0.3' },
 ]

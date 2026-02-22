@@ -32,6 +32,11 @@ const Footer = () => {
       params: { serviceId: SERVICE_IDS.WEBSITE_BUILDING },
       label: t('navigation.websiteBuilding'),
     },
+    {
+      to: '/services/$serviceId' as const,
+      params: { serviceId: SERVICE_IDS.TECHNICAL_SUPPORT },
+      label: t('navigation.technicalSupport'),
+    },
   ]
 
   const contactInfoItems = [

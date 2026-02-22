@@ -25,6 +25,7 @@ export const en = {
     equipmentAdvising: 'Equipment Advising',
     computerAssembly: 'PC Assembly',
     websiteBuilding: 'Web Development',
+    technicalSupport: 'Technical Support',
     privacyPolicy: 'Privacy Policy',
     terms: 'Terms of Service',
     mainNavLabel: 'Main navigation',
@@ -79,6 +80,12 @@ export const en = {
       longDescription:
         '<p>I design and build modern websites that are <strong>fast, clear, and enjoyable to use</strong>, while genuinely supporting your goals — whether that is getting new clients, presenting your offer, booking a service, or building trust in your brand.</p><p>Instead of making a nice-looking page with no purpose, I focus on making sure your website:</p><ul><li>Guides visitors step by step</li><li>Clearly explains what you do</li><li>Makes it easy to contact you</li></ul><p>What I take care of with every project:</p><ul><li><strong>Responsive design</strong> — so everything works smoothly on both phones and desktops</li><li><strong>SEO basics</strong> — so people can find you on Google</li><li><strong>Structured content</strong> — so visitors instantly feel they are in the right place</li></ul><p>If you need it, I can also help with copy, section layout, and practical features like a contact form, map, gallery, integrations, or analytics.</p><p>You get a website that is <strong>polished, easy to manage, and ready to work for you</strong> — not a project that needs endless fixes or constant re-explaining.</p>',
     },
+    technicalSupport: {
+      title: 'Technical Support & System Setup',
+      shortDescription: 'When your computer causes problems — I take care of it',
+      longDescription:
+        '<p>You don\'t need to understand systems, drivers, or complicated settings. If your computer is slow, freezing, showing errors, or simply "not working like it should" — <strong>I help fix it</strong>.</p><p>I reinstall the system if needed, clean up what\'s slowing it down, and configure everything so it runs smoothly, safely, and reliably. No confusing technical language. No unnecessary tweaks. No chaos.</p><p>I can help with:</p><ul><li>Installing or reinstalling Windows or Linux</li><li>Speeding up a slow computer</li><li>Fixing crashes, errors, and system issues</li><li>Setting everything up after a reset</li><li>Cleaning and organizing the system for better performance</li></ul><p>First, I identify the <strong>real cause</strong> of the problem. Then I apply the right solution and explain everything in clear, simple terms.</p><p><strong>The result is simple</strong> — your computer works the way it should. Fast. Stable. Stress-free.</p>',
+    },
     readMore: 'Read more',
     backToHome: 'Back to home',
     notFound: 'Service not found',
@@ -90,7 +97,7 @@ export const en = {
     home: {
       title: 'techKris - Equipment Advising & PC Assembly',
       description:
-        'Professional equipment advising, custom PC assembly, and web development services. Get expert help choosing computer components tailored to your needs.',
+        'Professional equipment advising, custom PC assembly, web development, and technical support services. Get expert help choosing computer components tailored to your needs.',
     },
     about: {
       title: 'About Me - techKris',
@@ -100,7 +107,7 @@ export const en = {
     contact: {
       title: 'Contact - techKris',
       description:
-        'Get in touch for equipment advising, PC assembly, or web development services. Available via email, phone, and social media.',
+        'Get in touch for equipment advising, PC assembly, web development, or technical support services. Available via email, phone, and social media.',
     },
     services: {
       equipmentAdvising: {
@@ -117,6 +124,11 @@ export const en = {
         title: 'Web Development - techKris',
         description:
           'Modern, fast, and effective websites. Responsive design, SEO basics, and clear structure to support your business goals.',
+      },
+      technicalSupport: {
+        title: 'Technical Support & System Setup - techKris',
+        description:
+          'Professional technical support and system setup. Windows and Linux installation, troubleshooting, and performance optimization.',
       },
     },
     privacyPolicy: {

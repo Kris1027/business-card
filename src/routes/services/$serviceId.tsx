@@ -2,17 +2,25 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { Trans, useTranslation } from 'react-i18next'
 import { HiChevronLeft, HiEnvelope } from 'react-icons/hi2'
 import { servicesInfo, type ServiceKey } from '@/constants/services-info'
+import type { ServiceId } from '@/constants/navigation-links'
 import { SITE_URL } from '@/constants/site-config'
 import Seo from '@/components/seo'
 import { BreadcrumbJsonLd, ServiceJsonLd } from '@/components/json-ld'
 import { Picture } from '@/components/picture'
 
-type SeoServiceKey = 'equipmentAdvising' | 'computerAssembly' | 'websiteBuilding'
+const isValidServiceId = (id: string): id is ServiceId => Object.hasOwn(servicesInfo, id)
 
-const SERVICE_ID_TO_SEO_KEY: Record<string, SeoServiceKey> = {
+type SeoServiceKey =
+  | 'equipmentAdvising'
+  | 'computerAssembly'
+  | 'websiteBuilding'
+  | 'technicalSupport'
+
+const SERVICE_ID_TO_SEO_KEY: Record<ServiceId, SeoServiceKey> = {
   'equipment-advising': 'equipmentAdvising',
   'computer-assembly': 'computerAssembly',
   'website-building': 'websiteBuilding',
+  'technical-support': 'technicalSupport',
 }
 
 const getServiceTranslations = (t: ReturnType<typeof useTranslation>['t'], key: ServiceKey) => {
@@ -32,6 +40,11 @@ const getServiceTranslations = (t: ReturnType<typeof useTranslation>['t'], key: 
       shortDescription: t('services.websiteBuilding.shortDescription'),
       longDescriptionKey: 'services.websiteBuilding.longDescription' as const,
     },
+    technicalSupport: {
+      title: t('services.technicalSupport.title'),
+      shortDescription: t('services.technicalSupport.shortDescription'),
+      longDescriptionKey: 'services.technicalSupport.longDescription' as const,
+    },
   }
   return translations[key]
 }
@@ -41,9 +54,7 @@ const ServiceDetail = () => {
   const serviceId = params.serviceId
   const { t } = useTranslation()
 
-  const service = servicesInfo[serviceId]
-
-  if (!service) {
+  if (!isValidServiceId(serviceId)) {
     return (
       <div className="flex min-h-[60vh] flex-col items-center justify-center">
         <h1 className="text-2xl font-bold text-text-primary">{t('services.notFound')}</h1>
@@ -54,14 +65,15 @@ const ServiceDetail = () => {
     )
   }
 
+  const service = servicesInfo[serviceId]
   const translations = getServiceTranslations(t, service.translationKey)
   const title = translations.title
   const shortDescription = translations.shortDescription
   const longDescriptionKey = translations.longDescriptionKey
 
   const seoKey = SERVICE_ID_TO_SEO_KEY[serviceId]
-  const seoTitle = seoKey ? t(`seo.services.${seoKey}.title`) : title
-  const seoDescription = seoKey ? t(`seo.services.${seoKey}.description`) : shortDescription
+  const seoTitle = t(`seo.services.${seoKey}.title`)
+  const seoDescription = t(`seo.services.${seoKey}.description`)
 
   const breadcrumbItems = [
     { name: t('navigation.home'), url: SITE_URL },
