@@ -110,6 +110,7 @@ pnpm pre-commit       # Full validation: format + lint:fix + test + build
   - FOUC prevention scripts in `index.html` (theme detection, language detection)
   - These inline scripts run before React loads and cannot import ES modules
   - Must be kept in sync manually with corresponding React code
+  - **CSP Hash**: When modifying the inline script in `index.html` (lines 46-91), you **MUST** recalculate the SHA256 hash and update the `script-src` directive in `vercel.json`. Generate the hash with: `echo -n '<script content>' | openssl dgst -sha256 -binary | openssl base64`
 - ❌ Bad: Copying the same validation logic across 3 components
 - ✅ Good: Creating `src/utils/validation.ts` with shared validation functions
 - **Before duplicating code, ask**: "Can this be extracted into a reusable function?"
