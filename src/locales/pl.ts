@@ -97,7 +97,7 @@ export const pl = {
     home: {
       title: 'techKris - Składanie komputerów | Doradztwo sprzętowe',
       description:
-        'Składanie komputerów, doradztwo sprzętowe i tworzenie stron internetowych. Profesjonalny dobór komponentów PC dopasowany do Twoich potrzeb.',
+        'Składanie komputerów, doradztwo sprzętowe, tworzenie stron internetowych i pomoc techniczna. Profesjonalny dobór komponentów PC dopasowany do Twoich potrzeb.',
     },
     about: {
       title: 'O mnie - techKris',
@@ -107,7 +107,7 @@ export const pl = {
     contact: {
       title: 'Kontakt - techKris',
       description:
-        'Skontaktuj się w sprawie składania komputerów, doradztwa sprzętowego lub tworzenia stron. Email, telefon, media społecznościowe.',
+        'Skontaktuj się w sprawie składania komputerów, doradztwa sprzętowego, tworzenia stron lub pomocy technicznej. Email, telefon, media społecznościowe.',
     },
     services: {
       equipmentAdvising: {

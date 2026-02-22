@@ -8,7 +8,8 @@ export const WebSiteJsonLd = () => {
     '@id': `${SITE_URL}/#website`,
     url: SITE_URL,
     name: 'techKris',
-    description: 'Składanie komputerów, doradztwo sprzętowe i tworzenie stron internetowych',
+    description:
+      'Składanie komputerów, doradztwo sprzętowe, tworzenie stron internetowych i pomoc techniczna',
     inLanguage: ['pl-PL', 'en-US'],
     publisher: {
       '@id': `${SITE_URL}/#localbusiness`,
@@ -103,6 +104,11 @@ export const LocalBusinessJsonLd = ({
       'Zestaw komputerowy',
       'Projektowanie stron www',
       'Responsywne strony internetowe',
+      'Pomoc techniczna',
+      'Konfiguracja systemu',
+      'Instalacja Windows',
+      'Instalacja Linux',
+      'Naprawa komputera',
     ],
   }
 

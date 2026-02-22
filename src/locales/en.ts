@@ -97,7 +97,7 @@ export const en = {
     home: {
       title: 'techKris - Equipment Advising & PC Assembly',
       description:
-        'Professional equipment advising, custom PC assembly, and web development services. Get expert help choosing computer components tailored to your needs.',
+        'Professional equipment advising, custom PC assembly, web development, and technical support services. Get expert help choosing computer components tailored to your needs.',
     },
     about: {
       title: 'About Me - techKris',
@@ -107,7 +107,7 @@ export const en = {
     contact: {
       title: 'Contact - techKris',
       description:
-        'Get in touch for equipment advising, PC assembly, or web development services. Available via email, phone, and social media.',
+        'Get in touch for equipment advising, PC assembly, web development, or technical support services. Available via email, phone, and social media.',
     },
     services: {
       equipmentAdvising: {
