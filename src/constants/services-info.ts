@@ -2,6 +2,7 @@ import pcImage1 from '@/assets/pc-1.jpg?w=640;960;1280;1920&format=webp;jpg&as=p
 import pcImage2 from '@/assets/pc-2.jpg?w=640;960;1280;1920&format=webp;jpg&as=picture'
 import webImage1 from '@/assets/web-1.jpg?w=640;960;1280;1920&format=webp;jpg&as=picture'
 import helpImage1 from '@/assets/help-1.webp?w=640;960;1280;1920&format=webp;jpg&as=picture'
+import type { ServiceId } from '@/constants/navigation-links'
 
 export type ServiceKey =
   | 'equipmentAdvising'
@@ -14,7 +15,7 @@ export type ServiceData = {
   image: PictureData
 }
 
-export const servicesInfo: Record<string, ServiceData> = {
+export const servicesInfo: Record<ServiceId, ServiceData> = {
   'equipment-advising': {
     translationKey: 'equipmentAdvising',
     image: pcImage1,

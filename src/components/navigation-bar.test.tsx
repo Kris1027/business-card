@@ -59,4 +59,27 @@ describe('NavigationBar', () => {
     await user.click(menuButton)
     expect(menuButton).toHaveAttribute('aria-expanded', 'true')
   })
+
+  it('renders all service links in Polish', async () => {
+    renderWithRouter(<NavigationBar />)
+
+    await waitFor(() => {
+      expect(screen.getAllByText('Doradztwo sprzętowe')).toBeTruthy()
+      expect(screen.getAllByText('Składanie PC')).toBeTruthy()
+      expect(screen.getAllByText('Tworzenie stron')).toBeTruthy()
+      expect(screen.getAllByText('Pomoc techniczna')).toBeTruthy()
+    })
+  })
+
+  it('renders all service links in English', async () => {
+    await i18n.changeLanguage('en')
+    renderWithRouter(<NavigationBar />)
+
+    await waitFor(() => {
+      expect(screen.getAllByText('Equipment Advising')).toBeTruthy()
+      expect(screen.getAllByText('PC Assembly')).toBeTruthy()
+      expect(screen.getAllByText('Web Development')).toBeTruthy()
+      expect(screen.getAllByText('Technical Support')).toBeTruthy()
+    })
+  })
 })

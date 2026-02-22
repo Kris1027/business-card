@@ -62,6 +62,21 @@ describe('ServiceDetail', () => {
     expect(screen.getByText('Usługa nie została znaleziona')).toBeInTheDocument()
   })
 
+  it('renders technical support service in Polish', () => {
+    const useParamsSpy = vi.fn().mockReturnValue({ serviceId: 'technical-support' })
+    Route.useParams = useParamsSpy
+
+    const ServiceDetail = Route.options.component as React.ComponentType
+    render(<ServiceDetail />)
+
+    expect(
+      screen.getByRole('heading', {
+        level: 1,
+        name: 'Pomoc techniczna i konfiguracja systemu',
+      })
+    ).toBeInTheDocument()
+  })
+
   it('renders content in English when language is changed', async () => {
     await i18n.changeLanguage('en')
     const useParamsSpy = vi.fn().mockReturnValue({ serviceId: 'computer-assembly' })

@@ -38,4 +38,27 @@ describe('Footer', () => {
       expect(screen.getByText('Contact Info')).toBeInTheDocument()
     })
   })
+
+  it('renders all service links in Polish', async () => {
+    renderWithRouter(<Footer />)
+
+    await waitFor(() => {
+      expect(screen.getByText('Doradztwo sprzętowe')).toBeInTheDocument()
+      expect(screen.getByText('Składanie PC')).toBeInTheDocument()
+      expect(screen.getByText('Tworzenie stron')).toBeInTheDocument()
+      expect(screen.getByText('Pomoc techniczna')).toBeInTheDocument()
+    })
+  })
+
+  it('renders all service links in English', async () => {
+    await i18n.changeLanguage('en')
+    renderWithRouter(<Footer />)
+
+    await waitFor(() => {
+      expect(screen.getByText('Equipment Advising')).toBeInTheDocument()
+      expect(screen.getByText('PC Assembly')).toBeInTheDocument()
+      expect(screen.getByText('Web Development')).toBeInTheDocument()
+      expect(screen.getByText('Technical Support')).toBeInTheDocument()
+    })
+  })
 })
