@@ -47,6 +47,11 @@ const NavigationBar = () => {
       to: '/services/$serviceId' as const,
       params: { serviceId: SERVICE_IDS.WEBSITE_BUILDING },
     },
+    {
+      name: t('navigation.technicalSupport'),
+      to: '/services/$serviceId' as const,
+      params: { serviceId: SERVICE_IDS.TECHNICAL_SUPPORT },
+    },
   ]
 
   return (

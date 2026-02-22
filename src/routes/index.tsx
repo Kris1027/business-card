@@ -8,6 +8,7 @@ import pcImage1 from '@/assets/pc-1.jpg?w=640;960;1280;1920&format=webp;jpg&as=p
 import pcImage2 from '@/assets/pc-2.jpg?w=640;960;1280;1920&format=webp;jpg&as=picture'
 import prebuildImage from '@/assets/prebuild-1.webp?w=640;960;1280&format=webp&as=picture'
 import webImage1 from '@/assets/web-1.jpg?w=640;960;1280;1920&format=webp;jpg&as=picture'
+import helpImage1 from '@/assets/help-1.webp?w=640;960;1280;1920&format=webp;jpg&as=picture'
 
 const Index = () => {
   const { t } = useTranslation()
@@ -28,6 +29,11 @@ const Index = () => {
       alt: t('services.websiteBuilding.title'),
       title: t('services.websiteBuilding.title'),
     },
+    {
+      data: helpImage1,
+      alt: t('services.technicalSupport.title'),
+      title: t('services.technicalSupport.title'),
+    },
   ]
 
   const services = [
@@ -45,6 +51,11 @@ const Index = () => {
       id: 'website-building',
       title: t('services.websiteBuilding.title'),
       shortDescription: t('services.websiteBuilding.shortDescription'),
+    },
+    {
+      id: 'technical-support',
+      title: t('services.technicalSupport.title'),
+      shortDescription: t('services.technicalSupport.shortDescription'),
     },
   ]
 
@@ -77,7 +88,7 @@ const Index = () => {
             </div>
           ))}
         </div>
-        <div className="animate-fade-in-up mt-12 md:mt-16" style={{ animationDelay: '400ms' }}>
+        <div className="animate-fade-in-up mt-12 md:mt-16" style={{ animationDelay: '500ms' }}>
           <ServiceCard
             title={t('home.noPrebuilt.title')}
             descriptionKey="home.noPrebuilt.description"

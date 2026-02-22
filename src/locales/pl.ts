@@ -25,6 +25,7 @@ export const pl = {
     equipmentAdvising: 'Doradztwo sprzętowe',
     computerAssembly: 'Składanie PC',
     websiteBuilding: 'Tworzenie stron',
+    technicalSupport: 'Pomoc techniczna',
     privacyPolicy: 'Polityka prywatności',
     terms: 'Regulamin',
     mainNavLabel: 'Główna nawigacja',
@@ -79,6 +80,12 @@ export const pl = {
       longDescription:
         '<p>Projektuję i tworzę nowoczesne strony internetowe, które są <strong>szybkie, czytelne i przyjemne w odbiorze</strong>, a przy tym realnie wspierają Twoje cele — czy to pozyskanie klientów, prezentacja oferty, zapis na usługę, czy budowanie zaufania do marki.</p><p>Zamiast robić ładną wizytówkę bez sensu, skupiam się na tym, żeby strona:</p><ul><li>Prowadziła użytkownika krok po kroku</li><li>Jasno tłumaczyła, co oferujesz</li><li>Ułatwiała kontakt</li></ul><p>O co dbam przy każdym projekcie:</p><ul><li><strong>Responsywność</strong> — żeby wszystko działało na telefonie i komputerze</li><li><strong>Podstawy SEO</strong> — żeby dało się Cię znaleźć w Google</li><li><strong>Porządek w treści</strong> — żeby klient od razu wiedział, że trafił w dobre miejsce</li></ul><p>Jeśli potrzebujesz, pomogę też z tekstami, strukturą sekcji i prostymi rozwiązaniami typu formularz, mapa, galeria, integracje czy analityka.</p><p>Dostajesz stronę, która jest <strong>dopracowana, łatwa w obsłudze i gotowa do działania</strong> — a nie projekt, który wymaga ciągłych poprawek i tłumaczenia wszystkiego od nowa.</p>',
     },
+    technicalSupport: {
+      title: 'Pomoc techniczna i konfiguracja systemu',
+      shortDescription: 'Gdy komputer sprawia problemy — zajmuję się tym za Ciebie',
+      longDescription:
+        '<p>Nie musisz znać się na systemach, sterownikach ani ustawieniach. Jeśli komputer działa wolno, zawiesza się, wyskakują błędy albo coś po prostu „nie działa jak powinno" — <strong>pomagam to naprawić</strong>.</p><p>Instaluję system od nowa, porządkuję to, co spowalnia jego działanie, konfiguruję wszystko tak, żeby było szybkie, stabilne i gotowe do codziennego użytkowania. Bez skomplikowanego języka, bez zbędnych ustawień, bez chaosu.</p><p>Pomagam między innymi w:</p><ul><li>Instalacji i ponownej instalacji Windows lub Linux</li><li>Przyspieszeniu wolno działającego komputera</li><li>Rozwiązywaniu problemów z błędami i zawieszaniem</li><li>Konfiguracji po formacie</li><li>Uporządkowaniu systemu, żeby działał płynnie</li></ul><p>Najpierw sprawdzam, co jest <strong>przyczyną problemu</strong>. Potem proponuję konkretne rozwiązanie i tłumaczę wszystko w prosty sposób.</p><p><strong>Efekt jest jeden</strong> — komputer działa tak, jak powinien. Szybko. Stabilnie. Bez nerwów.</p>',
+    },
     readMore: 'Czytaj więcej',
     backToHome: 'Powrót do strony głównej',
     notFound: 'Usługa nie została znaleziona',
@@ -117,6 +124,11 @@ export const pl = {
         title: 'Tworzenie stron internetowych - techKris | Strony www',
         description:
           'Tworzenie stron internetowych. Nowoczesne, szybkie strony www z SEO. Responsywny design dla firm i osób prywatnych.',
+      },
+      technicalSupport: {
+        title: 'Pomoc techniczna i konfiguracja systemu - techKris',
+        description:
+          'Profesjonalna pomoc techniczna i konfiguracja systemu. Instalacja Windows i Linux, rozwiązywanie problemów, optymalizacja wydajności.',
       },
     },
     privacyPolicy: {

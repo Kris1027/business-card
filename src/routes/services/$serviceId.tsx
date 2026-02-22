@@ -7,12 +7,17 @@ import Seo from '@/components/seo'
 import { BreadcrumbJsonLd, ServiceJsonLd } from '@/components/json-ld'
 import { Picture } from '@/components/picture'
 
-type SeoServiceKey = 'equipmentAdvising' | 'computerAssembly' | 'websiteBuilding'
+type SeoServiceKey =
+  | 'equipmentAdvising'
+  | 'computerAssembly'
+  | 'websiteBuilding'
+  | 'technicalSupport'
 
 const SERVICE_ID_TO_SEO_KEY: Record<string, SeoServiceKey> = {
   'equipment-advising': 'equipmentAdvising',
   'computer-assembly': 'computerAssembly',
   'website-building': 'websiteBuilding',
+  'technical-support': 'technicalSupport',
 }
 
 const getServiceTranslations = (t: ReturnType<typeof useTranslation>['t'], key: ServiceKey) => {
@@ -31,6 +36,11 @@ const getServiceTranslations = (t: ReturnType<typeof useTranslation>['t'], key: 
       title: t('services.websiteBuilding.title'),
       shortDescription: t('services.websiteBuilding.shortDescription'),
       longDescriptionKey: 'services.websiteBuilding.longDescription' as const,
+    },
+    technicalSupport: {
+      title: t('services.technicalSupport.title'),
+      shortDescription: t('services.technicalSupport.shortDescription'),
+      longDescriptionKey: 'services.technicalSupport.longDescription' as const,
     },
   }
   return translations[key]
