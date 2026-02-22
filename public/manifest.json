@@ -3,10 +3,12 @@
   "short_name": "techKris",
   "description": "Składanie komputerów, doradztwo sprzętowe i tworzenie stron internetowych. Profesjonalny dobór komponentów PC dopasowany do Twoich potrzeb.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "lang": "pl",
   "background_color": "#f9fafb",
   "theme_color": "#2563eb",
+  "categories": ["business", "productivity"],
   "icons": [
     {
       "src": "/favicon.png",
