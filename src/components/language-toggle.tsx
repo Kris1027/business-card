@@ -49,6 +49,7 @@ export const LanguageToggle = () => {
   return (
     <div className="relative" ref={dropdownRef} onKeyDown={handleKeyDown}>
       <button
+        type="button"
         onClick={toggleDropdown}
         aria-label={t('language.languageLabel')}
         aria-expanded={isOpen}
@@ -66,6 +67,7 @@ export const LanguageToggle = () => {
           <div className="py-1">
             {languages.map(lang => (
               <button
+                type="button"
                 key={lang.code}
                 role="menuitem"
                 onClick={() => handleLanguageChange(lang.code)}

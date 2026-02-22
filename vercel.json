@@ -7,12 +7,17 @@
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
         {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains"
+        },
+        { "key": "X-Permitted-Cross-Domain-Policies", "value": "none" },
+        {
           "key": "Permissions-Policy",
           "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()"
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'sha256-uWjNESCL0QPpp6Bys9A+23Rg+8AntJi2IpbT5VJKhnU=' https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com; object-src 'none'; base-uri 'self'"
+          "value": "default-src 'self'; script-src 'self' 'sha256-DSCDQN6Qq2dKfB9yMugnAULWLdd+OTqsQHrrEryi7Cs=' https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com; object-src 'none'; base-uri 'self'"
         }
       ]
     }

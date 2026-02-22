@@ -43,4 +43,37 @@ describe('Contact', () => {
     render(<Contact />)
     expect(screen.getByRole('heading', { level: 1, name: 'Get in Touch' })).toBeInTheDocument()
   })
+
+  it('renders copy buttons for email, phone, and discord', () => {
+    render(<Contact />)
+    const copyButtons = screen.getAllByLabelText('Kopiuj do schowka')
+    expect(copyButtons).toHaveLength(3)
+  })
+
+  it('renders external links for GitHub and LinkedIn', () => {
+    render(<Contact />)
+    const githubLink = screen.getByLabelText('Odwiedź profil GitHub (otwiera się w nowej karcie)')
+    const linkedinLink = screen.getByLabelText(
+      'Odwiedź profil LinkedIn (otwiera się w nowej karcie)'
+    )
+
+    expect(githubLink).toHaveAttribute('href', 'https://github.com/Kris1027')
+    expect(githubLink).toHaveAttribute('target', '_blank')
+    expect(githubLink).toHaveAttribute('rel', 'noopener noreferrer')
+
+    expect(linkedinLink).toHaveAttribute('href', 'https://www.linkedin.com/in/krzysztof-obarzanek/')
+    expect(linkedinLink).toHaveAttribute('target', '_blank')
+  })
+
+  it('renders email mailto link', () => {
+    render(<Contact />)
+    const emailLink = screen.getByRole('link', { name: /kris1027\.dev@gmail\.com/i })
+    expect(emailLink).toHaveAttribute('href', 'mailto:kris1027.dev@gmail.com')
+  })
+
+  it('renders phone tel link', () => {
+    render(<Contact />)
+    const phoneLink = screen.getByRole('link', { name: /\+48 792 542 841/i })
+    expect(phoneLink).toHaveAttribute('href', 'tel:+48792542841')
+  })
 })
