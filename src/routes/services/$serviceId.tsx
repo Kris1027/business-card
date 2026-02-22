@@ -3,12 +3,12 @@ import { Trans, useTranslation } from 'react-i18next'
 import { HiChevronLeft, HiEnvelope } from 'react-icons/hi2'
 import { servicesInfo, type ServiceKey } from '@/constants/services-info'
 import type { ServiceId } from '@/constants/navigation-links'
-
-const isValidServiceId = (id: string): id is ServiceId => id in servicesInfo
 import { SITE_URL } from '@/constants/site-config'
 import Seo from '@/components/seo'
 import { BreadcrumbJsonLd, ServiceJsonLd } from '@/components/json-ld'
 import { Picture } from '@/components/picture'
+
+const isValidServiceId = (id: string): id is ServiceId => Object.hasOwn(servicesInfo, id)
 
 type SeoServiceKey =
   | 'equipmentAdvising'
