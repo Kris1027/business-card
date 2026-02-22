@@ -56,6 +56,30 @@ describe('ImageCarousel', () => {
     expect(screen.getByText(/slide 2 of 3/i)).toBeInTheDocument()
   })
 
+  it('goes to previous slide on previous button click', () => {
+    render(<ImageCarousel images={mockImages} />)
+
+    expect(screen.getByText(/slide 1 of 3/i)).toBeInTheDocument()
+
+    act(() => {
+      fireEvent.click(screen.getByLabelText('Previous image'))
+    })
+
+    expect(screen.getByText(/slide 3 of 3/i)).toBeInTheDocument()
+  })
+
+  it('navigates to specific slide on dot click', () => {
+    render(<ImageCarousel images={mockImages} />)
+
+    const dots = screen.getAllByRole('button', { name: /go to slide/i })
+
+    act(() => {
+      fireEvent.click(dots[2])
+    })
+
+    expect(screen.getByText(/slide 3 of 3/i)).toBeInTheDocument()
+  })
+
   it('auto-advances after interval', () => {
     render(<ImageCarousel images={mockImages} interval={3000} />)
 
@@ -66,5 +90,53 @@ describe('ImageCarousel', () => {
     })
 
     expect(screen.getByText(/slide 2 of 3/i)).toBeInTheDocument()
+  })
+
+  it('wraps around from last to first on next', () => {
+    render(<ImageCarousel images={mockImages} />)
+
+    act(() => {
+      fireEvent.click(screen.getByLabelText('Next image'))
+      fireEvent.click(screen.getByLabelText('Next image'))
+      fireEvent.click(screen.getByLabelText('Next image'))
+    })
+
+    expect(screen.getByText(/slide 1 of 3/i)).toBeInTheDocument()
+  })
+
+  it('handles touch swipe left to go to next slide', () => {
+    render(<ImageCarousel images={mockImages} />)
+    const carousel = screen.getByLabelText('Image Carousel')
+
+    act(() => {
+      fireEvent.touchStart(carousel, { touches: [{ clientX: 200 }] })
+      fireEvent.touchEnd(carousel, { changedTouches: [{ clientX: 100 }] })
+    })
+
+    expect(screen.getByText(/slide 2 of 3/i)).toBeInTheDocument()
+  })
+
+  it('handles touch swipe right to go to previous slide', () => {
+    render(<ImageCarousel images={mockImages} />)
+    const carousel = screen.getByLabelText('Image Carousel')
+
+    act(() => {
+      fireEvent.touchStart(carousel, { touches: [{ clientX: 100 }] })
+      fireEvent.touchEnd(carousel, { changedTouches: [{ clientX: 200 }] })
+    })
+
+    expect(screen.getByText(/slide 3 of 3/i)).toBeInTheDocument()
+  })
+
+  it('ignores touch swipe below threshold', () => {
+    render(<ImageCarousel images={mockImages} />)
+    const carousel = screen.getByLabelText('Image Carousel')
+
+    act(() => {
+      fireEvent.touchStart(carousel, { touches: [{ clientX: 100 }] })
+      fireEvent.touchEnd(carousel, { changedTouches: [{ clientX: 120 }] })
+    })
+
+    expect(screen.getByText(/slide 1 of 3/i)).toBeInTheDocument()
   })
 })
