@@ -134,6 +134,7 @@ const NavigationBar = () => {
               <LanguageToggle />
               <ThemeToggle />
               <button
+                type="button"
                 onClick={toggleMenu}
                 aria-label={t('navigation.toggleMenuLabel')}
                 aria-expanded={isMenuOpen}
@@ -148,6 +149,7 @@ const NavigationBar = () => {
 
         <div
           id="nav-menu"
+          aria-hidden={!isMenuOpen}
           className={`grid transition-all duration-300 ease-in-out ${
             isMenuOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
           }`}
@@ -168,19 +170,20 @@ const NavigationBar = () => {
 
       {/* Desktop sidebar navigation */}
       <nav
-        className={`hidden border-r border-border-default bg-[var(--color-nav-bg)] backdrop-blur-xl transition-all duration-300 lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col ${isCollapsed ? 'lg:w-16' : 'lg:w-64'}`}
+        className={`hidden border-r border-border-default bg-[var(--color-nav-bg)] backdrop-blur-xl transition-all duration-300 motion-reduce:transition-none lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col ${isCollapsed ? 'lg:w-16' : 'lg:w-64'}`}
         role="navigation"
         aria-label={t('navigation.sidebarNavLabel')}
       >
         <div className="flex items-center justify-between px-4 py-4">
           <div
-            className={`overflow-hidden transition-all duration-300 ${isCollapsed ? 'w-0 opacity-0' : 'w-auto opacity-100'}`}
+            className={`overflow-hidden transition-all duration-300 motion-reduce:transition-none ${isCollapsed ? 'w-0 opacity-0' : 'w-auto opacity-100'}`}
           >
             <Link to="/" className="focus-glow inline-block rounded-lg p-1">
               <Logo />
             </Link>
           </div>
           <button
+            type="button"
             onClick={toggleCollapse}
             aria-label={
               isCollapsed ? t('navigation.expandSidebar') : t('navigation.collapseSidebar')
@@ -196,7 +199,7 @@ const NavigationBar = () => {
         </div>
 
         <div
-          className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${isCollapsed ? 'max-h-0' : 'max-h-screen'}`}
+          className={`overflow-hidden transition-[max-height] duration-500 ease-in-out motion-reduce:transition-none ${isCollapsed ? 'max-h-0' : 'max-h-screen'}`}
         >
           <div className="mx-4 h-0.5 rounded-full bg-interactive-primary" />
 

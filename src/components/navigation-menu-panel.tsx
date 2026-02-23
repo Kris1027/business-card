@@ -17,26 +17,24 @@ export const NavigationMenuPanel = ({
   isOpen,
   onLinkClick,
 }: NavigationMenuPanelProps) => {
-  let staggerIndex = 0
-
   return (
     <div className="grid grid-cols-1 gap-4 px-2 py-4 md:grid-cols-2 md:gap-0 md:divide-x md:divide-border-divider">
       <div>
-        {navLinks.map(link => (
+        {navLinks.map((link, index) => (
           <Link
             key={link.to}
             to={link.to}
             onClick={onLinkClick}
             tabIndex={isOpen ? undefined : -1}
             className={`${linkClasses} ${isOpen ? 'animate-menu-item-enter' : ''}`}
-            style={{ '--stagger-index': staggerIndex++ } as React.CSSProperties}
+            style={{ '--stagger-index': index } as React.CSSProperties}
           >
             {link.name}
           </Link>
         ))}
       </div>
       <div className="md:pl-6">
-        {serviceLinks.map(link => (
+        {serviceLinks.map((link, index) => (
           <Link
             key={link.params.serviceId}
             to={link.to}
@@ -44,7 +42,7 @@ export const NavigationMenuPanel = ({
             onClick={onLinkClick}
             tabIndex={isOpen ? undefined : -1}
             className={`${linkClasses} ${isOpen ? 'animate-menu-item-enter' : ''}`}
-            style={{ '--stagger-index': staggerIndex++ } as React.CSSProperties}
+            style={{ '--stagger-index': navLinks.length + index } as React.CSSProperties}
           >
             {link.name}
           </Link>

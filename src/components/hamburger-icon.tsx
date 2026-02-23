@@ -4,7 +4,7 @@ type HamburgerIconProps = {
 
 const HamburgerIcon = ({ isOpen }: HamburgerIconProps) => {
   const commonClasses =
-    'absolute left-1/2 h-0.5 w-5 -translate-x-1/2 rounded-full bg-text-primary transition-all duration-300 ease-in-out'
+    'absolute left-1/2 h-0.5 w-5 -translate-x-1/2 rounded-full bg-text-primary transition-all duration-300 ease-in-out motion-reduce:transition-none'
 
   return (
     <div className="relative h-5 w-5" aria-hidden="true">
