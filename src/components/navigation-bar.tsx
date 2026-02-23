@@ -1,29 +1,34 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from '@tanstack/react-router'
-import { HiBars3, HiXMark } from 'react-icons/hi2'
+import HamburgerIcon from '@/components/hamburger-icon'
 import { LanguageToggle } from '@/components/language-toggle'
+import Logo from '@/components/logo'
+import { NavigationMenuPanel } from '@/components/navigation-menu-panel'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { SERVICE_IDS } from '@/constants/navigation-links'
-import Logo from '@/components/logo'
+import { useClickOutside } from '@/hooks/use-click-outside'
 
 const NavigationBar = () => {
   const { t } = useTranslation()
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const navRef = useRef<HTMLElement>(null)
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(prev => !prev)
+  const toggleMenu = () => {
+    setIsMenuOpen(prev => !prev)
   }
 
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false)
+  const closeMenu = () => {
+    setIsMenuOpen(false)
   }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Escape' && isMobileMenuOpen) {
-      closeMobileMenu()
+    if (e.key === 'Escape' && isMenuOpen) {
+      closeMenu()
     }
   }
+
+  useClickOutside(navRef, closeMenu)
 
   const navLinks = [
     { name: t('navigation.home'), to: '/' as const },
@@ -56,104 +61,49 @@ const NavigationBar = () => {
 
   return (
     <nav
-      className="sticky top-0 z-50 bg-surface-card shadow-md"
+      ref={navRef}
+      className="sticky top-0 z-50 bg-[var(--color-nav-bg)] shadow-md backdrop-blur-xl"
       role="navigation"
       aria-label={t('navigation.mainNavLabel')}
       onKeyDown={handleKeyDown}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Mobile header */}
-        <div className="flex items-center justify-between lg:hidden">
-          {/* Logo */}
-          <Link to="/" onClick={closeMobileMenu} className="focus-glow rounded-lg p-1">
+        <div className="flex items-center justify-between">
+          <Link to="/" onClick={closeMenu} className="focus-glow rounded-lg p-1">
             <Logo />
           </Link>
 
-          {/* Actions: Language toggle + Theme toggle + Hamburger button */}
           <div className="flex items-center gap-2">
             <LanguageToggle />
             <ThemeToggle />
             <button
-              onClick={toggleMobileMenu}
+              onClick={toggleMenu}
               aria-label={t('navigation.toggleMenuLabel')}
-              aria-expanded={isMobileMenuOpen}
-              aria-controls="mobile-menu"
-              className="focus-glow relative h-10 w-10 rounded-lg p-2 hover:bg-surface-hover"
+              aria-expanded={isMenuOpen}
+              aria-controls="nav-menu"
+              className="focus-glow relative flex h-10 w-10 items-center justify-center rounded-lg hover:bg-surface-hover"
             >
-              <span className="sr-only">{t('navigation.menuLabel')}</span>
-              {isMobileMenuOpen ? (
-                <HiXMark className="h-6 w-6 text-text-primary" />
-              ) : (
-                <HiBars3 className="h-6 w-6 text-text-primary" />
-              )}
+              <HamburgerIcon isOpen={isMenuOpen} />
             </button>
           </div>
         </div>
+      </div>
 
-        {/* Desktop header */}
-        <div className="hidden items-center justify-between lg:flex">
-          {/* Logo */}
-          <Link to="/" className="focus-glow rounded-lg p-1">
-            <Logo size="lg" />
-          </Link>
-
-          {/* Desktop nav links + Language toggle + Theme toggle */}
-          <div className="flex items-center gap-4 xl:gap-6">
-            {navLinks.map(link => (
-              <Link
-                key={link.name}
-                to={link.to}
-                className="focus-glow whitespace-nowrap rounded-md px-1 py-1 text-sm text-text-secondary transition-colors hover:text-text-link xl:px-2 xl:text-base [&.active]:font-bold [&.active]:text-text-link"
-              >
-                {link.name}
-              </Link>
-            ))}
-            {serviceLinks.map(link => (
-              <Link
-                key={link.name}
-                to={link.to}
-                params={link.params}
-                className="focus-glow whitespace-nowrap rounded-md px-1 py-1 text-sm text-text-secondary transition-colors hover:text-text-link xl:px-2 xl:text-base [&.active]:font-bold [&.active]:text-text-link"
-              >
-                {link.name}
-              </Link>
-            ))}
-            <div className="flex items-center gap-2">
-              <LanguageToggle />
-              <ThemeToggle />
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile menu */}
-        <div
-          id="mobile-menu"
-          className={`overflow-hidden transition-all duration-300 ease-in-out lg:hidden ${
-            isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
-          }`}
-        >
-          <div className="space-y-1 pb-4">
-            {navLinks.map(link => (
-              <Link
-                key={link.name}
-                to={link.to}
-                onClick={closeMobileMenu}
-                className="focus-glow block rounded-lg px-4 py-3 text-text-secondary transition-colors hover:bg-surface-hover hover:text-text-link [&.active]:font-bold [&.active]:text-text-link"
-              >
-                {link.name}
-              </Link>
-            ))}
-            {serviceLinks.map(link => (
-              <Link
-                key={link.name}
-                to={link.to}
-                params={link.params}
-                onClick={closeMobileMenu}
-                className="focus-glow block rounded-lg px-4 py-3 text-text-secondary transition-colors hover:bg-surface-hover hover:text-text-link [&.active]:font-bold [&.active]:text-text-link"
-              >
-                {link.name}
-              </Link>
-            ))}
+      <div
+        id="nav-menu"
+        className={`grid transition-all duration-300 ease-in-out ${
+          isMenuOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-2 h-0.5 rounded-full bg-interactive-primary" />
+            <NavigationMenuPanel
+              navLinks={navLinks}
+              serviceLinks={serviceLinks}
+              isOpen={isMenuOpen}
+              onLinkClick={closeMenu}
+            />
           </div>
         </div>
       </div>

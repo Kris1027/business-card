@@ -23,12 +23,12 @@ describe('NavigationBar', () => {
     })
   })
 
-  it('renders logo image', async () => {
+  it('renders a single logo image', async () => {
     renderWithRouter(<NavigationBar />)
 
     await waitFor(() => {
       const logos = screen.getAllByRole('img')
-      expect(logos.length).toBeGreaterThan(0)
+      expect(logos).toHaveLength(1)
     })
   })
 
@@ -41,15 +41,26 @@ describe('NavigationBar', () => {
     })
   })
 
-  it('renders mobile menu toggle button', async () => {
+  it('renders hamburger button with aria-expanded', async () => {
     renderWithRouter(<NavigationBar />)
 
     await waitFor(() => {
-      expect(screen.getByLabelText(/przełącz menu nawigacji/i)).toBeInTheDocument()
+      const menuButton = screen.getByLabelText(/przełącz menu nawigacji/i)
+      expect(menuButton).toHaveAttribute('aria-expanded', 'false')
     })
   })
 
-  it('toggles mobile menu on button click', async () => {
+  it('renders hamburger icon with aria-hidden div', async () => {
+    renderWithRouter(<NavigationBar />)
+
+    await waitFor(() => {
+      const menuButton = screen.getByLabelText(/przełącz menu nawigacji/i)
+      const hamburgerDiv = menuButton.querySelector('[aria-hidden="true"]')
+      expect(hamburgerDiv).toBeInTheDocument()
+    })
+  })
+
+  it('toggles menu on button click', async () => {
     const user = userEvent.setup()
     renderWithRouter(<NavigationBar />)
 
@@ -60,26 +71,64 @@ describe('NavigationBar', () => {
     expect(menuButton).toHaveAttribute('aria-expanded', 'true')
   })
 
-  it('renders all service links in Polish', async () => {
+  it('shows section headings when menu is opened', async () => {
+    const user = userEvent.setup()
     renderWithRouter(<NavigationBar />)
 
-    await waitFor(() => {
-      expect(screen.getAllByText('Doradztwo sprzętowe')).toBeTruthy()
-      expect(screen.getAllByText('Składanie PC')).toBeTruthy()
-      expect(screen.getAllByText('Tworzenie stron')).toBeTruthy()
-      expect(screen.getAllByText('Pomoc techniczna')).toBeTruthy()
-    })
+    const menuButton = await waitFor(() => screen.getByLabelText(/przełącz menu nawigacji/i))
+    await user.click(menuButton)
+
+    expect(screen.getByText('Strony')).toBeInTheDocument()
+    expect(screen.getByText('Usługi')).toBeInTheDocument()
+  })
+
+  it('applies stagger animation classes when menu is open', async () => {
+    const user = userEvent.setup()
+    renderWithRouter(<NavigationBar />)
+
+    const menuButton = await waitFor(() => screen.getByLabelText(/przełącz menu nawigacji/i))
+    await user.click(menuButton)
+
+    const animatedElements = document.querySelectorAll('.animate-menu-item-enter')
+    expect(animatedElements.length).toBeGreaterThan(0)
+  })
+
+  it('closes menu on Escape key', async () => {
+    const user = userEvent.setup()
+    renderWithRouter(<NavigationBar />)
+
+    const menuButton = await waitFor(() => screen.getByLabelText(/przełącz menu nawigacji/i))
+    await user.click(menuButton)
+    expect(menuButton).toHaveAttribute('aria-expanded', 'true')
+
+    await user.keyboard('{Escape}')
+    expect(menuButton).toHaveAttribute('aria-expanded', 'false')
+  })
+
+  it('renders all service links in Polish', async () => {
+    const user = userEvent.setup()
+    renderWithRouter(<NavigationBar />)
+
+    const menuButton = await waitFor(() => screen.getByLabelText(/przełącz menu nawigacji/i))
+    await user.click(menuButton)
+
+    expect(screen.getByText('Doradztwo sprzętowe')).toBeInTheDocument()
+    expect(screen.getByText('Składanie PC')).toBeInTheDocument()
+    expect(screen.getByText('Tworzenie stron')).toBeInTheDocument()
+    expect(screen.getByText('Pomoc techniczna')).toBeInTheDocument()
   })
 
   it('renders all service links in English', async () => {
     await i18n.changeLanguage('en')
+    const user = userEvent.setup()
     renderWithRouter(<NavigationBar />)
 
-    await waitFor(() => {
-      expect(screen.getAllByText('Equipment Advising')).toBeTruthy()
-      expect(screen.getAllByText('PC Assembly')).toBeTruthy()
-      expect(screen.getAllByText('Web Development')).toBeTruthy()
-      expect(screen.getAllByText('Technical Support')).toBeTruthy()
-    })
+    const menuButton = await waitFor(() => screen.getByLabelText(/toggle navigation menu/i))
+    await user.click(menuButton)
+
+    expect(screen.getByText('Equipment Advising')).toBeInTheDocument()
+    expect(screen.getByText('PC Assembly')).toBeInTheDocument()
+    expect(screen.getByText('Web Development')).toBeInTheDocument()
+    expect(screen.getByText('Technical Support')).toBeInTheDocument()
   })
 })

@@ -26,6 +26,8 @@ export const pl = {
     computerAssembly: 'Składanie PC',
     websiteBuilding: 'Tworzenie stron',
     technicalSupport: 'Pomoc techniczna',
+    pagesLabel: 'Strony',
+    servicesLabel: 'Usługi',
     privacyPolicy: 'Polityka prywatności',
     terms: 'Regulamin',
     mainNavLabel: 'Główna nawigacja',

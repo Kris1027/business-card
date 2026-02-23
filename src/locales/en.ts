@@ -26,6 +26,8 @@ export const en = {
     computerAssembly: 'PC Assembly',
     websiteBuilding: 'Web Development',
     technicalSupport: 'Technical Support',
+    pagesLabel: 'Pages',
+    servicesLabel: 'Services',
     privacyPolicy: 'Privacy Policy',
     terms: 'Terms of Service',
     mainNavLabel: 'Main navigation',
