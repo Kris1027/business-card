@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi2'
 import { Link } from '@tanstack/react-router'
@@ -21,12 +21,24 @@ const getInitialCollapsed = (): boolean => {
   }
 }
 
+const LINK_EXIT_DURATION_MS = 500
+
 const NavigationBar = () => {
   const { t } = useTranslation()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isCollapsed, setIsCollapsed] = useState(getInitialCollapsed)
+  const [isLinksExiting, setIsLinksExiting] = useState(false)
   const [expandCount, setExpandCount] = useState(0)
   const navRef = useRef<HTMLElement>(null)
+  const collapseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(() => {
+    return () => {
+      if (collapseTimerRef.current) {
+        clearTimeout(collapseTimerRef.current)
+      }
+    }
+  }, [])
 
   const toggleMenu = () => {
     setIsMenuOpen(prev => !prev)
@@ -45,18 +57,32 @@ const NavigationBar = () => {
   useClickOutside(navRef, closeMenu)
 
   const toggleCollapse = () => {
-    setIsCollapsed(prev => {
-      const next = !prev
-      if (!next) {
-        setExpandCount(c => c + 1)
-      }
+    if (collapseTimerRef.current) {
+      clearTimeout(collapseTimerRef.current)
+      collapseTimerRef.current = null
+    }
+
+    if (!isCollapsed && !isLinksExiting) {
+      setIsLinksExiting(true)
+      collapseTimerRef.current = setTimeout(() => {
+        setIsCollapsed(true)
+        setIsLinksExiting(false)
+        try {
+          localStorage.setItem(SIDEBAR_COLLAPSED_KEY, 'true')
+        } catch {
+          /* localStorage unavailable */
+        }
+      }, LINK_EXIT_DURATION_MS)
+    } else {
+      setIsLinksExiting(false)
+      setIsCollapsed(false)
+      setExpandCount(c => c + 1)
       try {
-        localStorage.setItem(SIDEBAR_COLLAPSED_KEY, String(next))
+        localStorage.setItem(SIDEBAR_COLLAPSED_KEY, 'false')
       } catch {
         /* localStorage unavailable */
       }
-      return next
-    })
+    }
   }
 
   const navLinks = [
@@ -170,7 +196,7 @@ const NavigationBar = () => {
         </div>
 
         <div
-          className={`overflow-hidden transition-all duration-300 ${isCollapsed ? 'max-h-0 opacity-0' : 'max-h-screen opacity-100'}`}
+          className={`overflow-hidden transition-[max-height] duration-400 ease-in-out ${isCollapsed ? 'max-h-0' : 'max-h-screen'}`}
         >
           <div className="mx-4 h-0.5 rounded-full bg-interactive-primary" />
 
@@ -179,7 +205,7 @@ const NavigationBar = () => {
               key={expandCount}
               navLinks={navLinks}
               serviceLinks={serviceLinks}
-              isExpanded={!isCollapsed}
+              isExpanded={!isCollapsed && !isLinksExiting}
             />
           </div>
 

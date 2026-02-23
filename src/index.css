@@ -238,8 +238,25 @@
 
   .animate-sidebar-link-enter {
     opacity: 0;
-    animation: sidebar-link-enter 0.35s ease-out both;
-    animation-delay: calc(var(--stagger-index, 0) * 50ms);
+    animation: sidebar-link-enter 0.3s ease-in-out both;
+    animation-delay: calc(var(--stagger-index, 0) * 40ms);
+  }
+
+  /* Sidebar link staggered exit — slide to left */
+  @keyframes sidebar-link-exit {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(-1rem);
+    }
+  }
+
+  .animate-sidebar-link-exit {
+    animation: sidebar-link-exit 0.3s ease-in-out both;
+    animation-delay: calc(var(--stagger-index, 0) * 40ms);
   }
 
   /* Link hover — background slides from left */
@@ -291,7 +308,8 @@
     .animate-fade-in-up,
     .animate-fade-in,
     .animate-menu-item-enter,
-    .animate-sidebar-link-enter {
+    .animate-sidebar-link-enter,
+    .animate-sidebar-link-exit {
       animation: none;
       opacity: 1;
     }

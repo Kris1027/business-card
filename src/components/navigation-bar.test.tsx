@@ -124,7 +124,9 @@ describe('NavigationBar', () => {
     const collapseButton = await waitFor(() => screen.getByLabelText(/zwiń panel/i))
     await user.click(collapseButton)
 
-    expect(screen.getByLabelText(/rozwiń panel/i)).toBeInTheDocument()
+    await waitFor(() => {
+      expect(screen.getByLabelText(/rozwiń panel/i)).toBeInTheDocument()
+    })
   })
 
   it('renders all service links in English', async () => {
