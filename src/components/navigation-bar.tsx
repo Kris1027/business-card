@@ -21,7 +21,7 @@ const getInitialCollapsed = (): boolean => {
   }
 }
 
-const LINK_EXIT_DURATION_MS = 500
+const LINK_EXIT_DURATION_MS = 600
 
 const NavigationBar = () => {
   const { t } = useTranslation()
@@ -121,7 +121,7 @@ const NavigationBar = () => {
         ref={navRef}
         className="sticky top-0 z-50 bg-[var(--color-nav-bg)] shadow-md backdrop-blur-xl lg:hidden"
         role="navigation"
-        aria-label={t('navigation.mainNavLabel')}
+        aria-label={t('navigation.mobileNavLabel')}
         onKeyDown={handleKeyDown}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -170,7 +170,7 @@ const NavigationBar = () => {
       <nav
         className={`hidden border-r border-border-default bg-[var(--color-nav-bg)] backdrop-blur-xl transition-all duration-300 lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col ${isCollapsed ? 'lg:w-16' : 'lg:w-64'}`}
         role="navigation"
-        aria-label={t('navigation.mainNavLabel')}
+        aria-label={t('navigation.sidebarNavLabel')}
       >
         <div className="flex items-center justify-between px-4 py-4">
           <div
@@ -196,7 +196,7 @@ const NavigationBar = () => {
         </div>
 
         <div
-          className={`overflow-hidden transition-[max-height] duration-400 ease-in-out ${isCollapsed ? 'max-h-0' : 'max-h-screen'}`}
+          className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${isCollapsed ? 'max-h-0' : 'max-h-screen'}`}
         >
           <div className="mx-4 h-0.5 rounded-full bg-interactive-primary" />
 
