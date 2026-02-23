@@ -73,7 +73,7 @@ const Index = () => {
         <div className="animate-fade-in-up mb-8 md:mb-12">
           <ImageCarousel images={carouselImages} />
         </div>
-        <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2">
           {services.map((service, index) => (
             <div
               key={service.id}
