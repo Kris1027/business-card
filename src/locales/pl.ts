@@ -33,6 +33,8 @@ export const pl = {
     mainNavLabel: 'Główna nawigacja',
     toggleMenuLabel: 'Przełącz menu nawigacji',
     menuLabel: 'Przełącz menu',
+    collapseSidebar: 'Zwiń panel',
+    expandSidebar: 'Rozwiń panel',
   },
   theme: {
     switchToDark: 'Przełącz na tryb ciemny',

@@ -15,20 +15,21 @@ describe('NavigationBar', () => {
     await i18n.changeLanguage('pl')
   })
 
-  it('renders navigation landmark', async () => {
+  it('renders both navigation landmarks', async () => {
     renderWithRouter(<NavigationBar />)
 
     await waitFor(() => {
-      expect(screen.getByRole('navigation')).toBeInTheDocument()
+      const navs = screen.getAllByRole('navigation')
+      expect(navs).toHaveLength(2)
     })
   })
 
-  it('renders a single logo image', async () => {
+  it('renders logo images in both navs', async () => {
     renderWithRouter(<NavigationBar />)
 
     await waitFor(() => {
       const logos = screen.getAllByRole('img')
-      expect(logos).toHaveLength(1)
+      expect(logos).toHaveLength(2)
     })
   })
 
@@ -101,10 +102,29 @@ describe('NavigationBar', () => {
     const menuButton = await waitFor(() => screen.getByLabelText(/przełącz menu nawigacji/i))
     await user.click(menuButton)
 
-    expect(screen.getByText('Doradztwo sprzętowe')).toBeInTheDocument()
-    expect(screen.getByText('Składanie PC')).toBeInTheDocument()
-    expect(screen.getByText('Tworzenie stron')).toBeInTheDocument()
-    expect(screen.getByText('Pomoc techniczna')).toBeInTheDocument()
+    expect(screen.getAllByText('Doradztwo sprzętowe').length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByText('Składanie PC').length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByText('Tworzenie stron').length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByText('Pomoc techniczna').length).toBeGreaterThanOrEqual(1)
+  })
+
+  it('renders sidebar collapse toggle with correct aria-label', async () => {
+    renderWithRouter(<NavigationBar />)
+
+    await waitFor(() => {
+      const collapseButton = screen.getByLabelText(/zwiń panel/i)
+      expect(collapseButton).toBeInTheDocument()
+    })
+  })
+
+  it('toggles sidebar collapse state on button click', async () => {
+    const user = userEvent.setup()
+    renderWithRouter(<NavigationBar />)
+
+    const collapseButton = await waitFor(() => screen.getByLabelText(/zwiń panel/i))
+    await user.click(collapseButton)
+
+    expect(screen.getByLabelText(/rozwiń panel/i)).toBeInTheDocument()
   })
 
   it('renders all service links in English', async () => {
@@ -115,9 +135,9 @@ describe('NavigationBar', () => {
     const menuButton = await waitFor(() => screen.getByLabelText(/toggle navigation menu/i))
     await user.click(menuButton)
 
-    expect(screen.getByText('Equipment Advising')).toBeInTheDocument()
-    expect(screen.getByText('PC Assembly')).toBeInTheDocument()
-    expect(screen.getByText('Web Development')).toBeInTheDocument()
-    expect(screen.getByText('Technical Support')).toBeInTheDocument()
+    expect(screen.getAllByText('Equipment Advising').length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByText('PC Assembly').length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByText('Web Development').length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByText('Technical Support').length).toBeGreaterThanOrEqual(1)
   })
 })

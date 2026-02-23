@@ -1,15 +1,5 @@
 import { Link } from '@tanstack/react-router'
-
-type NavLink = {
-  name: string
-  to: '/' | '/about' | '/contact'
-}
-
-type ServiceLink = {
-  name: string
-  to: '/services/$serviceId'
-  params: { serviceId: string }
-}
+import type { NavLink, ServiceLink } from '@/types/navigation'
 
 type NavigationMenuPanelProps = {
   navLinks: ReadonlyArray<NavLink>
