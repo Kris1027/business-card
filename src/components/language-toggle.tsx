@@ -4,7 +4,11 @@ import { HiLanguage } from 'react-icons/hi2'
 import { useLanguage } from '@/hooks/use-language'
 import type { Language } from '@/locales'
 
-export const LanguageToggle = () => {
+type LanguageToggleProps = {
+  dropdownDirection?: 'down' | 'up'
+}
+
+export const LanguageToggle = ({ dropdownDirection = 'down' }: LanguageToggleProps) => {
   const { t } = useTranslation()
   const { language, changeLanguage } = useLanguage()
   const [isOpen, setIsOpen] = useState(false)
@@ -62,7 +66,9 @@ export const LanguageToggle = () => {
       {isOpen && (
         <div
           role="menu"
-          className="absolute right-0 z-10 mt-2 w-40 rounded-lg border border-border-default bg-surface-card shadow-lg"
+          className={`absolute right-0 z-10 w-40 rounded-lg border border-border-default bg-surface-card shadow-lg ${
+            dropdownDirection === 'up' ? 'bottom-full mb-2' : 'mt-2'
+          }`}
         >
           <div className="py-1">
             {languages.map(lang => (

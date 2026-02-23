@@ -28,9 +28,12 @@ export const en = {
     technicalSupport: 'Technical Support',
     privacyPolicy: 'Privacy Policy',
     terms: 'Terms of Service',
-    mainNavLabel: 'Main navigation',
+    mobileNavLabel: 'Main navigation',
+    sidebarNavLabel: 'Sidebar navigation',
     toggleMenuLabel: 'Toggle navigation menu',
     menuLabel: 'Toggle menu',
+    collapseSidebar: 'Collapse sidebar',
+    expandSidebar: 'Expand sidebar',
   },
   theme: {
     switchToDark: 'Switch to dark mode',

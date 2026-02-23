@@ -28,9 +28,12 @@ export const pl = {
     technicalSupport: 'Pomoc techniczna',
     privacyPolicy: 'Polityka prywatności',
     terms: 'Regulamin',
-    mainNavLabel: 'Główna nawigacja',
+    mobileNavLabel: 'Główna nawigacja',
+    sidebarNavLabel: 'Nawigacja boczna',
     toggleMenuLabel: 'Przełącz menu nawigacji',
     menuLabel: 'Przełącz menu',
+    collapseSidebar: 'Zwiń panel',
+    expandSidebar: 'Rozwiń panel',
   },
   theme: {
     switchToDark: 'Przełącz na tryb ciemny',

@@ -1,27 +1,87 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { HiChevronLeft, HiChevronRight } from 'react-icons/hi2'
 import { Link } from '@tanstack/react-router'
-import { HiBars3, HiXMark } from 'react-icons/hi2'
+import HamburgerIcon from '@/components/hamburger-icon'
 import { LanguageToggle } from '@/components/language-toggle'
+import Logo from '@/components/logo'
+import { NavigationMenuPanel } from '@/components/navigation-menu-panel'
+import { SidebarNavLinks } from '@/components/sidebar-nav-links'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { SERVICE_IDS } from '@/constants/navigation-links'
-import Logo from '@/components/logo'
+import { useClickOutside } from '@/hooks/use-click-outside'
+
+const SIDEBAR_COLLAPSED_KEY = 'sidebar-collapsed'
+
+const getInitialCollapsed = (): boolean => {
+  try {
+    return localStorage.getItem(SIDEBAR_COLLAPSED_KEY) === 'true'
+  } catch {
+    return false
+  }
+}
+
+const LINK_EXIT_DURATION_MS = 600
 
 const NavigationBar = () => {
   const { t } = useTranslation()
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isCollapsed, setIsCollapsed] = useState(getInitialCollapsed)
+  const [isLinksExiting, setIsLinksExiting] = useState(false)
+  const [expandCount, setExpandCount] = useState(0)
+  const navRef = useRef<HTMLElement>(null)
+  const collapseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(prev => !prev)
+  useEffect(() => {
+    return () => {
+      if (collapseTimerRef.current) {
+        clearTimeout(collapseTimerRef.current)
+      }
+    }
+  }, [])
+
+  const toggleMenu = () => {
+    setIsMenuOpen(prev => !prev)
   }
 
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false)
+  const closeMenu = () => {
+    setIsMenuOpen(false)
   }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Escape' && isMobileMenuOpen) {
-      closeMobileMenu()
+    if (e.key === 'Escape' && isMenuOpen) {
+      closeMenu()
+    }
+  }
+
+  useClickOutside(navRef, closeMenu)
+
+  const toggleCollapse = () => {
+    if (collapseTimerRef.current) {
+      clearTimeout(collapseTimerRef.current)
+      collapseTimerRef.current = null
+    }
+
+    if (!isCollapsed && !isLinksExiting) {
+      setIsLinksExiting(true)
+      collapseTimerRef.current = setTimeout(() => {
+        setIsCollapsed(true)
+        setIsLinksExiting(false)
+        try {
+          localStorage.setItem(SIDEBAR_COLLAPSED_KEY, 'true')
+        } catch {
+          /* localStorage unavailable */
+        }
+      }, LINK_EXIT_DURATION_MS)
+    } else {
+      setIsLinksExiting(false)
+      setIsCollapsed(false)
+      setExpandCount(c => c + 1)
+      try {
+        localStorage.setItem(SIDEBAR_COLLAPSED_KEY, 'false')
+      } catch {
+        /* localStorage unavailable */
+      }
     }
   }
 
@@ -55,109 +115,110 @@ const NavigationBar = () => {
   ]
 
   return (
-    <nav
-      className="sticky top-0 z-50 bg-surface-card shadow-md"
-      role="navigation"
-      aria-label={t('navigation.mainNavLabel')}
-      onKeyDown={handleKeyDown}
-    >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Mobile header */}
-        <div className="flex items-center justify-between lg:hidden">
-          {/* Logo */}
-          <Link to="/" onClick={closeMobileMenu} className="focus-glow rounded-lg p-1">
-            <Logo />
-          </Link>
+    <>
+      {/* Mobile / Tablet navigation */}
+      <nav
+        ref={navRef}
+        className="sticky top-0 z-50 bg-[var(--color-nav-bg)] shadow-md backdrop-blur-xl lg:hidden"
+        role="navigation"
+        aria-label={t('navigation.mobileNavLabel')}
+        onKeyDown={handleKeyDown}
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between">
+            <Link to="/" onClick={closeMenu} className="focus-glow rounded-lg p-1">
+              <Logo />
+            </Link>
 
-          {/* Actions: Language toggle + Theme toggle + Hamburger button */}
-          <div className="flex items-center gap-2">
-            <LanguageToggle />
-            <ThemeToggle />
-            <button
-              onClick={toggleMobileMenu}
-              aria-label={t('navigation.toggleMenuLabel')}
-              aria-expanded={isMobileMenuOpen}
-              aria-controls="mobile-menu"
-              className="focus-glow relative h-10 w-10 rounded-lg p-2 hover:bg-surface-hover"
-            >
-              <span className="sr-only">{t('navigation.menuLabel')}</span>
-              {isMobileMenuOpen ? (
-                <HiXMark className="h-6 w-6 text-text-primary" />
-              ) : (
-                <HiBars3 className="h-6 w-6 text-text-primary" />
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* Desktop header */}
-        <div className="hidden items-center justify-between lg:flex">
-          {/* Logo */}
-          <Link to="/" className="focus-glow rounded-lg p-1">
-            <Logo size="lg" />
-          </Link>
-
-          {/* Desktop nav links + Language toggle + Theme toggle */}
-          <div className="flex items-center gap-4 xl:gap-6">
-            {navLinks.map(link => (
-              <Link
-                key={link.name}
-                to={link.to}
-                className="focus-glow whitespace-nowrap rounded-md px-1 py-1 text-sm text-text-secondary transition-colors hover:text-text-link xl:px-2 xl:text-base [&.active]:font-bold [&.active]:text-text-link"
-              >
-                {link.name}
-              </Link>
-            ))}
-            {serviceLinks.map(link => (
-              <Link
-                key={link.name}
-                to={link.to}
-                params={link.params}
-                className="focus-glow whitespace-nowrap rounded-md px-1 py-1 text-sm text-text-secondary transition-colors hover:text-text-link xl:px-2 xl:text-base [&.active]:font-bold [&.active]:text-text-link"
-              >
-                {link.name}
-              </Link>
-            ))}
             <div className="flex items-center gap-2">
               <LanguageToggle />
               <ThemeToggle />
+              <button
+                type="button"
+                onClick={toggleMenu}
+                aria-label={t('navigation.toggleMenuLabel')}
+                aria-expanded={isMenuOpen}
+                aria-controls="nav-menu"
+                className="focus-glow relative flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg hover:bg-surface-hover"
+              >
+                <HamburgerIcon isOpen={isMenuOpen} />
+              </button>
             </div>
           </div>
         </div>
 
-        {/* Mobile menu */}
         <div
-          id="mobile-menu"
-          className={`overflow-hidden transition-all duration-300 ease-in-out lg:hidden ${
-            isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+          id="nav-menu"
+          aria-hidden={!isMenuOpen}
+          className={`grid transition-all duration-300 ease-in-out ${
+            isMenuOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
           }`}
         >
-          <div className="space-y-1 pb-4">
-            {navLinks.map(link => (
-              <Link
-                key={link.name}
-                to={link.to}
-                onClick={closeMobileMenu}
-                className="focus-glow block rounded-lg px-4 py-3 text-text-secondary transition-colors hover:bg-surface-hover hover:text-text-link [&.active]:font-bold [&.active]:text-text-link"
-              >
-                {link.name}
-              </Link>
-            ))}
-            {serviceLinks.map(link => (
-              <Link
-                key={link.name}
-                to={link.to}
-                params={link.params}
-                onClick={closeMobileMenu}
-                className="focus-glow block rounded-lg px-4 py-3 text-text-secondary transition-colors hover:bg-surface-hover hover:text-text-link [&.active]:font-bold [&.active]:text-text-link"
-              >
-                {link.name}
-              </Link>
-            ))}
+          <div className="overflow-hidden">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="mx-2 h-0.5 rounded-full bg-interactive-primary" />
+              <NavigationMenuPanel
+                navLinks={navLinks}
+                serviceLinks={serviceLinks}
+                isOpen={isMenuOpen}
+                onLinkClick={closeMenu}
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      {/* Desktop sidebar navigation */}
+      <nav
+        className={`hidden border-r border-border-default bg-[var(--color-nav-bg)] backdrop-blur-xl transition-all duration-300 motion-reduce:transition-none lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col ${isCollapsed ? 'lg:w-16' : 'lg:w-64'}`}
+        role="navigation"
+        aria-label={t('navigation.sidebarNavLabel')}
+      >
+        <div className="flex items-center justify-between px-4 py-4">
+          <div
+            className={`overflow-hidden transition-all duration-300 motion-reduce:transition-none ${isCollapsed ? 'w-0 opacity-0' : 'w-auto opacity-100'}`}
+          >
+            <Link to="/" className="focus-glow inline-block rounded-lg p-1">
+              <Logo />
+            </Link>
+          </div>
+          <button
+            type="button"
+            onClick={toggleCollapse}
+            aria-label={
+              isCollapsed ? t('navigation.expandSidebar') : t('navigation.collapseSidebar')
+            }
+            className="focus-glow flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-lg text-text-secondary transition-colors hover:bg-surface-hover hover:text-text-link"
+          >
+            {isCollapsed ? (
+              <HiChevronRight className="h-5 w-5" />
+            ) : (
+              <HiChevronLeft className="h-5 w-5" />
+            )}
+          </button>
+        </div>
+
+        <div
+          className={`overflow-hidden transition-[max-height] duration-500 ease-in-out motion-reduce:transition-none ${isCollapsed ? 'max-h-0' : 'max-h-screen'}`}
+        >
+          <div className="mx-4 h-0.5 rounded-full bg-interactive-primary" />
+
+          <div className="flex-1 overflow-y-auto px-2 py-4">
+            <SidebarNavLinks
+              key={expandCount}
+              navLinks={navLinks}
+              serviceLinks={serviceLinks}
+              isExpanded={!isCollapsed && !isLinksExiting}
+            />
+          </div>
+
+          <div className="flex items-center justify-center gap-2 border-t border-border-default px-4 py-3">
+            <LanguageToggle dropdownDirection="up" />
+            <ThemeToggle />
+          </div>
+        </div>
+      </nav>
+    </>
   )
 }
 
