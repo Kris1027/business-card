@@ -81,7 +81,7 @@ const NavigationBar = () => {
               aria-label={t('navigation.toggleMenuLabel')}
               aria-expanded={isMenuOpen}
               aria-controls="nav-menu"
-              className="focus-glow relative flex h-10 w-10 items-center justify-center rounded-lg hover:bg-surface-hover"
+              className="focus-glow relative flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg hover:bg-surface-hover"
             >
               <HamburgerIcon isOpen={isMenuOpen} />
             </button>

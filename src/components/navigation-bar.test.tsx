@@ -71,17 +71,6 @@ describe('NavigationBar', () => {
     expect(menuButton).toHaveAttribute('aria-expanded', 'true')
   })
 
-  it('shows section headings when menu is opened', async () => {
-    const user = userEvent.setup()
-    renderWithRouter(<NavigationBar />)
-
-    const menuButton = await waitFor(() => screen.getByLabelText(/przełącz menu nawigacji/i))
-    await user.click(menuButton)
-
-    expect(screen.getByText('Strony')).toBeInTheDocument()
-    expect(screen.getByText('Usługi')).toBeInTheDocument()
-  })
-
   it('applies stagger animation classes when menu is open', async () => {
     const user = userEvent.setup()
     renderWithRouter(<NavigationBar />)
