@@ -224,6 +224,24 @@
     animation-delay: calc(var(--stagger-index, 0) * 60ms);
   }
 
+  /* Sidebar link staggered entrance — slide from left */
+  @keyframes sidebar-link-enter {
+    from {
+      opacity: 0;
+      transform: translateX(-1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-sidebar-link-enter {
+    opacity: 0;
+    animation: sidebar-link-enter 0.35s ease-out both;
+    animation-delay: calc(var(--stagger-index, 0) * 50ms);
+  }
+
   /* Link hover — background slides from left */
   .nav-link-hover {
     position: relative;
@@ -272,7 +290,8 @@
   @media (prefers-reduced-motion: reduce) {
     .animate-fade-in-up,
     .animate-fade-in,
-    .animate-menu-item-enter {
+    .animate-menu-item-enter,
+    .animate-sidebar-link-enter {
       animation: none;
       opacity: 1;
     }

@@ -25,6 +25,7 @@ const NavigationBar = () => {
   const { t } = useTranslation()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isCollapsed, setIsCollapsed] = useState(getInitialCollapsed)
+  const [expandCount, setExpandCount] = useState(0)
   const navRef = useRef<HTMLElement>(null)
 
   const toggleMenu = () => {
@@ -46,6 +47,9 @@ const NavigationBar = () => {
   const toggleCollapse = () => {
     setIsCollapsed(prev => {
       const next = !prev
+      if (!next) {
+        setExpandCount(c => c + 1)
+      }
       try {
         localStorage.setItem(SIDEBAR_COLLAPSED_KEY, String(next))
       } catch {
@@ -171,7 +175,12 @@ const NavigationBar = () => {
           <div className="mx-4 h-0.5 rounded-full bg-interactive-primary" />
 
           <div className="flex-1 overflow-y-auto px-2 py-4">
-            <SidebarNavLinks navLinks={navLinks} serviceLinks={serviceLinks} />
+            <SidebarNavLinks
+              key={expandCount}
+              navLinks={navLinks}
+              serviceLinks={serviceLinks}
+              isExpanded={!isCollapsed}
+            />
           </div>
 
           <div className="flex items-center justify-center gap-2 border-t border-border-default px-4 py-3">
